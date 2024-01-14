@@ -1,0 +1,32 @@
+## Default Kibana configuration from Kibana base image.
+## https://github.com/elastic/kibana/blob/master/src/dev/build/tasks/os_packages/docker_generator/templates/kibana_yml.template.js
+#
+server.name: kibana
+server.host: "0.0.0.0"
+server.port: 5601
+
+monitoring.ui.container.elasticsearch.enabled: true
+xpack.fleet.enabled: true
+xpack.fleet.agents.enabled: true
+xpack.fleet.agents.elasticsearch.hosts: ["http://elasticsearch:9200"]
+xpack.fleet.agents.fleet_server.hosts: ["http://fleet_server:9243"]
+xpack.reporting.roles.enabled: true
+
+xpack.encryptedSavedObjects.encryptionKey: "not-a-real-key-but-gets-the-job-done"
+
+## Add policy for apm-server integration
+xpack.fleet.packages:
+  - name: apm
+    version: latest
+xpack.fleet.agentPolicies:
+  - name: Agent policy 1
+    id: agent-policy-1
+    namespace: default
+    monitoring_enabled:
+      - logs
+      - metrics
+    package_policies:
+      - name: apm-1
+        id: default-apm
+        package:
+          name: apm

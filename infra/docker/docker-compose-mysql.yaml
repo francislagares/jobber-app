@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  mysql:
+    container_name: mysql
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      - MYSQL_USER=jobber
+      - MYSQL_DATABASE=jobber_auth
+      - MYSQL_ROOT_PASSWORD=api
+      - MYSQL_PASSWORD=api
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./volumes/mysql:/var/lib/mysql

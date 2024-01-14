@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+  redis:
+    container_name: redis-cache
+    image: redis:alpine
+    restart: always
+    ports:
+      - 6379:6379
+    command: redis-server --loglevel warning
+    volumes:
+      - ./volumes/redis-cache:/data
+
+  redis-commander:
+    container_name: redis-commander
+    hostname: redis-commander
+    image: ghcr.io/joeferner/redis-commander:latest
+    environment:
+      - REDIS_HOSTS=local:redis:6379
+    ports:
+      - '8081:8081'

@@ -1,0 +1,46 @@
+version: '3.9'
+
+services:
+  redis:
+    extends:
+      service: redis
+      file: infra/docker/docker-compose-redis.yaml
+  
+  redis-commander:
+    extends:
+      service: redis-commander
+      file: infra/docker/docker-compose-redis.yaml
+
+  mongodb:
+    extends:
+      service: mongodb
+      file: infra/docker/docker-compose-mongodb.yaml
+
+  mysql:
+    extends:
+      service: mysql
+      file: infra/docker/docker-compose-mysql.yaml
+
+  postgres:
+    extends:
+      service: postgres
+      file: infra/docker/docker-compose-postgres.yaml
+
+  rabbitmq:
+    extends:
+      service: rabbitmq
+      file: infra/docker/docker-compose-rabbitmq.yaml
+
+  elasticsearch:
+    extends:
+      service: elasticsearch
+      file: infra/docker/docker-compose-elasticsearch.yaml
+
+  kibana:
+    extends:
+      service: kibana
+      file: infra/docker/docker-compose-kibana.yaml
+
+networks:
+  elastic:
+    name: elastic
