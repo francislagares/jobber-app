@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    /* Project Setup */
+    "target": "es2022",
+    "lib": ["dom", "esnext", "es2022"],
+    "allowJs": true,
+    "outDir": "./dist",
+    "sourceMap": true,
+    "removeComments": true,
+    "isolatedModules": true,
+    "downlevelIteration": true,
+    "skipLibCheck": true,
+
+    /* Module Resolution */
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["api/*", "client/src/*"]
+    },
+
+    /* Linter Checks */
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+
+    /* Experimental Options */
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+
+    /* Advanced Options */
+    "forceConsistentCasingInFileNames": true
+  },
+  "types": ["vitest/globals"],
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*",
+    "**/dist/*",
+  ]
+}
