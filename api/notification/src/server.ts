@@ -2,6 +2,7 @@ import http from 'http';
 
 import { winstonLogger } from '@francislagares/jobber-shared';
 import { config } from '@notification/config';
+import { checkConnection } from '@notification/elastic';
 import { healthRoute } from '@notification/routes';
 import { Application } from 'express';
 import { Logger } from 'winston';
@@ -17,9 +18,15 @@ export const start = (app: Application): void => {
   startServer(app);
 
   app.use('', healthRoute);
+
+  startElasticSearch();
 };
 
-export const startServer = (app: Application): void => {
+const startElasticSearch = () => {
+  checkConnection();
+};
+
+const startServer = (app: Application): void => {
   try {
     const httpServer: http.Server = new http.Server(app);
 
