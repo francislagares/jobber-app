@@ -3,6 +3,7 @@ import http from 'http';
 import { winstonLogger } from '@francislagares/jobber-shared';
 import { config } from '@notification/config';
 import { checkConnection } from '@notification/elastic';
+import { createConnection } from '@notification/queues/connection';
 import { healthRoute } from '@notification/routes';
 import { Application } from 'express';
 import { Logger } from 'winston';
@@ -16,10 +17,13 @@ const logger: Logger = winstonLogger(
 
 export const start = (app: Application): void => {
   startServer(app);
-
   app.use('', healthRoute);
-
+  startQueues();
   startElasticSearch();
+};
+
+const startQueues = async (): Promise<void> => {
+  await createConnection();
 };
 
 const startElasticSearch = () => {
