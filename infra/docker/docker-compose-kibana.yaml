@@ -16,11 +16,5 @@ services:
       - elastic
     volumes:
       - ./kibana.yaml/:/usr/share/kibana/config/kibana.yaml:ro
-    deploy:    
-    resources:
-        limits:
-          cpus: '2.0'
-        reservations:
-          cpus: '1.0'
     depends_on:
       - elasticsearch 
