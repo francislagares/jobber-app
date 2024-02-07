@@ -8,6 +8,8 @@ import { healthRoute } from '@notification/routes';
 import { Application } from 'express';
 import { Logger } from 'winston';
 
+import { consumeAuthEmailMessage } from './queues/email.consumer';
+
 const SERVER_PORT = 4001;
 const logger: Logger = winstonLogger(
   `${config.ELASTIC_SEARCH_URL}`,
@@ -23,7 +25,17 @@ export const start = (app: Application): void => {
 };
 
 const startQueues = async (): Promise<void> => {
-  await createConnection();
+  const emailChannel = await createConnection();
+
+  await consumeAuthEmailMessage(emailChannel);
+  await emailChannel.assertExchange('jobber-email-notification', 'direct');
+
+  const message = JSON.stringify({ name: 'jobber' });
+  emailChannel.publish(
+    'jobber-email-notification',
+    'auth-email',
+    Buffer.from(message),
+  );
 };
 
 const startElasticSearch = () => {

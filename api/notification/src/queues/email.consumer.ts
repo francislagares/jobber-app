@@ -34,6 +34,7 @@ export const consumeAuthEmailMessage = async (
       console.log(JSON.parse(msg.content.toString()));
       // send email
       // acknowledge
+      channel.ack(msg);
     });
   } catch (error) {
     logger.log(
