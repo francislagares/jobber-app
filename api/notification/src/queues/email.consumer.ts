@@ -44,3 +44,37 @@ export const consumeAuthEmailMessage = async (
     );
   }
 };
+
+export const consumeOrderEmailMessage = async (
+  channel: Channel,
+): Promise<void> => {
+  try {
+    if (!channel) {
+      channel = await createConnection();
+    }
+    const exchangeName = 'jobber-order-notification';
+    const routingKey = 'auth-order';
+    const queueName = 'auth-order-queue';
+
+    await channel.assertExchange(exchangeName, 'direct');
+    const jobberQueue = await channel.assertQueue(queueName, {
+      durable: true,
+      autoDelete: true,
+    });
+
+    await channel.bindQueue(jobberQueue.queue, exchangeName, routingKey);
+
+    channel.consume(jobberQueue.queue, async (msg: ConsumeMessage | null) => {
+      console.log(JSON.parse(msg.content.toString()));
+      // send email
+      // acknowledge
+      channel.ack(msg);
+    });
+  } catch (error) {
+    logger.log(
+      'error',
+      'NotificationService EmailConsumer consumeOrderEmailMessage() method:',
+      error,
+    );
+  }
+};

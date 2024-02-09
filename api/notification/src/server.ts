@@ -4,11 +4,13 @@ import { winstonLogger } from '@francislagares/jobber-shared';
 import { config } from '@notification/config';
 import { checkConnection } from '@notification/elastic';
 import { createConnection } from '@notification/queues/connection';
+import {
+  consumeAuthEmailMessage,
+  consumeOrderEmailMessage,
+} from '@notification/queues/email.consumer';
 import { healthRoute } from '@notification/routes';
 import { Application } from 'express';
 import { Logger } from 'winston';
-
-import { consumeAuthEmailMessage } from './queues/email.consumer';
 
 const SERVER_PORT = 4001;
 const logger: Logger = winstonLogger(
@@ -28,13 +30,28 @@ const startQueues = async (): Promise<void> => {
   const emailChannel = await createConnection();
 
   await consumeAuthEmailMessage(emailChannel);
-  await emailChannel.assertExchange('jobber-email-notification', 'direct');
+  await consumeOrderEmailMessage(emailChannel);
 
-  const message = JSON.stringify({ name: 'jobber' });
+  await emailChannel.assertExchange('jobber-email-notification', 'direct');
+  const message = JSON.stringify({
+    name: 'jobber',
+    service: 'auth notification service',
+  });
   emailChannel.publish(
     'jobber-email-notification',
     'auth-email',
     Buffer.from(message),
+  );
+
+  await emailChannel.assertExchange('jobber-order-notification', 'direct');
+  const message1 = JSON.stringify({
+    name: 'jobber',
+    service: 'order notification service',
+  });
+  emailChannel.publish(
+    'jobber-order-notification',
+    'auth-order',
+    Buffer.from(message1),
   );
 };
 
