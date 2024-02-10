@@ -1,5 +1,6 @@
-import { winstonLogger } from '@francislagares/jobber-shared';
+import { EmailLocals, winstonLogger } from '@francislagares/jobber-shared';
 import { config } from '@notification/config';
+import { sendEmail } from '@notification/emails/email.transport';
 import { Channel, ConsumeMessage } from 'amqplib';
 import { Logger } from 'winston';
 
@@ -31,9 +32,18 @@ export const consumeAuthEmailMessage = async (
     await channel.bindQueue(jobberQueue.queue, exchangeName, routingKey);
 
     channel.consume(jobberQueue.queue, async (msg: ConsumeMessage | null) => {
-      console.log(JSON.parse(msg.content.toString()));
-      // send email
-      // acknowledge
+      const { receiverEmail, username, verifyLink, resetLink, template } =
+        JSON.parse(msg!.content.toString());
+      const locals: EmailLocals = {
+        appLink: `${config.CLIENT_URL}`,
+        appIcon: 'https://i.ibb.co/Kyp2m0t/cover.png',
+        username,
+        verifyLink,
+        resetLink,
+      };
+
+      await sendEmail(template, receiverEmail, locals);
+
       channel.ack(msg);
     });
   } catch (error) {

@@ -26,7 +26,6 @@ export const emailTemplates = async (
         pass: config.SENDER_EMAIL_PASSWORD,
       },
     });
-
     const email: Email = new Email({
       message: {
         from: `Jobber App <${config.SENDER_EMAIL}>`,
@@ -49,7 +48,7 @@ export const emailTemplates = async (
     });
 
     await email.send({
-      template: path.join(__dirname, '..', 'src/emails', template),
+      template: path.join(__dirname, '..', 'emails', template),
       message: { to: receiver },
       locals,
     });
