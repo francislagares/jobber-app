@@ -12,7 +12,7 @@ node_modules/
 
 # testing
 videos
-/coverage
+coverage
 
 # production
 build

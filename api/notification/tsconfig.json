@@ -3,11 +3,12 @@
   "compilerOptions": {
     "plugins": [
       { "transform": "typescript-transform-paths" },
-      { "transform": "typescript-transform-paths", "afterDeclarations": true },
+      { "transform": "typescript-transform-paths", "afterDeclarations": true }
     ],
     "baseUrl": ".",
     "paths": {
-      "@notification/*": ["src/*"],
-    },
+      "@notification/*": ["src/*"]
+    }
   },
+  "types": ["vitest/globals"],
 }
