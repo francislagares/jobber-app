@@ -16,6 +16,9 @@
     "type-check": "tsc --project tsconfig.json --pretty --noEmit",
     "lint": "eslint --ext js,jsx,ts,tsx --fix --ignore-path .gitignore .",
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx|json|md)\" --write",
+    "test:ci": "vitest run",
+    "test:watch": "vitest watch --ui",
+    "test:coverage": "vitest run --coverage",
     "prepare": "husky install"
   },
   "devDependencies": {
