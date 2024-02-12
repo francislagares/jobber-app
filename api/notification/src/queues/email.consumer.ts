@@ -63,8 +63,8 @@ export const consumeOrderEmailMessage = async (
       channel = await createConnection();
     }
     const exchangeName = 'jobber-order-notification';
-    const routingKey = 'auth-order';
-    const queueName = 'auth-order-queue';
+    const routingKey = 'order-email';
+    const queueName = 'order-email-queue';
 
     await channel.assertExchange(exchangeName, 'direct');
     const jobberQueue = await channel.assertQueue(queueName, {
