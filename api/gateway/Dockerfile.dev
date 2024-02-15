@@ -14,7 +14,7 @@ COPY tools ./tools
 RUN ls -a
 RUN pnpm install
 
-EXPOSE 4001
+EXPOSE 4000
 
 CMD [ "pnpm", "dev" ]
 

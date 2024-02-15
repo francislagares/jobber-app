@@ -45,8 +45,6 @@ services:
     extends:
       service: notification
       file: api/notification/docker-compose.yaml
-    depends_on:
-      - elasticsearch
 
 networks:
   elastic:
