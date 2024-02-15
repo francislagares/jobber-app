@@ -19,7 +19,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["api/*", "client/src/*"],
-      "@notification/*": ["api/notification/src/*"]
+      "@notification/*": ["api/notification/src/*"],
+      "@gateway/*": ["api/gateway/src/*"],
     },
 
     /* Linter Checks */
