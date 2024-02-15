@@ -1,0 +1,20 @@
+FROM node:alpine
+
+RUN apk update && apk add --no-cache nodejs && corepack enable
+RUN addgroup jobber && adduser -S -G jobber api-gateway
+
+USER api-gateway
+
+WORKDIR /api-gateway
+
+COPY package.json tsconfig.json .npmrc ./
+COPY src ./src
+COPY tools ./tools
+
+RUN ls -a
+RUN pnpm install
+
+EXPOSE 4001
+
+CMD [ "pnpm", "dev" ]
+
