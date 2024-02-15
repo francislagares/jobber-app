@@ -1,5 +1,4 @@
 {
-  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "plugins": [
       { "transform": "typescript-transform-paths" },
@@ -8,7 +7,38 @@
     "baseUrl": ".",
     "paths": {
       "@notification/*": ["src/*"]
-    }
+    },
+    
+    /* Project Setup */
+    "target": "es2022",
+    "lib": ["dom", "esnext", "es2022"],
+    "allowJs": true,
+    "outDir": "./build",
+    "sourceMap": true,
+    "removeComments": true,
+    "isolatedModules": true,
+    "downlevelIteration": true,
+    "skipLibCheck": true,
+
+    /* Module Resolution */
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+
+    /* Linter Checks */
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+
+    /* Experimental Options */
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+
+    /* Advanced Options */
+    "forceConsistentCasingInFileNames": true
   },
-  "types": ["vitest/globals"],
+  "types": ["vitest/globals"]
 }
