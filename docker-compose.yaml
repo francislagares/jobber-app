@@ -41,6 +41,13 @@ services:
       service: kibana
       file: infra/docker/docker-compose-kibana.yaml
 
+  notification:
+    extends:
+      service: notification
+      file: api/notification/docker-compose.yaml
+    depends_on:
+      - elasticsearch
+
 networks:
   elastic:
     name: elastic
