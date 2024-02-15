@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "pnpm tsx watch src/app/index.ts | pino-pretty -c",
     "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json && ts-node tools/copyAssets.ts",
-    "start": "pm2 start ./build/src/app.js -i 5 --attach --watch | pino-pretty -c",
+    "start": "pm2 start ./build/src/app/index.js -i 5 --attach --watch | pino-pretty -c",
     "delete": "pm2 delete all",
     "stop": "pm2 stop all",
     "test:ci": "vitest run",
@@ -37,7 +37,7 @@
     "@types/amqplib": "^0.10.4",
     "@types/email-templates": "^10.0.4",
     "@types/express": "^4.17.21",
-    "@types/node": "^20.11.18",
+    "@types/node": "^20.11.19",
     "@types/nodemailer": "^6.4.14",
     "@types/shelljs": "^0.8.15",
     "@vitest/coverage-v8": "^1.2.2",
