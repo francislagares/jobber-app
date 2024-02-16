@@ -5,6 +5,7 @@ import {
   JobberError,
   winstonLogger,
 } from '@francislagares/jobber-shared';
+import { config } from '@gateway/config';
 import compression from 'compression';
 import cookieSession from 'cookie-session';
 import cors from 'cors';
@@ -23,7 +24,7 @@ import { Logger } from 'winston';
 
 const SERVER_PORT = 4000;
 const logger: Logger = winstonLogger(
-  'http:localhost:9200',
+  `${config.ELASTIC_SEARCH_URL}`,
   'apiGatewayServer',
   'debug',
 );
@@ -47,16 +48,16 @@ export class APIGateway {
     app.use(
       cookieSession({
         name: 'session',
-        keys: [],
+        keys: [`${config.SECRET_KEY_ONE}`, `${config.SECRET_KEY_TWO}`],
         maxAge: 24 * 7 * 3600000,
-        secure: false, // update with value from config
+        secure: config.NODE_ENV !== 'development', // update with value from config
       }),
     );
     app.use(hpp());
     app.use(helmet());
     app.use(
       cors({
-        origin: '',
+        origin: config.CLIENT_URL,
         credentials: true,
         methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
       }),
