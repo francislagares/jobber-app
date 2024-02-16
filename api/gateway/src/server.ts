@@ -6,6 +6,7 @@ import {
   winstonLogger,
 } from '@francislagares/jobber-shared';
 import { config } from '@gateway/config';
+import { elasticSearch } from '@gateway/elastic';
 import compression from 'compression';
 import cookieSession from 'cookie-session';
 import cors from 'cors';
@@ -39,6 +40,7 @@ export class APIGateway {
   public init() {
     this.securityMiddleware(this.app);
     this.standardMiddleware(this.app);
+    this.startElasticSearch();
     this.errorHandler(this.app);
     this.startServer(this.app);
   }
@@ -68,6 +70,10 @@ export class APIGateway {
     app.use(compression());
     app.use(json({ limit: '200mb' }));
     app.use(urlencoded({ extended: true, limit: '200mb' }));
+  }
+
+  private startElasticSearch(): void {
+    elasticSearch.checkConnection();
   }
 
   private errorHandler(app: Application): void {
