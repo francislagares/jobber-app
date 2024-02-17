@@ -5,7 +5,7 @@ services:
     extends:
       service: redis
       file: infra/docker/docker-compose-redis.yaml
-  
+
   redis-commander:
     extends:
       service: redis-commander
@@ -40,6 +40,11 @@ services:
     extends:
       service: kibana
       file: infra/docker/docker-compose-kibana.yaml
+
+  api-gateway:
+    extends:
+      service: api-gateway
+      file: api/gateway/docker-compose.yaml
 
   notification:
     extends:
