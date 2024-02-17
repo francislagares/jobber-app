@@ -14,7 +14,7 @@ const elasticSearchClient = new Client({
   node: `${config.ELASTIC_SEARCH_URL}`,
 });
 
-export const checkConnection = async (): Promise<void> => {
+export async function checkConnection(): Promise<void> {
   let isConnected = false;
 
   while (!isConnected) {
@@ -23,16 +23,16 @@ export const checkConnection = async (): Promise<void> => {
         await elasticSearchClient.cluster.health({});
 
       logger.info(
-        `NotificationService ElasticSearch health status - ${health.status}`,
+        `NotificationService Elasticsearch health status - ${health.status}`,
       );
       isConnected = true;
     } catch (error) {
-      logger.error('Connection to ElasticSearch failed. Retrying...');
-      logger.error(
+      logger.error('Connection to Elasticsearch failed. Retrying...');
+      logger.log(
         'error',
         'NotificationService checkConnection() method:',
         error,
       );
     }
   }
-};
+}

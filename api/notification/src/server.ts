@@ -1,4 +1,4 @@
-import http from 'http';
+import { Server as HTTPServer } from 'http';
 
 import { winstonLogger } from '@francislagares/jobber-shared';
 import { config } from '@notification/config';
@@ -21,7 +21,7 @@ const logger: Logger = winstonLogger(
 
 export const start = (app: Application): void => {
   startServer(app);
-  app.use('', healthRoute);
+  app.use('', healthRoute());
   startQueues();
   startElasticSearch();
 };
@@ -33,14 +33,13 @@ const startQueues = async (): Promise<void> => {
   await consumeOrderEmailMessage(emailChannel);
 };
 
-const startElasticSearch = () => {
+const startElasticSearch = (): void => {
   checkConnection();
 };
 
 const startServer = (app: Application): void => {
   try {
-    const httpServer: http.Server = new http.Server(app);
-
+    const httpServer: HTTPServer = new HTTPServer(app);
     logger.info(
       `Worker with process id of ${process.pid} on notification server has started`,
     );
@@ -48,6 +47,6 @@ const startServer = (app: Application): void => {
       logger.info(`Notification server running on port ${SERVER_PORT}`);
     });
   } catch (error) {
-    logger.log('error', 'NotificationService startServer() method', error);
+    logger.log('error', 'NotificationService startServer() method:', error);
   }
 };
