@@ -23,6 +23,8 @@ import hpp from 'hpp';
 import { StatusCodes } from 'http-status-codes';
 import { Logger } from 'winston';
 
+import applicationRoutes from './routes';
+
 const SERVER_PORT = 4000;
 const logger: Logger = winstonLogger(
   `${config.ELASTIC_SEARCH_URL}`,
@@ -40,6 +42,7 @@ export class APIGateway {
   public init() {
     this.securityMiddleware(this.app);
     this.standardMiddleware(this.app);
+    this.routesMiddleware(this.app);
     this.startElasticSearch();
     this.errorHandler(this.app);
     this.startServer(this.app);
@@ -70,6 +73,10 @@ export class APIGateway {
     app.use(compression());
     app.use(json({ limit: '200mb' }));
     app.use(urlencoded({ extended: true, limit: '200mb' }));
+  }
+
+  private routesMiddleware(app: Application): void {
+    applicationRoutes(app);
   }
 
   private startElasticSearch(): void {
