@@ -4,11 +4,12 @@
   "description": "Authentication service for the jobber-app",
   "main": "index.js",
   "scripts": {
-    "dev": "pnpm tsx watch src/app/index.ts | pino-pretty -c",
+    "dev": "pnpm prisma:generate && tsx watch src/app/index.ts | pino-pretty -c",
     "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json && ts-node tools/copyAssets.ts",
     "start": "pm2 start ./build/src/app/index.js -i 5 --attach --watch | pino-pretty -c",
     "delete": "pm2 delete all",
     "stop": "pm2 stop all",
+    "prisma:generate": "prisma generate",
     "test:ci": "vitest run",
     "test:watch": "vitest watch --ui",
     "test:coverage": "vitest run --coverage",
@@ -22,6 +23,7 @@
   "dependencies": {
     "@elastic/elasticsearch": "^8.12.1",
     "@francislagares/jobber-shared": "^1.0.1",
+    "@prisma/client": "^5.9.1",
     "amqplib": "^0.10.3",
     "bcrypt": "^5.1.1",
     "cloudinary": "^2.0.1",
@@ -36,6 +38,7 @@
     "joi": "^17.11.0",
     "jsonwebtoken": "^9.0.2",
     "pino-pretty": "^10.3.1",
+    "prisma": "^5.9.1",
     "winston": "^3.11.0"
   },
   "devDependencies": {
