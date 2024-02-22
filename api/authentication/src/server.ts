@@ -3,6 +3,7 @@ import { Server as HTTPServer } from 'http';
 import { config } from '@authentication/config';
 import { MySqlDBInstance as dbConnection } from '@authentication/config/database';
 import { checkConnection } from '@authentication/elastic';
+import { createConnection } from '@authentication/queues/connection';
 import { appRoutes } from '@authentication/routes';
 import {
   AuthPayload,
@@ -10,6 +11,7 @@ import {
   JobberError,
   winstonLogger,
 } from '@francislagares/jobber-shared';
+import { Channel } from 'amqplib';
 import compression from 'compression';
 import cors from 'cors';
 import {
@@ -32,10 +34,13 @@ const logger: Logger = winstonLogger(
   'debug',
 );
 
+export let authChannel: Channel;
+
 export const start = (app: Application): void => {
   securityMiddleware(app);
   standardMiddleware(app);
   routesMiddleware(app);
+  startQueues();
   startElasticSearch();
   authErrorHandler(app);
   startServer(app);
@@ -70,6 +75,10 @@ export const standardMiddleware = (app: Application): void => {
 
 export const routesMiddleware = (app: Application): void => {
   appRoutes(app);
+};
+
+export const startQueues = async (): Promise<void> => {
+  authChannel = await createConnection();
 };
 
 export const startElasticSearch = (): void => {
