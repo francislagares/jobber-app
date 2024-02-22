@@ -10,8 +10,20 @@ datasource db {
   url      = env("MYSQL_DB")
 }
 
-model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+model Auth {
+  id                     Int      @id @default(autoincrement())
+  username               String   @unique
+  password               String
+  email                  String   @unique
+  country                String
+  profilePublicId        String
+  profilePicture         String
+  emailVerificationToken String?
+  emailVerified          Boolean  @default(false)
+  passwordResetToken     String?
+  passwordResetExpires   DateTime @default(now())
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @default(now())
+
+  @@index([username, email])
 }
