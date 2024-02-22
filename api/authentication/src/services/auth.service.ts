@@ -1,6 +1,10 @@
 import { publishDirectMessage } from '@authentication/queues/auth.producer';
 import { authChannel } from '@authentication/server';
-import { AuthBuyerMessageDetails } from '@francislagares/jobber-shared';
+import {
+  AuthBuyerMessageDetails,
+  firstLetterUppercase,
+  lowerCase,
+} from '@francislagares/jobber-shared';
 import { Auth, PrismaClient } from '@prisma/client';
 import bcrypt from 'bcrypt';
 
@@ -51,4 +55,93 @@ export const createAuthUser = async (data: Auth): Promise<Auth> => {
   );
 
   return authUser;
+};
+
+export const getAuthUserById = async (id: number): Promise<Auth> => {
+  const userId = await prisma.auth.findUnique({
+    where: {
+      id,
+    },
+  });
+
+  return userId;
+};
+
+export const getAuthUserByUsernameOrEmail = async (
+  username: string,
+  email: string,
+): Promise<Auth> => {
+  const user = await prisma.auth.findFirst({
+    where: {
+      OR: [
+        {
+          username: {
+            contains: firstLetterUppercase(username),
+          },
+        },
+        {
+          email: {
+            contains: lowerCase(email),
+          },
+        },
+      ],
+    },
+  });
+
+  return user;
+};
+
+export const getAuthUserByUsername = async (
+  username: string,
+): Promise<Auth> => {
+  const user = await prisma.auth.findUnique({
+    where: {
+      username: firstLetterUppercase(username),
+    },
+  });
+
+  return user;
+};
+
+export const getAuthUserByEmail = async (email: string): Promise<Auth> => {
+  const user = await prisma.auth.findUnique({
+    where: {
+      email: lowerCase(email),
+    },
+  });
+
+  return user;
+};
+
+export const getAuthUserByVerificationToken = async (
+  token: string,
+): Promise<Auth> => {
+  const user = await prisma.auth.findUnique({
+    where: {
+      emailVerificationToken: token,
+    } as Auth,
+  });
+
+  return user;
+};
+
+export const getAuthUserByPasswordToken = async (
+  token: string,
+): Promise<Auth> => {
+  const user = await prisma.auth.findFirst({
+    where: {
+      AND: [
+        {
+          passwordResetToken: token,
+        },
+        {
+          passwordResetExpires: {
+            gte: new Date(),
+          },
+        },
+      ],
+    },
+  });
+
+  return user;
 };
