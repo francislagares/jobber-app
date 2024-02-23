@@ -24,6 +24,7 @@ import { StatusCodes } from 'http-status-codes';
 import { Logger } from 'winston';
 
 import applicationRoutes from './routes';
+import { axiosAuthInstance } from './services/auth';
 
 const SERVER_PORT = 4000;
 const logger: Logger = winstonLogger(
@@ -67,6 +68,13 @@ export class APIGateway {
         methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
       }),
     );
+    app.use((req: Request, _res: Response, next: NextFunction) => {
+      if (req.session?.jwt) {
+        axiosAuthInstance.defaults.headers['Authorization'] =
+          `Bearer ${req.session.jwt}`;
+      }
+      next();
+    });
   }
 
   private standardMiddleware(app: Application): void {
