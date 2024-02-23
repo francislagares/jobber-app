@@ -1,3 +1,4 @@
+import { config } from '@authentication/config';
 import { publishDirectMessage } from '@authentication/queues/auth.producer';
 import { authChannel } from '@authentication/server';
 import {
@@ -7,6 +8,7 @@ import {
 } from '@francislagares/jobber-shared';
 import { Auth, PrismaClient } from '@prisma/client';
 import bcrypt from 'bcrypt';
+import { sign } from 'jsonwebtoken';
 
 const prisma = new PrismaClient().$extends({
   model: {
@@ -144,4 +146,60 @@ export const getAuthUserByPasswordToken = async (
   });
 
   return user;
+};
+
+export const updateVerifyEmailField = async (
+  authId: number,
+  emailVerified: boolean,
+  emailVerificationToken: string,
+): Promise<void> => {
+  await prisma.auth.update({
+    where: {
+      id: authId,
+    },
+    data: {
+      emailVerified,
+      emailVerificationToken,
+    },
+  });
+};
+
+export const updatePasswordToken = async (
+  authId: number,
+  token: string,
+  tokenExpiration: string,
+): Promise<void> => {
+  await prisma.auth.update({
+    where: {
+      id: authId,
+    },
+    data: {
+      passwordResetToken: token,
+      passwordResetExpires: tokenExpiration,
+    },
+  });
+};
+
+export const updatePassword = async (
+  authId: number,
+  password: string,
+): Promise<void> => {
+  await prisma.auth.update({
+    where: {
+      id: authId,
+    },
+    data: {
+      password,
+      passwordResetToken: '',
+      passwordResetExpires: new Date(),
+    },
+  });
+};
+
+export const signToken = (
+  id: number,
+  email: string,
+  username: string,
+): string => {
+  return sign({ id, email, username }, config.JWT_TOKEN);
 };
