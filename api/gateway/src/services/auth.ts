@@ -41,13 +41,13 @@ class AuthService {
   }
 
   async signUp(body: Auth) {
-    const response = await this.axiosService.axios.post('/signup', { body });
+    const response = await this.axiosService.axios.post('/signup', body);
 
     return response;
   }
 
   async signIn(body: Auth) {
-    const response = await this.axiosService.axios.post('/signin', { body });
+    const response = await this.axiosService.axios.post('/signin', body);
 
     return response;
   }
@@ -56,7 +56,7 @@ class AuthService {
     userId: number;
     email: string;
   }): Promise<AxiosResponse> {
-    const response = await axiosAuthInstance.post('/resend-email', { data });
+    const response = await axiosAuthInstance.post('/resend-email', data);
 
     return response;
   }
