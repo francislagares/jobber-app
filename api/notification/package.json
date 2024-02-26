@@ -20,7 +20,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@elastic/elasticsearch": "^8.12.1",
+    "@elastic/elasticsearch": "^8.12.2",
     "@francislagares/jobber-shared": "^1.0.1",
     "amqplib": "^0.10.3",
     "dotenv": "^16.4.5",

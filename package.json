@@ -13,6 +13,11 @@
     "mern-monorepo"
   ],
   "scripts": {
+    "gateway": "pnpm --filter=gateway dev",
+    "auth": "pnpm --filter=authentication dev",
+    "notification": "pnpm --filter=notification dev",
+    "start": "concurrently --kill-others-on-fail \"pnpm gateway\"  \"pnpm auth\" \"pnpm notification\"",
+    "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json && ts-node api/notification/tools/copyAssets.ts",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit",
     "lint": "eslint --ext js,jsx,ts,tsx --fix --ignore-path .gitignore .",
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx|json|md)\" --write",
@@ -30,19 +35,22 @@
     "@vitest/coverage-v8": "^1.3.1",
     "@vitest/ui": "^1.3.1",
     "commitizen": "^4.3.0",
+    "concurrently": "^8.2.2",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^8.42.0",
+    "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-prettier": "^5.1.3",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
-    "rimraf": "^5.0.1",
-    "typescript": "^5.1.3",
+    "rimraf": "^5.0.5",
+    "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.8",
+    "typescript": "^5.3.3",
     "vite": "^5.1.4",
     "vitest": "^1.3.1",
-    "vitest-mock-extended": "^1.1.3"
+    "vitest-mock-extended": "^1.3.1"
   },
   "config": {
     "commitizen": {
@@ -50,7 +58,6 @@
     }
   },
   "dependencies": {
-    "concurrently": "^8.1.0",
     "vite-tsconfig-paths": "^4.3.1"
   },
   "engines": {

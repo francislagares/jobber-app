@@ -35,7 +35,7 @@
     "no-shadow": "off",
 
     // eslint-plugin-import rules
-    "import/named": "error",
+    "import/named": 0,
     "import/namespace": "error",
     "import/default": "error",
     "import/export": "error",
