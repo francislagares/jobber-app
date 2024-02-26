@@ -9,11 +9,7 @@ export const validateRequest = (validator: AnyZodObject) => {
     next: NextFunction,
   ): Promise<void | Response<Error>> => {
     try {
-      await validator.parseAsync({
-        body: req.body,
-        query: req.query,
-        params: req.params,
-      });
+      validator.parse(req.body);
 
       next();
     } catch (error) {

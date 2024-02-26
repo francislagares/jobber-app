@@ -12,7 +12,7 @@ import {
   BadRequestError,
   firstLetterUppercase,
   lowerCase,
-  upload,
+  uploadImage,
 } from '@francislagares/jobber-shared';
 import { Auth } from '@prisma/client';
 import { UploadApiErrorResponse, UploadApiResponse } from 'cloudinary';
@@ -24,25 +24,21 @@ export const create = async (req: Request, res: Response): Promise<void> => {
   const { username, email, password, country, profilePicture } = req.body;
   const userExists = await getAuthUserByUsernameOrEmail(username, email);
 
-  if (!userExists) {
+  if (userExists) {
     throw new BadRequestError(
-      'Invalid credentials. Email or Username',
+      'Invalid credentials. User already exists.',
       'SignUp create() method error',
     );
   }
 
   const profilePublicId = uuidv4();
-  const uploadResult: UploadApiResponse | UploadApiErrorResponse = await upload(
-    profilePicture,
-    `${profilePublicId}`,
-    true,
-    true,
-  );
+  const uploadResult: UploadApiResponse | UploadApiErrorResponse =
+    await uploadImage(profilePicture, `${profilePublicId}`, true, true);
 
   if (!uploadResult.public_id) {
     throw new BadRequestError(
       'File upload error. Try again',
-      'SignUp create method() error',
+      'SignUp create() method error',
     );
   }
 
