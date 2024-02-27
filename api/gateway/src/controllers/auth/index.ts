@@ -3,7 +3,7 @@ import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 
 class AuthController {
-  public async create(req: Request, res: Response): Promise<void> {
+  public async signUp(req: Request, res: Response): Promise<void> {
     const response = await authService.signUp(req.body);
     req.session = { jwt: response.data.token };
     res

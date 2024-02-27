@@ -1,7 +1,7 @@
+import { prisma } from '@authentication/helpers/prisma';
 import {
   getAuthUserByEmail,
   getAuthUserByUsername,
-  prisma,
   signToken,
 } from '@authentication/services/auth.service';
 import { BadRequestError, isEmail } from '@francislagares/jobber-shared';

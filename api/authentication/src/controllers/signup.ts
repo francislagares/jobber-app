@@ -1,6 +1,7 @@
 import crypto from 'crypto';
 
 import { config } from '@authentication/config';
+import { prisma } from '@authentication/helpers/prisma';
 import { publishDirectMessage } from '@authentication/queues/auth.producer';
 import { authChannel } from '@authentication/server';
 import {
@@ -20,7 +21,7 @@ import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import { v4 as uuidv4 } from 'uuid';
 
-export const create = async (req: Request, res: Response): Promise<void> => {
+export const signUp = async (req: Request, res: Response): Promise<void> => {
   const { username, email, password, country, profilePicture } = req.body;
   const userExists = await getAuthUserByUsernameOrEmail(username, email);
 
@@ -55,6 +56,7 @@ export const create = async (req: Request, res: Response): Promise<void> => {
   } as Auth;
 
   const result = await createAuthUser(authData);
+  const authUser = await prisma.auth.excludePassword(result, ['password']);
   const verificationLink = `${config.CLIENT_URL}/confirm_email?v_token=${authData.emailVerificationToken}`;
   const messageDetails = {
     receiverEmail: result.email,
@@ -74,7 +76,7 @@ export const create = async (req: Request, res: Response): Promise<void> => {
 
   res.status(StatusCodes.CREATED).json({
     message: 'User created successfully.',
-    user: result,
+    user: authUser,
     token: userJWT,
   });
 };

@@ -1,4 +1,5 @@
 import { config } from '@authentication/config';
+import { prisma } from '@authentication/helpers/prisma';
 import { publishDirectMessage } from '@authentication/queues/auth.producer';
 import { authChannel } from '@authentication/server';
 import {
@@ -6,39 +7,8 @@ import {
   firstLetterUppercase,
   lowerCase,
 } from '@francislagares/jobber-shared';
-import { Auth, PrismaClient } from '@prisma/client';
-import bcrypt, { compare } from 'bcrypt';
+import { Auth } from '@prisma/client';
 import { sign } from 'jsonwebtoken';
-
-export const prisma = new PrismaClient().$extends({
-  model: {
-    auth: {
-      async signUp(data: Auth) {
-        const salt = bcrypt.genSaltSync(10);
-        const hashPass = bcrypt.hashSync(data.password, salt);
-        data.password = hashPass;
-
-        return await prisma.auth.create({
-          data,
-        });
-      },
-      async comparePassword(password: string, hashedPassword: string) {
-        return compare(password, hashedPassword);
-      },
-    },
-  },
-  // TODO: Create a function to exclude password field on signup
-  /* result: {
-    auth: {
-      password: {
-        needs: {},
-        compute() {
-          return undefined;
-        },
-      },
-    },
-  }, */
-});
 
 export const createAuthUser = async (data: Auth): Promise<Auth> => {
   const authUser = await prisma.auth.signUp(data);
