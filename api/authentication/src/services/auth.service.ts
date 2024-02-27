@@ -7,10 +7,10 @@ import {
   lowerCase,
 } from '@francislagares/jobber-shared';
 import { Auth, PrismaClient } from '@prisma/client';
-import bcrypt from 'bcrypt';
+import bcrypt, { compare } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
 
-const prisma = new PrismaClient().$extends({
+export const prisma = new PrismaClient().$extends({
   model: {
     auth: {
       async signUp(data: Auth) {
@@ -22,9 +22,13 @@ const prisma = new PrismaClient().$extends({
           data,
         });
       },
+      async comparePassword(password: string, hashedPassword: string) {
+        return compare(password, hashedPassword);
+      },
     },
   },
-  result: {
+  // TODO: Create a function to exclude password field on signup
+  /* result: {
     auth: {
       password: {
         needs: {},
@@ -33,7 +37,7 @@ const prisma = new PrismaClient().$extends({
         },
       },
     },
-  },
+  }, */
 });
 
 export const createAuthUser = async (data: Auth): Promise<Auth> => {
