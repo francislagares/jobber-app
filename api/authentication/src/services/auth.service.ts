@@ -141,7 +141,7 @@ export const updateVerifyEmailField = async (
 export const updatePasswordToken = async (
   authId: number,
   token: string,
-  tokenExpiration: string,
+  tokenExpiration: Date,
 ): Promise<void> => {
   await prisma.auth.update({
     where: {
