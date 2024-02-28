@@ -1,10 +1,13 @@
 import crypto from 'crypto';
 
 import { config } from '@authentication/config';
+import { prisma } from '@authentication/helpers/prisma';
 import { publishDirectMessage } from '@authentication/queues/auth.producer';
 import { authChannel } from '@authentication/server';
 import {
   getAuthUserByEmail,
+  getAuthUserByPasswordToken,
+  updatePassword,
   updatePasswordToken,
 } from '@authentication/services/auth.service';
 import { BadRequestError } from '@francislagares/jobber-shared';
@@ -19,7 +22,7 @@ export const forgotPassword = async (req: Request, res: Response) => {
   if (!existingUser) {
     throw new BadRequestError(
       'Invalid credentials',
-      'Password create() method error',
+      'Password forgotPassword() method error',
     );
   }
 
@@ -47,4 +50,49 @@ export const forgotPassword = async (req: Request, res: Response) => {
   );
 
   res.status(StatusCodes.OK).json({ message: 'Password reset email sent.' });
+};
+
+export const resetPassword = async (
+  req: Request,
+  res: Response,
+): Promise<void> => {
+  const { password, confirmPassword } = req.body;
+  const { token } = req.params;
+
+  if (password !== confirmPassword) {
+    throw new BadRequestError(
+      'Passwords do not match',
+      'Password resetPassword() method error',
+    );
+  }
+
+  const existingUser = await getAuthUserByPasswordToken(token);
+
+  if (!existingUser) {
+    throw new BadRequestError(
+      'Reset token has expired',
+      'Password resetPassword() method error',
+    );
+  }
+
+  const hashedPassword = await prisma.auth.hashPassword(password);
+
+  await updatePassword(existingUser.id, hashedPassword);
+
+  const messageDetails = {
+    username: existingUser.username,
+    template: 'resetPasswordSuccess',
+  };
+
+  await publishDirectMessage(
+    authChannel,
+    'jobber-email-notification',
+    'auth-email',
+    JSON.stringify(messageDetails),
+    'Reset password success message sent to notification service',
+  );
+
+  res
+    .status(StatusCodes.OK)
+    .json({ message: 'Password successfully updated.' });
 };

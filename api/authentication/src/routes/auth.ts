@@ -1,9 +1,15 @@
-import { forgotPassword } from '@authentication/controllers/password';
+import {
+  forgotPassword,
+  resetPassword,
+} from '@authentication/controllers/password';
 import { signIn } from '@authentication/controllers/signin';
 import { signUp } from '@authentication/controllers/signup';
 import { verifyEmail } from '@authentication/controllers/verify-email';
 import { validateRequest } from '@authentication/middleware/validator';
-import { emailSchema } from '@authentication/schemas/password';
+import {
+  changePasswordSchema,
+  emailSchema,
+} from '@authentication/schemas/password';
 import { loginSchema } from '@authentication/schemas/signin';
 import { signupSchema } from '@authentication/schemas/signup';
 import express, { Router } from 'express';
@@ -15,6 +21,11 @@ export const authRoutes = () => {
   router.post('/signin', validateRequest(loginSchema), signIn);
   router.put('/verify-email', verifyEmail);
   router.put('/forgot-password', validateRequest(emailSchema), forgotPassword);
+  router.put(
+    '/reset-password/:token',
+    validateRequest(changePasswordSchema),
+    resetPassword,
+  );
 
   return router;
 };

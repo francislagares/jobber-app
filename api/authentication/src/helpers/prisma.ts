@@ -5,13 +5,18 @@ export const prisma = new PrismaClient().$extends({
   model: {
     auth: {
       async signUp(data: Auth) {
-        const salt = bcrypt.genSaltSync(10);
-        const hashPass = bcrypt.hashSync(data.password, salt);
-        data.password = hashPass;
+        data.password = await this.hashPassword(data.password);
 
         return await prisma.auth.create({
           data,
         });
+      },
+
+      async hashPassword(password: string) {
+        const salt = bcrypt.genSaltSync(10);
+        const hashPass = bcrypt.hashSync(password, salt);
+
+        return hashPass;
       },
 
       async comparePassword(password: string, hashedPassword: string) {
