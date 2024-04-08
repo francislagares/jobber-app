@@ -13,13 +13,12 @@ services:
       http.host: 0.0.0.0
       bootstrap.memory_lock: 'true'
       xpack.security.enabled: 'false'
-      xpack.security.authc.api_key.enabled: 'false'
+      xpack.security.authc.api_key.enabled: 'true'
       xpack.monitoring.collection.enabled: 'true'
-      xpack.security.enrollment.enabled: 'false'
+      xpack.security.enrollment.enabled: 'true'
     ports:
       - 9300:9300
       - 9200:9200
-
     ulimits:
       memlock:
         soft: -1

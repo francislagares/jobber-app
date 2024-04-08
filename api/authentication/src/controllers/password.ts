@@ -96,3 +96,48 @@ export const resetPassword = async (
     .status(StatusCodes.OK)
     .json({ message: 'Password successfully updated.' });
 };
+
+export const changePassword = async (
+  req: Request,
+  res: Response,
+): Promise<void> => {
+  const { password, confirmPassword } = req.body;
+  const { token } = req.params;
+
+  if (password !== confirmPassword) {
+    throw new BadRequestError(
+      'Passwords do not match',
+      'Password changePassword() method error',
+    );
+  }
+
+  const existingUser = await getAuthUserByPasswordToken(token);
+
+  if (!existingUser) {
+    throw new BadRequestError(
+      'Reset token has expired',
+      'Password changePassword() method error',
+    );
+  }
+
+  const hashedPassword = await prisma.auth.hashPassword(password);
+
+  await updatePassword(existingUser.id, hashedPassword);
+
+  const messageDetails = {
+    username: existingUser.username,
+    template: 'changePasswordSuccess',
+  };
+
+  await publishDirectMessage(
+    authChannel,
+    'jobber-email-notification',
+    'auth-email',
+    JSON.stringify(messageDetails),
+    'Reset password success message sent to notification service',
+  );
+
+  res
+    .status(StatusCodes.OK)
+    .json({ message: 'Password successfully updated.' });
+};

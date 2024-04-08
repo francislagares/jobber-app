@@ -1,4 +1,4 @@
-FROM node:alpine as builder
+FROM node:alpine AS builder
 
 RUN apk update && apk add --no-cache nodejs && corepack enable
 RUN addgroup jobber && adduser -S -G jobber authentication
