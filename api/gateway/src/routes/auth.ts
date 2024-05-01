@@ -1,5 +1,6 @@
-import AuthController from '@gateway/controllers/auth';
 import express, { Router } from 'express';
+
+import AuthController from '@gateway/controllers/auth';
 
 class AuthRoutes {
   private router: Router;

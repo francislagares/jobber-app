@@ -1,12 +1,5 @@
 import { Server as HTTPServer } from 'http';
 
-import {
-  ErrorResponse,
-  JobberError,
-  winstonLogger,
-} from '@francislagares/jobber-shared';
-import { config } from '@gateway/config';
-import { elasticSearch } from '@gateway/elastic';
 import compression from 'compression';
 import cookieSession from 'cookie-session';
 import cors from 'cors';
@@ -22,6 +15,15 @@ import helmet from 'helmet';
 import hpp from 'hpp';
 import { StatusCodes } from 'http-status-codes';
 import { Logger } from 'winston';
+
+import {
+  ErrorResponse,
+  JobberError,
+  winstonLogger,
+} from '@francislagares/jobber-shared';
+
+import { config } from '@gateway/config';
+import { elasticSearch } from '@gateway/elastic';
 
 import applicationRoutes from './routes';
 import { axiosAuthInstance } from './services/auth';

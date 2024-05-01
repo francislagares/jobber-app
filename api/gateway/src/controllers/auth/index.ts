@@ -1,6 +1,7 @@
-import { authService } from '@gateway/services/auth';
 import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
+
+import { authService } from '@gateway/services/auth';
 
 class AuthController {
   public async signUp(req: Request, res: Response): Promise<void> {

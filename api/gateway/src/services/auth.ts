@@ -1,7 +1,9 @@
+import axios, { AxiosResponse } from 'axios';
+
 import { Auth } from '@francislagares/jobber-shared';
+
 import { config } from '@gateway/config';
 import { AxiosService } from '@gateway/services/axios';
-import axios, { AxiosResponse } from 'axios';
 
 export let axiosAuthInstance: ReturnType<typeof axios.create>;
 

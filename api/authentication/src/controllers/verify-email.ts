@@ -1,11 +1,13 @@
+import { Request, Response } from 'express';
+import { StatusCodes } from 'http-status-codes';
+
+import { BadRequestError } from '@francislagares/jobber-shared';
+
 import {
   getAuthUserById,
   getAuthUserByVerificationToken,
   updateVerifyEmailField,
 } from '@authentication/services/auth.service';
-import { BadRequestError } from '@francislagares/jobber-shared';
-import { Request, Response } from 'express';
-import { StatusCodes } from 'http-status-codes';
 
 export const verifyEmail = async (
   req: Request,

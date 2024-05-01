@@ -1,14 +1,16 @@
-import { config } from '@authentication/config';
-import { prisma } from '@authentication/helpers/prisma';
-import { publishDirectMessage } from '@authentication/queues/auth.producer';
-import { authChannel } from '@authentication/server';
+import { Auth } from '@prisma/client';
+import { sign } from 'jsonwebtoken';
+
 import {
   AuthBuyerMessageDetails,
   firstLetterUppercase,
   lowerCase,
 } from '@francislagares/jobber-shared';
-import { Auth } from '@prisma/client';
-import { sign } from 'jsonwebtoken';
+
+import { config } from '@authentication/config';
+import { prisma } from '@authentication/helpers/prisma';
+import { publishDirectMessage } from '@authentication/queues/auth.producer';
+import { authChannel } from '@authentication/server';
 
 export const createAuthUser = async (data: Auth): Promise<Auth> => {
   const authUser = await prisma.auth.signUp(data);

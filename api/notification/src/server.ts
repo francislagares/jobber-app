@@ -1,6 +1,10 @@
 import { Server as HTTPServer } from 'http';
 
+import { Application } from 'express';
+import { Logger } from 'winston';
+
 import { winstonLogger } from '@francislagares/jobber-shared';
+
 import { config } from '@notification/config';
 import { checkConnection } from '@notification/elastic';
 import { createConnection } from '@notification/queues/connection';
@@ -9,8 +13,6 @@ import {
   consumeOrderEmailMessage,
 } from '@notification/queues/email.consumer';
 import { healthRoute } from '@notification/routes';
-import { Application } from 'express';
-import { Logger } from 'winston';
 
 const SERVER_PORT = 4001;
 const logger: Logger = winstonLogger(

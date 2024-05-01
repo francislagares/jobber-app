@@ -1,3 +1,5 @@
+import express, { Router } from 'express';
+
 import {
   forgotPassword,
   resetPassword,
@@ -12,7 +14,6 @@ import {
 } from '@authentication/schemas/password';
 import { loginSchema } from '@authentication/schemas/signin';
 import { signupSchema } from '@authentication/schemas/signup';
-import express, { Router } from 'express';
 
 const router: Router = express.Router();
 

@@ -1,7 +1,9 @@
+import { Logger } from 'winston';
+
 import { EmailLocals, winstonLogger } from '@francislagares/jobber-shared';
+
 import { config } from '@notification/config';
 import { emailTemplates } from '@notification/helpers/email';
-import { Logger } from 'winston';
 
 const logger: Logger = winstonLogger(
   `${config.ELASTIC_SEARCH_URL}`,

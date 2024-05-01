@@ -1,5 +1,18 @@
 import crypto from 'crypto';
 
+import { Auth } from '@prisma/client';
+import { UploadApiErrorResponse, UploadApiResponse } from 'cloudinary';
+import { Request, Response } from 'express';
+import { StatusCodes } from 'http-status-codes';
+import { v4 as uuidv4 } from 'uuid';
+
+import {
+  BadRequestError,
+  firstLetterUppercase,
+  lowerCase,
+  uploadImage,
+} from '@francislagares/jobber-shared';
+
 import { config } from '@authentication/config';
 import { prisma } from '@authentication/helpers/prisma';
 import { publishDirectMessage } from '@authentication/queues/auth.producer';
@@ -9,17 +22,6 @@ import {
   getAuthUserByUsernameOrEmail,
   signToken,
 } from '@authentication/services/auth.service';
-import {
-  BadRequestError,
-  firstLetterUppercase,
-  lowerCase,
-  uploadImage,
-} from '@francislagares/jobber-shared';
-import { Auth } from '@prisma/client';
-import { UploadApiErrorResponse, UploadApiResponse } from 'cloudinary';
-import { Request, Response } from 'express';
-import { StatusCodes } from 'http-status-codes';
-import { v4 as uuidv4 } from 'uuid';
 
 export const signUp = async (req: Request, res: Response): Promise<void> => {
   const { username, email, password, country, profilePicture } = req.body;

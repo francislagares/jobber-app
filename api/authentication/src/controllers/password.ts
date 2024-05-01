@@ -1,5 +1,10 @@
 import crypto from 'crypto';
 
+import { Request, Response } from 'express';
+import { StatusCodes } from 'http-status-codes';
+
+import { BadRequestError } from '@francislagares/jobber-shared';
+
 import { config } from '@authentication/config';
 import { prisma } from '@authentication/helpers/prisma';
 import { publishDirectMessage } from '@authentication/queues/auth.producer';
@@ -10,9 +15,6 @@ import {
   updatePassword,
   updatePasswordToken,
 } from '@authentication/services/auth.service';
-import { BadRequestError } from '@francislagares/jobber-shared';
-import { Request, Response } from 'express';
-import { StatusCodes } from 'http-status-codes';
 
 export const forgotPassword = async (req: Request, res: Response) => {
   const { email } = req.body;

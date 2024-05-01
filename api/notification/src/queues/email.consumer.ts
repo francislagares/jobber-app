@@ -1,8 +1,10 @@
-import { EmailLocals, winstonLogger } from '@francislagares/jobber-shared';
-import { config } from '@notification/config';
-import { sendEmail } from '@notification/emails/email.transport';
 import { Channel, ConsumeMessage } from 'amqplib';
 import { Logger } from 'winston';
+
+import { EmailLocals, winstonLogger } from '@francislagares/jobber-shared';
+
+import { config } from '@notification/config';
+import { sendEmail } from '@notification/emails/email.transport';
 
 import { createConnection } from './connection';
 

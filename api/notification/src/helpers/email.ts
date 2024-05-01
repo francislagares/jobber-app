@@ -1,10 +1,12 @@
 import path from 'path';
 
-import { EmailLocals, winstonLogger } from '@francislagares/jobber-shared';
-import { config } from '@notification/config';
 import Email from 'email-templates';
 import nodemailer, { Transporter } from 'nodemailer';
 import { Logger } from 'winston';
+
+import { EmailLocals, winstonLogger } from '@francislagares/jobber-shared';
+
+import { config } from '@notification/config';
 
 const logger: Logger = winstonLogger(
   `${config.ELASTIC_SEARCH_URL}`,

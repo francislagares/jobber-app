@@ -1,11 +1,13 @@
+import { NextFunction, Request, Response } from 'express';
+import { verify } from 'jsonwebtoken';
+
 import {
   AuthPayload,
   BadRequestError,
   NotAuthorizedError,
 } from '@francislagares/jobber-shared';
+
 import { config } from '@gateway/config';
-import { NextFunction, Request, Response } from 'express';
-import { verify } from 'jsonwebtoken';
 
 class AuthMiddleware {
   public verifyUser(req: Request, _res: Response, next: NextFunction) {

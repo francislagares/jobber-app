@@ -1,10 +1,11 @@
+import { Channel } from 'amqplib';
+import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
+
 import * as connection from '@notification/queues/connection';
 import {
   consumeAuthEmailMessage,
   consumeOrderEmailMessage,
 } from '@notification/queues/email.consumer';
-import { Channel } from 'amqplib';
-import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
 
 vi.mock('@notification/queues/connection');
 vi.mock('amqplib');

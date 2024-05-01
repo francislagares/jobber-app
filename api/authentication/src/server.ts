@@ -1,16 +1,5 @@
 import { Server as HTTPServer } from 'http';
 
-import { config } from '@authentication/config';
-import { MySqlDBInstance as dbConnection } from '@authentication/config/database';
-import { checkConnection } from '@authentication/elastic';
-import { createConnection } from '@authentication/queues/connection';
-import { appRoutes } from '@authentication/routes';
-import {
-  AuthPayload,
-  ErrorResponse,
-  JobberError,
-  winstonLogger,
-} from '@francislagares/jobber-shared';
 import { Channel } from 'amqplib';
 import compression from 'compression';
 import cors from 'cors';
@@ -26,6 +15,19 @@ import helmet from 'helmet';
 import hpp from 'hpp';
 import { verify } from 'jsonwebtoken';
 import { Logger } from 'winston';
+
+import {
+  AuthPayload,
+  ErrorResponse,
+  JobberError,
+  winstonLogger,
+} from '@francislagares/jobber-shared';
+
+import { config } from '@authentication/config';
+import { MySqlDBInstance as dbConnection } from '@authentication/config/database';
+import { checkConnection } from '@authentication/elastic';
+import { createConnection } from '@authentication/queues/connection';
+import { appRoutes } from '@authentication/routes';
 
 const SERVER_PORT = 4002;
 const logger: Logger = winstonLogger(

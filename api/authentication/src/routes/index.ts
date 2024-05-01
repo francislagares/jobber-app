@@ -1,6 +1,8 @@
-import { config } from '@authentication/config';
-import { verifyGatewayRequest } from '@francislagares/jobber-shared';
 import { Application } from 'express';
+
+import { verifyGatewayRequest } from '@francislagares/jobber-shared';
+
+import { config } from '@authentication/config';
 
 import { authRoutes } from './auth';
 

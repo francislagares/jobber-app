@@ -1,7 +1,9 @@
-import { config } from '@authentication/config';
-import { winstonLogger } from '@francislagares/jobber-shared';
 import { PrismaClient } from '@prisma/client';
 import { Logger } from 'winston';
+
+import { winstonLogger } from '@francislagares/jobber-shared';
+
+import { config } from '@authentication/config';
 
 const logger: Logger = winstonLogger(
   `${config.ELASTIC_SEARCH_URL}`,

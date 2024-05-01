@@ -1,8 +1,10 @@
-import { config } from '@authentication/config';
-import { createConnection } from '@authentication/queues/connection';
-import { winstonLogger } from '@francislagares/jobber-shared';
 import { Channel } from 'amqplib';
 import { Logger } from 'winston';
+
+import { winstonLogger } from '@francislagares/jobber-shared';
+
+import { config } from '@authentication/config';
+import { createConnection } from '@authentication/queues/connection';
 
 const logger: Logger = winstonLogger(
   `${config.ELASTIC_SEARCH_URL}`,

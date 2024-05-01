@@ -1,12 +1,14 @@
+import { Request, Response } from 'express';
+import { StatusCodes } from 'http-status-codes';
+
+import { BadRequestError, isEmail } from '@francislagares/jobber-shared';
+
 import { prisma } from '@authentication/helpers/prisma';
 import {
   getAuthUserByEmail,
   getAuthUserByUsername,
   signToken,
 } from '@authentication/services/auth.service';
-import { BadRequestError, isEmail } from '@francislagares/jobber-shared';
-import { Request, Response } from 'express';
-import { StatusCodes } from 'http-status-codes';
 
 export const signIn = async (req: Request, res: Response): Promise<void> => {
   const { error } = req.body;
