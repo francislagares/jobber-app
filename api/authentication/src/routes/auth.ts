@@ -1,6 +1,10 @@
 import express, { Router } from 'express';
 
 import {
+  getCurrentUser,
+  resendEmail,
+} from '@authentication/controllers/current-user';
+import {
   forgotPassword,
   resetPassword,
 } from '@authentication/controllers/password';
@@ -20,6 +24,8 @@ const router: Router = express.Router();
 export const authRoutes = () => {
   router.post('/signup', validateRequest(signupSchema), signUp);
   router.post('/signin', validateRequest(loginSchema), signIn);
+  router.get('/current-user', getCurrentUser);
+  router.post('/resend-email', resendEmail);
   router.put('/verify-email', verifyEmail);
   router.put('/forgot-password', validateRequest(emailSchema), forgotPassword);
   router.put(

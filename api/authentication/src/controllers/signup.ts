@@ -9,7 +9,7 @@ import { v4 as uuidv4 } from 'uuid';
 import {
   BadRequestError,
   firstLetterUppercase,
-  lowerCase,
+  toLowerCase,
   uploadImage,
 } from '@francislagares/jobber-shared';
 
@@ -49,7 +49,7 @@ export const signUp = async (req: Request, res: Response): Promise<void> => {
   const randomCharacters = randomBytes.toString('hex');
   const authData = {
     username: firstLetterUppercase(username),
-    email: lowerCase(email),
+    email: toLowerCase(email),
     profilePublicId,
     password,
     country,

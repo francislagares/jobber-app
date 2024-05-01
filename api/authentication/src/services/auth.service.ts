@@ -4,7 +4,7 @@ import { sign } from 'jsonwebtoken';
 import {
   AuthBuyerMessageDetails,
   firstLetterUppercase,
-  lowerCase,
+  toLowerCase,
 } from '@francislagares/jobber-shared';
 
 import { config } from '@authentication/config';
@@ -59,7 +59,7 @@ export const getAuthUserByUsernameOrEmail = async (
         },
         {
           email: {
-            contains: lowerCase(email),
+            contains: toLowerCase(email),
           },
         },
       ],
@@ -84,7 +84,7 @@ export const getAuthUserByUsername = async (
 export const getAuthUserByEmail = async (email: string): Promise<Auth> => {
   const user = await prisma.auth.findUnique({
     where: {
-      email: lowerCase(email),
+      email: toLowerCase(email),
     },
   });
 

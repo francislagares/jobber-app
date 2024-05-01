@@ -103,8 +103,8 @@ importers:
         specifier: ^8.13.1
         version: 8.13.1
       '@francislagares/jobber-shared':
-        specifier: ^1.0.2
-        version: 1.0.2
+        specifier: ^1.0.3
+        version: 1.0.3
       '@prisma/client':
         specifier: ^5.13.0
         version: 5.13.0(prisma@5.13.0)
@@ -233,8 +233,8 @@ importers:
         specifier: ^8.13.1
         version: 8.13.1
       '@francislagares/jobber-shared':
-        specifier: ^1.0.2
-        version: 1.0.2
+        specifier: ^1.0.3
+        version: 1.0.3
       axios:
         specifier: ^1.6.8
         version: 1.6.8
@@ -336,8 +336,8 @@ importers:
         specifier: ^8.13.1
         version: 8.13.1
       '@francislagares/jobber-shared':
-        specifier: ^1.0.2
-        version: 1.0.2
+        specifier: ^1.0.3
+        version: 1.0.3
       amqplib:
         specifier: ^0.10.4
         version: 0.10.4
@@ -732,9 +732,9 @@ packages:
     resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
     engines: {node: '>=14'}
 
-  '@francislagares/jobber-shared@1.0.2':
-    resolution: {integrity: sha512-Vrm0SfHNajhbd8YnbnNR19c1KBvDJdk8e71b3KG8Q8HIkgQLXbFL3ID31azq//jcUegq7JEmBm0jpzjwVm7IpA==, tarball: https://npm.pkg.github.com/download/@francislagares/jobber-shared/1.0.2/595683085299688d5e80a63f0e772ec4715714b7}
-    engines: {node: '>=21.5.0', npm: <=10.4.0, pnpm: '>=8.14.0'}
+  '@francislagares/jobber-shared@1.0.3':
+    resolution: {integrity: sha512-tOow9oj8bIHO1DTMpYPYyohqDb5HPBu2rxiijw1396kVG8cvM5DP23BNFRaqkjJAyfr/GxWlOK40RUmlN8873A==, tarball: https://npm.pkg.github.com/download/@francislagares/jobber-shared/1.0.3/555e785696f3efc45384febe4aef8c5a8d80d186}
+    engines: {node: '>=22.0.0', pnpm: '>=9.0.0'}
 
   '@hapi/boom@10.0.1':
     resolution: {integrity: sha512-ERcCZaEjdH3OgSJlyjVk8pHIFeus91CjKP3v+MpgBNp5IvGzP2l/bRiD78nqYcKPaZdbKkK5vDBVPd2ohHBlsA==}
@@ -976,8 +976,8 @@ packages:
   '@messageformat/runtime@3.0.1':
     resolution: {integrity: sha512-6RU5ol2lDtO8bD9Yxe6CZkl0DArdv0qkuoZC+ZwowU+cdRlVE1157wjCmlA5Rsf1Xc/brACnsZa5PZpEDfTFFg==}
 
-  '@mongodb-js/saslprep@1.1.4':
-    resolution: {integrity: sha512-8zJ8N1x51xo9hwPh6AWnKdLGEC5N3lDa6kms1YHmFBoRhTpJR6HG8wWk0td1MVCu9cD4YBrvjZEtd5Obw0Fbnw==}
+  '@mongodb-js/saslprep@1.1.5':
+    resolution: {integrity: sha512-XLNOMH66KhJzUJNwT/qlMnS4WsNDWD5ASdyaSH3EtK+F4r/CFGa3jT4GNi4mfOitGvWXtdLgQJkQjxSVrio+jA==}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -991,30 +991,30 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
-  '@opentelemetry/api@1.7.0':
-    resolution: {integrity: sha512-AdY5wvN0P2vXBi3b29hxZgSFvdhdxPB9+f0B6s//P9Q8nibRWeA3cHm8UmLpio9ABigkVHJ5NMPk+Mz8VCCyrw==}
+  '@opentelemetry/api@1.8.0':
+    resolution: {integrity: sha512-I/s6F7yKUDdtMsoBWXJe8Qz40Tui5vsuKCWJEWVL+5q9sSWRzzx6v2KeNsOBEwd94j0eWkpWCH4yB6rZg9Mf0w==}
     engines: {node: '>=8.0.0'}
 
-  '@opentelemetry/core@1.21.0':
-    resolution: {integrity: sha512-KP+OIweb3wYoP7qTYL/j5IpOlu52uxBv5M4+QhSmmUfLyTgu1OIS71msK3chFo1D6Y61BIH3wMiMYRCxJCQctA==}
+  '@opentelemetry/core@1.24.0':
+    resolution: {integrity: sha512-FP2oN7mVPqcdxJDTTnKExj4mi91EH+DNuArKfHTjPuJWe2K1JfMIVXNfahw1h3onJxQnxS8K0stKkogX05s+Aw==}
     engines: {node: '>=14'}
     peerDependencies:
-      '@opentelemetry/api': '>=1.0.0 <1.8.0'
+      '@opentelemetry/api': '>=1.0.0 <1.9.0'
 
-  '@opentelemetry/resources@1.21.0':
-    resolution: {integrity: sha512-1Z86FUxPKL6zWVy2LdhueEGl9AHDJcx+bvHStxomruz6Whd02mE3lNUMjVJ+FGRoktx/xYQcxccYb03DiUP6Yw==}
+  '@opentelemetry/resources@1.24.0':
+    resolution: {integrity: sha512-mxC7E7ocUS1tLzepnA7O9/G8G6ZTdjCH2pXme1DDDuCuk6n2/53GADX+GWBuyX0dfIxeMInIbJAdjlfN9GNr6A==}
     engines: {node: '>=14'}
     peerDependencies:
-      '@opentelemetry/api': '>=1.0.0 <1.8.0'
+      '@opentelemetry/api': '>=1.0.0 <1.9.0'
 
-  '@opentelemetry/sdk-metrics@1.21.0':
-    resolution: {integrity: sha512-on1jTzIHc5DyWhRP+xpf+zrgrREXcHBH4EDAfaB5mIG7TWpKxNXooQ1JCylaPsswZUv4wGnVTinr4HrBdGARAQ==}
+  '@opentelemetry/sdk-metrics@1.24.0':
+    resolution: {integrity: sha512-4tJ+E6N019OZVB/nUW/LoK9xHxfeh88TCoaTqHeLBE9wLYfi6irWW6J9cphMav7J8Qk0D5b7/RM4VEY4dArWOA==}
     engines: {node: '>=14'}
     peerDependencies:
-      '@opentelemetry/api': '>=1.3.0 <1.8.0'
+      '@opentelemetry/api': '>=1.3.0 <1.9.0'
 
-  '@opentelemetry/semantic-conventions@1.21.0':
-    resolution: {integrity: sha512-lkC8kZYntxVKr7b8xmjCVUgE0a8xgDakPyDo9uSWavXPyYqLgYYGdEd2j8NxihRyb6UwpX3G/hFUF4/9q2V+/g==}
+  '@opentelemetry/semantic-conventions@1.24.0':
+    resolution: {integrity: sha512-yL0jI6Ltuz8R+Opj7jClGrul6pOoYrdfVmzQS4SITXRPH7I5IRZbrwe/6/v8v4WYMa6MYZG480S1+uc/IGfqsA==}
     engines: {node: '>=14'}
 
   '@pkgjs/parseargs@0.11.0':
@@ -1604,8 +1604,8 @@ packages:
   breadth-filter@2.0.0:
     resolution: {integrity: sha512-thQShDXnFWSk2oVBixRCyrWsFoV5tfOpWKHmxwafHQDNxCfDBk539utpvytNjmlFrTMqz41poLwJvA1MW3z0MQ==}
 
-  bson@6.3.0:
-    resolution: {integrity: sha512-balJfqwwTBddxfnidJZagCBPP/f48zj9Sdp3OJswREOgsJzHiQSaOIAtApSgDQFYgHqAvFkp53AFSqjMDZoTFw==}
+  bson@6.6.0:
+    resolution: {integrity: sha512-BVINv2SgcMjL4oYbBuCQTpE3/VKOSxrOA8Cj/wQP7izSzlBGVomdm+TcUd0Pzy0ytLSSDweCKQ6X3f5veM5LQA==}
     engines: {node: '>=16.20.1'}
 
   buffer-equal-constant-time@1.0.1:
@@ -1699,8 +1699,8 @@ packages:
     resolution: {integrity: sha512-NIxF55hv4nSqQswkAeiOi1r83xy8JldOFDTWiug55KBu9Jnblncd2U6ViHmYgHf01TPZS77NJBhBMKdWj9HQMQ==}
     engines: {node: '>=8'}
 
-  cjs-module-lexer@1.2.3:
-    resolution: {integrity: sha512-0TNiGstbQmCFwt4akjjBg5pLRTSyj/PkWQ1ZoO2zntmg9yLqSRxwEa4iCfQLGjqhiqBfOJa7W/E8wfGrTDmlZQ==}
+  cjs-module-lexer@1.3.1:
+    resolution: {integrity: sha512-a3KdPAANPbNE4ZUv9h6LckSl9zLsYOP4MBmhIPkRaeyybt+r4UghLvq+xw/YwUcC1gqylCkL4rdVs3Lwupjm4Q==}
 
   cli-cursor@3.1.0:
     resolution: {integrity: sha512-I/zHAwsKf9FqGoXM4WWRACob9+SNukZTd94DWF57E4toouRulbCxcUh6RKUEOQlYTHJnzkPMySvPNaaSLNfLZw==}
@@ -1918,8 +1918,8 @@ packages:
   dateformat@4.6.3:
     resolution: {integrity: sha512-2P0p0pFGzHS5EMnhdxQi7aJN+iMheud0UhG4dlE1DLAlvL8JHjJJTX/CSm4JXwV0Ka5nGk3zC5mcb5bUQUxxMA==}
 
-  dayjs@1.11.10:
-    resolution: {integrity: sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==}
+  dayjs@1.11.11:
+    resolution: {integrity: sha512-okzr3f11N6WuqYtZSvm+F776mB41wRZMhKP+hc34YdW+KmtYYK9iqvHSwo2k9FEH3fhGXvOPV6yz2IcSrfRUDg==}
 
   debug@2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
@@ -2149,6 +2149,10 @@ packages:
     resolution: {integrity: sha512-Zf5H2Kxt2xjTvbJvP2ZWLEICxA6j+hAmMzIlypy4xcBg1vKVnx89Wy0GbS+kf5cwCVFFzdCFh2XSCFNULS6csw==}
     engines: {node: '>= 0.4'}
 
+  es-object-atoms@1.0.0:
+    resolution: {integrity: sha512-MZ4iQ6JwHOBQjahnjwaC1ZtIBH+2ohjamzAO3oaHcXYup7qxjF2fixyH+Q71voWHeOkI2q/TnJao/KfXYIZWbw==}
+    engines: {node: '>= 0.4'}
+
   es-set-tostringtag@2.0.3:
     resolution: {integrity: sha512-3T8uNMC3OQTHkFUsFq8r/BwAXLHvU/9O9mE0fBc/MY5iq/8H7ncvO947LmYA6ldWw9Uh8Yhf25zu6n7nML5QWQ==}
     engines: {node: '>= 0.4'}
@@ -2359,8 +2363,8 @@ packages:
     resolution: {integrity: sha512-FChq8hbz65WMj4rstcQsFB0O7Cy++nmbNfLYnD9cYv2cRn8EG6k/MGn9kO/tjO66t09DLDugj3yL+V2o6Qftrg==}
     engines: {node: '>=10.0'}
 
-  fast-redact@3.3.0:
-    resolution: {integrity: sha512-6T5V1QK1u4oF+ATxs1lWUmlEk6P2T9HqJG3e2DnHOdVgZy2rFJBoEnrIedcTXlkAHU/zKC+7KETJ+KGGKwxgMQ==}
+  fast-redact@3.5.0:
+    resolution: {integrity: sha512-dwsoQlS7h9hMeYUq1W++23NDcBLV4KqONnITDV9DjfS3q1SgDGVrBdvvTLUotWtPSD7asWDV9/CmsZPy8Hf70A==}
     engines: {node: '>=6'}
 
   fast-safe-stringify@2.1.1:
@@ -3021,8 +3025,8 @@ packages:
   jws@3.2.2:
     resolution: {integrity: sha512-YHlZCB6lMTllWDtSPHz/ZXTsi8S00usEV6v1tjq8tOUZzw7DpSDWVXjXDre6ed1w/pd495ODpHZYSdkRTsa0HA==}
 
-  kareem@2.5.1:
-    resolution: {integrity: sha512-7jFxRVm+jD+rkq3kY0iZDJfsO2/t4BBPeEb2qKn2lR/9KhuksYk5hxzfRYWMPV8P/x2d0kHD306YyWLzjjH+uA==}
+  kareem@2.6.3:
+    resolution: {integrity: sha512-C3iHfuGUXK2u8/ipq9LfjFfXFxAZMQJJq7vLS45r3D9Y2xQ/m4S8zaR4zMLFWh9AsNPXmcFfUDhTEO8UIC/V6Q==}
     engines: {node: '>=12.0.0'}
 
   keygrip@1.1.0:
@@ -3328,8 +3332,8 @@ packages:
   mongodb-connection-string-url@3.0.0:
     resolution: {integrity: sha512-t1Vf+m1I5hC2M5RJx/7AtxgABy1cZmIPQRMXw+gEIPn/cZNF3Oiy+l0UIypUwVB5trcWHq3crg2g3uAR9aAwsQ==}
 
-  mongodb@6.3.0:
-    resolution: {integrity: sha512-tt0KuGjGtLUhLoU263+xvQmPHEGTw5LbcNC73EoFRYgSHwZt5tsoJC110hDyO1kjQzpgNrpdcSza9PknWN4LrA==}
+  mongodb@6.5.0:
+    resolution: {integrity: sha512-Fozq68InT+JKABGLqctgtb8P56pRrJFkbhW0ux+x1mdHeyinor8oNzJqwLjV/t5X5nJGfTlluxfyMnOXNggIUA==}
     engines: {node: '>=16.20.1'}
     peerDependencies:
       '@aws-sdk/credential-providers': ^3.188.0
@@ -3355,8 +3359,8 @@ packages:
       socks:
         optional: true
 
-  mongoose@8.2.0:
-    resolution: {integrity: sha512-la93n6zCYRbPS+c5N9oTDAktvREy5OT9OCljp1Tah0y3+p8UPMTAoabWaLZMdzYruOtF9/9GRf6MasaZjiZP1A==}
+  mongoose@8.3.3:
+    resolution: {integrity: sha512-3kSk0db9DM2tLttCdS6WNRqewPleamFEa4Vz/Qldc0dB4Zow/FiZxb9GExHTJjBZQ9T2xiGleQ3GzRrES3hhsA==}
     engines: {node: '>=16.20.1'}
 
   monitor-event-loop-delay@1.0.0:
@@ -3483,8 +3487,8 @@ packages:
     resolution: {integrity: sha512-byy+U7gp+FVwmyzKPYhW2h5l3crpmGsxl7X2s8y43IgxvG4g3QZ6CffDtsNQy1WsmZpQbO+ybo0AlW7TY6DcBQ==}
     engines: {node: '>= 0.4'}
 
-  object.entries@1.1.7:
-    resolution: {integrity: sha512-jCBs/0plmPsOnrKAfFQXRG2NFjlhZgjjcBLSmTnEhU8U6vVTsVe8ANeQJCHTl3gSsI4J+0emOoCgoKlmQPMgmA==}
+  object.entries@1.1.8:
+    resolution: {integrity: sha512-cmopxi8VwRIAw/fkijJohSfpef5PdN0pMQJN6VC/ZKvn0LIknWD8KtgY6KlQdEc4tIjcQ3HxSMmnvtzIscdaYQ==}
     engines: {node: '>= 0.4'}
 
   object.fromentries@2.0.7:
@@ -3874,8 +3878,8 @@ packages:
     resolution: {integrity: sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==}
     engines: {node: '>=0.10.0'}
 
-  require-in-the-middle@7.2.0:
-    resolution: {integrity: sha512-3TLx5TGyAY6AOqLBoXmHkNql0HIf2RGbuMgCDT2WO/uGVAPJs6h7Kl+bN6TIZGd9bWhWPwnDnTHGtW8Iu77sdw==}
+  require-in-the-middle@7.3.0:
+    resolution: {integrity: sha512-nQFEv9gRw6SJAwWD2LrL0NmQvAcO7FBwJbwmr2ttPAacfy0xuiOjE5zt+zM4xDyuyvUaxBi/9gb2SoCyNEVJcw==}
     engines: {node: '>=8.6.0'}
 
   requires-port@1.0.0:
@@ -4622,8 +4626,8 @@ packages:
   wide-align@1.1.5:
     resolution: {integrity: sha512-eDMORYaPNZ4sQIuuYPDHdQvf4gyCF9rEEV/yPxGfwPkRodwEgiMUUXTx/dex+Me0wxx53S+NgUHaP7y3MGlDmg==}
 
-  winston-elasticsearch@0.17.4:
-    resolution: {integrity: sha512-smPDzR2gtAAQ2LibjoJF5aKOeH2sj8KPK7KKVsAncQRUFWjKpih5B6aAelCMc8svBKeCX+QQjE7DXG8B0VgN2A==}
+  winston-elasticsearch@0.18.0:
+    resolution: {integrity: sha512-2b6t/tZL/pvy/ELE56RdCquWjquK3SUoIdhl7OgCT/nGGriqB4CUhLcFVPcvTKoThBokSNPHggkw5TT4NhqDFQ==}
     engines: {node: '>= 8.0.0'}
 
   winston-transport@4.7.0:
@@ -4996,16 +5000,16 @@ snapshots:
 
   '@fastify/busboy@2.1.1': {}
 
-  '@francislagares/jobber-shared@1.0.2':
+  '@francislagares/jobber-shared@1.0.3':
     dependencies:
       '@elastic/elasticsearch': 8.13.1
       cloudinary: 2.2.0
       express: 4.19.2
       http-status-codes: 2.3.0
       jsonwebtoken: 9.0.2
-      mongoose: 8.2.0
+      mongoose: 8.3.3
       winston: 3.13.0
-      winston-elasticsearch: 0.17.4
+      winston-elasticsearch: 0.18.0
     transitivePeerDependencies:
       - '@aws-sdk/credential-providers'
       - '@mongodb-js/zstd'
@@ -5146,7 +5150,7 @@ snapshots:
     dependencies:
       make-plural: 7.3.0
 
-  '@mongodb-js/saslprep@1.1.4':
+  '@mongodb-js/saslprep@1.1.5':
     dependencies:
       sparse-bitfield: 3.0.3
 
@@ -5162,31 +5166,31 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
 
-  '@opentelemetry/api@1.7.0':
+  '@opentelemetry/api@1.8.0':
     optional: true
 
-  '@opentelemetry/core@1.21.0(@opentelemetry/api@1.7.0)':
+  '@opentelemetry/core@1.24.0(@opentelemetry/api@1.8.0)':
     dependencies:
-      '@opentelemetry/api': 1.7.0
-      '@opentelemetry/semantic-conventions': 1.21.0
+      '@opentelemetry/api': 1.8.0
+      '@opentelemetry/semantic-conventions': 1.24.0
     optional: true
 
-  '@opentelemetry/resources@1.21.0(@opentelemetry/api@1.7.0)':
+  '@opentelemetry/resources@1.24.0(@opentelemetry/api@1.8.0)':
     dependencies:
-      '@opentelemetry/api': 1.7.0
-      '@opentelemetry/core': 1.21.0(@opentelemetry/api@1.7.0)
-      '@opentelemetry/semantic-conventions': 1.21.0
+      '@opentelemetry/api': 1.8.0
+      '@opentelemetry/core': 1.24.0(@opentelemetry/api@1.8.0)
+      '@opentelemetry/semantic-conventions': 1.24.0
     optional: true
 
-  '@opentelemetry/sdk-metrics@1.21.0(@opentelemetry/api@1.7.0)':
+  '@opentelemetry/sdk-metrics@1.24.0(@opentelemetry/api@1.8.0)':
     dependencies:
-      '@opentelemetry/api': 1.7.0
-      '@opentelemetry/core': 1.21.0(@opentelemetry/api@1.7.0)
-      '@opentelemetry/resources': 1.21.0(@opentelemetry/api@1.7.0)
+      '@opentelemetry/api': 1.8.0
+      '@opentelemetry/core': 1.24.0(@opentelemetry/api@1.8.0)
+      '@opentelemetry/resources': 1.24.0(@opentelemetry/api@1.8.0)
       lodash.merge: 4.6.2
     optional: true
 
-  '@opentelemetry/semantic-conventions@1.21.0':
+  '@opentelemetry/semantic-conventions@1.24.0':
     optional: true
 
   '@pkgjs/parseargs@0.11.0':
@@ -5852,10 +5856,10 @@ snapshots:
 
   breadth-filter@2.0.0:
     dependencies:
-      object.entries: 1.1.7
+      object.entries: 1.1.8
     optional: true
 
-  bson@6.3.0: {}
+  bson@6.6.0: {}
 
   buffer-equal-constant-time@1.0.1: {}
 
@@ -5980,7 +5984,7 @@ snapshots:
 
   ci-info@3.9.0: {}
 
-  cjs-module-lexer@1.2.3:
+  cjs-module-lexer@1.3.1:
     optional: true
 
   cli-cursor@3.1.0:
@@ -6244,7 +6248,7 @@ snapshots:
 
   dateformat@4.6.3: {}
 
-  dayjs@1.11.10: {}
+  dayjs@1.11.11: {}
 
   debug@2.6.9:
     dependencies:
@@ -6380,9 +6384,9 @@ snapshots:
   elastic-apm-node@3.51.0:
     dependencies:
       '@elastic/ecs-pino-format': 1.5.0
-      '@opentelemetry/api': 1.7.0
-      '@opentelemetry/core': 1.21.0(@opentelemetry/api@1.7.0)
-      '@opentelemetry/sdk-metrics': 1.21.0(@opentelemetry/api@1.7.0)
+      '@opentelemetry/api': 1.8.0
+      '@opentelemetry/core': 1.24.0(@opentelemetry/api@1.8.0)
+      '@opentelemetry/sdk-metrics': 1.24.0(@opentelemetry/api@1.8.0)
       after-all-results: 2.0.0
       agentkeepalive: 4.5.0
       async-cache: 1.1.0
@@ -6410,7 +6414,7 @@ snapshots:
       pino: 6.14.0
       readable-stream: 3.6.2
       relative-microtime: 2.0.0
-      require-in-the-middle: 7.2.0
+      require-in-the-middle: 7.3.0
       semver: 6.3.1
       shallow-clone-shim: 2.0.0
       source-map: 0.8.0-beta.0
@@ -6572,6 +6576,11 @@ snapshots:
       get-intrinsic: 1.2.4
 
   es-errors@1.3.0: {}
+
+  es-object-atoms@1.0.0:
+    dependencies:
+      es-errors: 1.3.0
+    optional: true
 
   es-set-tostringtag@2.0.3:
     dependencies:
@@ -6877,7 +6886,7 @@ snapshots:
     dependencies:
       boolean: 3.2.0
 
-  fast-redact@3.3.0:
+  fast-redact@3.5.0:
     optional: true
 
   fast-safe-stringify@2.1.1: {}
@@ -7281,7 +7290,7 @@ snapshots:
     dependencies:
       acorn: 8.11.3
       acorn-import-assertions: 1.9.0(acorn@8.11.3)
-      cjs-module-lexer: 1.2.3
+      cjs-module-lexer: 1.3.1
       module-details-from-path: 1.0.3
     optional: true
 
@@ -7594,7 +7603,7 @@ snapshots:
       jwa: 1.4.1
       safe-buffer: 5.2.1
 
-  kareem@2.5.1: {}
+  kareem@2.6.3: {}
 
   keygrip@1.1.0:
     dependencies:
@@ -7903,17 +7912,17 @@ snapshots:
       '@types/whatwg-url': 11.0.4
       whatwg-url: 13.0.0
 
-  mongodb@6.3.0:
+  mongodb@6.5.0:
     dependencies:
-      '@mongodb-js/saslprep': 1.1.4
-      bson: 6.3.0
+      '@mongodb-js/saslprep': 1.1.5
+      bson: 6.6.0
       mongodb-connection-string-url: 3.0.0
 
-  mongoose@8.2.0:
+  mongoose@8.3.3:
     dependencies:
-      bson: 6.3.0
-      kareem: 2.5.1
-      mongodb: 6.3.0
+      bson: 6.6.0
+      kareem: 2.6.3
+      mongodb: 6.5.0
       mpath: 0.9.0
       mquery: 5.0.0
       ms: 2.1.3
@@ -8016,7 +8025,7 @@ snapshots:
 
   object-identity-map@1.0.2:
     dependencies:
-      object.entries: 1.1.7
+      object.entries: 1.1.8
     optional: true
 
   object-inspect@1.13.1: {}
@@ -8030,11 +8039,11 @@ snapshots:
       has-symbols: 1.0.3
       object-keys: 1.1.1
 
-  object.entries@1.1.7:
+  object.entries@1.1.8:
     dependencies:
       call-bind: 1.0.7
       define-properties: 1.2.1
-      es-abstract: 1.22.4
+      es-object-atoms: 1.0.0
     optional: true
 
   object.fromentries@2.0.7:
@@ -8250,7 +8259,7 @@ snapshots:
 
   pino@6.14.0:
     dependencies:
-      fast-redact: 3.3.0
+      fast-redact: 3.5.0
       fast-safe-stringify: 2.1.1
       flatstr: 1.0.12
       pino-std-serializers: 3.2.0
@@ -8488,7 +8497,7 @@ snapshots:
 
   require-from-string@2.0.2: {}
 
-  require-in-the-middle@7.2.0:
+  require-in-the-middle@7.3.0:
     dependencies:
       debug: 4.3.4
       module-details-from-path: 1.0.3
@@ -9271,10 +9280,10 @@ snapshots:
     dependencies:
       string-width: 4.2.3
 
-  winston-elasticsearch@0.17.4:
+  winston-elasticsearch@0.18.0:
     dependencies:
       '@elastic/elasticsearch': 8.13.1
-      dayjs: 1.11.10
+      dayjs: 1.11.11
       debug: 4.3.4
       lodash.defaults: 4.2.0
       lodash.omit: 4.5.0
