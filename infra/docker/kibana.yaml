@@ -8,7 +8,7 @@ server.port: 5601
 monitoring.ui.container.elasticsearch.enabled: true
 xpack.fleet.enabled: true
 xpack.fleet.agents.enabled: true
-xpack.fleet.agents.elasticsearch.hosts: ["http://elasticsearch:9200"]
+xpack.fleet.agents.elasticsearch.hosts: ["https://elasticsearch:9200"]
 xpack.fleet.agents.fleet_server.hosts: ["http://fleet_server:9243"]
 xpack.reporting.roles.enabled: true
 
