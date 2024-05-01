@@ -30,18 +30,6 @@ class AuthService {
     return response;
   }
 
-  async changePassword(
-    currentPassword: string,
-    newPassword: string,
-  ): Promise<AxiosResponse> {
-    const response = await axiosAuthInstance.put('/change-password/', {
-      currentPassword,
-      newPassword,
-    });
-
-    return response;
-  }
-
   async signUp(body: Auth) {
     const response = await this.axiosService.axios.post('/signup', body);
 
@@ -65,6 +53,18 @@ class AuthService {
     email: string;
   }): Promise<AxiosResponse> {
     const response = await axiosAuthInstance.post('/resend-email', data);
+
+    return response;
+  }
+
+  async changePassword(
+    currentPassword: string,
+    newPassword: string,
+  ): Promise<AxiosResponse> {
+    const response = await axiosAuthInstance.put('/change-password/', {
+      currentPassword,
+      newPassword,
+    });
 
     return response;
   }

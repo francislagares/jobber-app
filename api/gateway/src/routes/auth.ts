@@ -15,6 +15,9 @@ class AuthRoutes {
     this.router.post('/auth/signup', authController.signUp);
     this.router.post('/auth/signin', authController.signIn);
     this.router.put('/auth/verify-email', authController.verifyEmail);
+    this.router.put('/auth/forgot-password', authController.forgotPassword);
+    this.router.put('/auth/reset-password', authController.resetPassword);
+    this.router.put('/auth/change-password', authController.changePassword);
 
     return this.router;
   }
