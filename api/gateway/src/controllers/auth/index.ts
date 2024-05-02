@@ -6,6 +6,7 @@ import { authService } from '@gateway/services/auth';
 class AuthController {
   public async signUp(req: Request, res: Response): Promise<void> {
     const response = await authService.signUp(req.body);
+
     req.session = { jwt: response.data.token };
     res
       .status(StatusCodes.CREATED)
@@ -14,6 +15,16 @@ class AuthController {
 
   public async signIn(req: Request, res: Response): Promise<void> {
     const response = await authService.signIn(req.body);
+
+    req.session = { jwt: response.data.token };
+    res
+      .status(StatusCodes.OK)
+      .json({ message: response.data.message, user: response.data.user });
+  }
+
+  public async refreshToken(req: Request, res: Response): Promise<void> {
+    const response = await authService.getRefreshToken(req.params.username);
+
     req.session = { jwt: response.data.token };
     res
       .status(StatusCodes.OK)

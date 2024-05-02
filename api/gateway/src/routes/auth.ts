@@ -15,6 +15,11 @@ class AuthRoutes {
 
     this.router.post('/auth/signup', authController.signUp);
     this.router.post('/auth/signin', authController.signIn);
+    this.router.post(
+      'auth/refresh-token/:username',
+      authMiddleware.checkAuthentication,
+      authController.refreshToken,
+    );
     this.router.get(
       '/current-user',
       authMiddleware.verifyUser,
