@@ -25,7 +25,7 @@ import {
 
 import { config } from '@authentication/config';
 import { MySqlDBInstance as dbConnection } from '@authentication/config/database';
-import { checkConnection } from '@authentication/elastic';
+import { checkConnection, createIndex } from '@authentication/elastic';
 import { createConnection } from '@authentication/queues/connection';
 import { appRoutes } from '@authentication/routes';
 
@@ -85,6 +85,7 @@ export const startQueues = async (): Promise<void> => {
 
 export const startElasticSearch = (): void => {
   checkConnection();
+  createIndex('gigs');
 };
 
 export const authErrorHandler = (app: Application): void => {
