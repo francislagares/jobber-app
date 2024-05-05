@@ -64,8 +64,8 @@ export const resendEmail = async (
 
   const updatedUser = await getAuthUserById(parseInt(userId));
 
-  res.status(StatusCodes.CREATED).json({
-    message: 'User created successfully.',
+  res.status(StatusCodes.OK).json({
+    message: 'Email verification sent',
     user: updatedUser,
   });
 };

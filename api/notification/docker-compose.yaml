@@ -16,7 +16,7 @@ services:
       - RABBITMQ_ENDPOINT=amqp://jobber:jobberpass@rabbitmq:5672
       - SENDER_EMAIL=jovani.lockman@ethereal.email
       - SENDER_EMAIL_PASSWORD=kFSHJ5fZvffh3ZfVNz
-      - ELASTIC_SEARCH_URL=http://elasticsearch:9200
+      - ELASTIC_SEARCH_URL=https://elasticsearch:9200
       - ELASTIC_APM_SERVER_URL=http://localhost:8200
       - ELASTIC_APM_SECRET_TOKEN=
     depends_on:

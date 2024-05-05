@@ -46,6 +46,11 @@ services:
       service: api-gateway
       file: api/gateway/docker-compose.yaml
 
+  authentication:
+    extends:
+      service: authentication
+      file: api/authentication/docker-compose.yaml
+
   notification:
     extends:
       service: notification

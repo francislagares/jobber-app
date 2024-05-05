@@ -1,7 +1,7 @@
 version: '3.9'
 
 services:
-  api-gateway:
+  authentication:
     container_name: authentication
     build:
       context: .
@@ -24,8 +24,9 @@ services:
       - ORDER_BASE_URL=http://localhost:4006
       - REVIEW_BASE_URL=http://localhost:4007
       - REDIS_HOST=redis://redis_container:6379
-      - ELASTIC_SEARCH_URL=http://elasticsearch:9200
+      - ELASTIC_SEARCH_URL=https://elasticsearch:9200
       - ELASTIC_APM_SERVER_URL=http://localhost:8200
       - ELASTIC_APM_SECRET_TOKEN=
     depends_on:
       - elasticsearch
+      - mysql
