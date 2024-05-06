@@ -147,6 +147,9 @@ importers:
       jsonwebtoken:
         specifier: ^9.0.2
         version: 9.0.2
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
       pino-pretty:
         specifier: ^11.0.0
         version: 11.0.0
@@ -187,6 +190,9 @@ importers:
       '@types/jsonwebtoken':
         specifier: ^9.0.6
         version: 9.0.6
+      '@types/lodash':
+        specifier: ^4.17.1
+        version: 4.17.1
       '@types/node':
         specifier: ^20.12.7
         version: 20.12.7
@@ -1218,6 +1224,9 @@ packages:
 
   '@types/keygrip@1.0.6':
     resolution: {integrity: sha512-lZuNAY9xeJt7Bx4t4dx0rYCDqGPW8RXhQZK1td7d4H6E9zYbLoOtjBvfwdTKpsyxQI/2jv+armjX/RW+ZNpXOQ==}
+
+  '@types/lodash@4.17.1':
+    resolution: {integrity: sha512-X+2qazGS3jxLAIz5JDXDzglAF3KpijdhFxlf/V1+hEsOUc+HnWi81L/uv/EvGuV90WY+7mPGFCUDGfQC3Gj95Q==}
 
   '@types/mime@1.3.5':
     resolution: {integrity: sha512-/pyBZWSLD2n0dcHE3hq8s8ZvcETHtEuF+3E7XVt0Ig2nvsVQXdghHVcEkIWjy9A0wKfTn97a/PSDYohKIlnP/w==}
@@ -5376,6 +5385,8 @@ snapshots:
       '@types/node': 20.12.7
 
   '@types/keygrip@1.0.6': {}
+
+  '@types/lodash@4.17.1': {}
 
   '@types/mime@1.3.5': {}
 
