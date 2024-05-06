@@ -1,5 +1,8 @@
 import { Client } from '@elastic/elasticsearch';
-import { ClusterHealthResponse } from '@elastic/elasticsearch/lib/api/types';
+import {
+  ClusterHealthResponse,
+  GetResponse,
+} from '@elastic/elasticsearch/lib/api/types';
 import { Logger } from 'winston';
 
 import { winstonLogger } from '@francislagares/jobber-shared';
@@ -56,5 +59,24 @@ export const createIndex = async (indexName: string): Promise<void> => {
   } catch (error) {
     logger.error(`An error occurred while creating the index ${indexName}`);
     logger.log('error', 'AuthService createIndex() method error:', error);
+  }
+};
+
+export const getDocumentById = async (index: string, gigId: string) => {
+  try {
+    const result: GetResponse = await elasticSearchClient.get({
+      index,
+      id: gigId,
+    });
+
+    return result._source;
+  } catch (error) {
+    logger.log(
+      'error',
+      'AuthService elasticsearch getDocumentById() method error:',
+      error,
+    );
+
+    return {};
   }
 };
