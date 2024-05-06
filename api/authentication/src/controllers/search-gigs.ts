@@ -4,7 +4,7 @@ import { sortBy } from 'lodash';
 
 import { PaginateProps, SearchResult } from '@francislagares/jobber-shared';
 
-import { gigsSearch } from '@authentication/services/search.service';
+import { gigById, gigsSearch } from '@authentication/services/search.service';
 
 export const searchGigs = async (
   req: Request,
@@ -36,4 +36,13 @@ export const searchGigs = async (
   res
     .status(StatusCodes.OK)
     .json({ message: 'Search gigs results', total: gigs.total, gigs: hits });
+};
+
+export const searchGigById = async (
+  req: Request,
+  res: Response,
+): Promise<void> => {
+  const gig = await gigById('gigs', req.params.gigId);
+
+  res.status(StatusCodes.OK).json({ message: 'Single gig result', gig });
 };
