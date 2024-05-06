@@ -5,7 +5,7 @@ import {
 } from '@elastic/elasticsearch/lib/api/types';
 import { Logger } from 'winston';
 
-import { winstonLogger } from '@francislagares/jobber-shared';
+import { SellerGig, winstonLogger } from '@francislagares/jobber-shared';
 
 import { config } from '@authentication/config';
 
@@ -15,7 +15,7 @@ const logger: Logger = winstonLogger(
   'debug',
 );
 
-const elasticSearchClient = new Client({
+export const elasticSearchClient = new Client({
   node: `${config.ELASTIC_SEARCH_URL}`,
 });
 
@@ -62,14 +62,17 @@ export const createIndex = async (indexName: string): Promise<void> => {
   }
 };
 
-export const getDocumentById = async (index: string, gigId: string) => {
+export const getDocumentById = async (
+  index: string,
+  gigId: string,
+): Promise<SellerGig> => {
   try {
     const result: GetResponse = await elasticSearchClient.get({
       index,
       id: gigId,
     });
 
-    return result._source;
+    return result._source as SellerGig;
   } catch (error) {
     logger.log(
       'error',
@@ -77,6 +80,6 @@ export const getDocumentById = async (index: string, gigId: string) => {
       error,
     );
 
-    return {};
+    return {} as SellerGig;
   }
 };
