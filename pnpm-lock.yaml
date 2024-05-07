@@ -102,6 +102,9 @@ importers:
       '@elastic/elasticsearch':
         specifier: ^8.13.1
         version: 8.13.1
+      '@faker-js/faker':
+        specifier: ^8.4.1
+        version: 8.4.1
       '@francislagares/jobber-shared':
         specifier: ^1.0.3
         version: 1.0.3
@@ -156,6 +159,9 @@ importers:
       prisma:
         specifier: ^5.13.0
         version: 5.13.0
+      unique-username-generator:
+        specifier: ^1.3.0
+        version: 1.3.0
       uuid:
         specifier: ^9.0.1
         version: 9.0.1
@@ -733,6 +739,10 @@ packages:
   '@eslint/js@9.1.1':
     resolution: {integrity: sha512-5WoDz3Y19Bg2BnErkZTp0en+c/i9PvgFS7MBe1+m60HjFr0hrphlAGp4yzI7pxpt4xShln4ZyYp4neJm8hmOkQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@faker-js/faker@8.4.1':
+    resolution: {integrity: sha512-XQ3cU+Q8Uqmrbf2e0cIC/QN43sTBSC8KF12u29Mb47tWrt2hAgBXSgpZMj4Ao8Uk0iJcU99QsOCaIL8934obCg==}
+    engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0, npm: '>=6.14.13'}
 
   '@fastify/busboy@2.1.1':
     resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
@@ -4472,6 +4482,9 @@ packages:
     resolution: {integrity: sha512-lRfVq8fE8gz6QMBuDM6a+LO3IAzTi05H6gCVaUpir2E1Rwpo4ZUog45KpNXKC/Mn3Yb9UDuHumeFTo9iV/D9FQ==}
     engines: {node: '>=18'}
 
+  unique-username-generator@1.3.0:
+    resolution: {integrity: sha512-oPs+Jq9UlXmcrpzrpYvWOWVUVLkJ0/x8zM66ikWEBe1l/hBqXS5fofsDvdScLIlPtqQKlu8/Y91b6T2XtIFubQ==}
+
   universalify@2.0.1:
     resolution: {integrity: sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==}
     engines: {node: '>= 10.0.0'}
@@ -5006,6 +5019,8 @@ snapshots:
       - supports-color
 
   '@eslint/js@9.1.1': {}
+
+  '@faker-js/faker@8.4.1': {}
 
   '@fastify/busboy@2.1.1': {}
 
@@ -9114,6 +9129,8 @@ snapshots:
     optional: true
 
   unicorn-magic@0.1.0: {}
+
+  unique-username-generator@1.3.0: {}
 
   universalify@2.0.1: {}
 

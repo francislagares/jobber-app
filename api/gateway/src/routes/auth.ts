@@ -1,6 +1,7 @@
 import express, { Router } from 'express';
 
 import AuthController from '@gateway/controllers/auth';
+import { AuthSeed } from '@gateway/controllers/auth/seed';
 import { authMiddleware } from '@gateway/middleware/auth';
 
 class AuthRoutes {
@@ -12,6 +13,7 @@ class AuthRoutes {
 
   public routes(): Router {
     const authController = new AuthController();
+    const authSeed = new AuthSeed();
 
     this.router.post('/auth/signup', authController.signUp);
     this.router.post('/auth/signin', authController.signIn);
@@ -36,6 +38,8 @@ class AuthRoutes {
     this.router.put('/auth/forgot-password', authController.forgotPassword);
     this.router.put('/auth/reset-password', authController.resetPassword);
     this.router.put('/auth/change-password', authController.changePassword);
+
+    this.router.post('/auth/seed/:count', authSeed.createAuthUsers);
 
     return this.router;
   }

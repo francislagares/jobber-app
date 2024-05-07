@@ -70,7 +70,7 @@ class AuthService {
   }
 
   async forgotPassword(email: string): Promise<AxiosResponse> {
-    const response = await this.axiosService.axios.put('forgot-password/', {
+    const response = await this.axiosService.axios.put('/forgot-password/', {
       email,
     });
 
@@ -83,7 +83,7 @@ class AuthService {
     confirmPassword: string,
   ): Promise<AxiosResponse> {
     const response = await this.axiosService.axios.put(
-      `reset-password/${token}`,
+      `/reset-password/${token}`,
       {
         password,
         confirmPassword,
@@ -94,7 +94,7 @@ class AuthService {
   }
 
   async seed(count: string): Promise<AxiosResponse> {
-    const response = await this.axiosService.axios.get(`seeds/${count}`);
+    const response = await this.axiosService.axios.post(`/seed/${count}`);
 
     return response;
   }
