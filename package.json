@@ -15,8 +15,9 @@
   "scripts": {
     "gateway": "pnpm --filter=gateway dev",
     "auth": "pnpm --filter=authentication dev",
+    "users": "pnpm --filter=users dev",
     "notification": "pnpm --filter=notification dev",
-    "start": "concurrently --kill-others-on-fail \"pnpm gateway\"  \"pnpm auth\" \"pnpm notification\"",
+    "start": "concurrently --kill-others-on-fail \"pnpm auth\"  \"pnpm users\" \"pnpm notification\" \"pnpm gateway\"",
     "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json && ts-node api/notification/tools/copyAssets.ts",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit",
     "lint": "eslint --fix",
@@ -29,16 +30,16 @@
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
-    "@eslint/js": "^9.1.1",
-    "@types/node": "^20.12.7",
+    "@eslint/js": "^9.2.0",
+    "@types/node": "^20.12.11",
     "@typescript-eslint/eslint-plugin": "^7.8.0",
     "@typescript-eslint/parser": "^7.8.0",
-    "@vitest/coverage-v8": "^1.5.3",
-    "@vitest/ui": "^1.5.3",
+    "@vitest/coverage-v8": "^1.6.0",
+    "@vitest/ui": "^1.6.0",
     "commitizen": "^4.3.0",
     "concurrently": "^8.2.2",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^9.1.1",
+    "eslint": "^9.2.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.1",
@@ -52,8 +53,8 @@
     "tsc-alias": "^1.8.8",
     "typescript": "^5.4.5",
     "typescript-eslint": "^7.8.0",
-    "vite": "^5.2.10",
-    "vitest": "^1.5.3",
+    "vite": "^5.2.11",
+    "vitest": "^1.6.0",
     "vitest-mock-extended": "^1.3.1"
   },
   "config": {
@@ -66,7 +67,7 @@
   },
   "engines": {
     "node": ">=22.0.0",
-    "pnpm": ">=9.0.0"
+    "pnpm": ">=9.1.0"
   },
-  "packageManager": "pnpm@9.0.6+sha256.0624e30eff866cdeb363b15061bdb7fd9425b17bc1bb42c22f5f4efdea21f6b3"
+  "packageManager": "pnpm@9.1.0+sha256.22e36fba7f4880ecf749a5ca128b8435da085ecd49575e7fb9e64d6bf4fad394"
 }

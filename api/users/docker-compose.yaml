@@ -1,14 +1,14 @@
 version: '3.9'
 
 services:
-  api-gateway:
-    container_name: api-gateway
+  users:
+    container_name: users
     build:
       context: .
       dockerfile: Dockerfile.dev
     restart: always
     ports:
-      - 4000:4000
+      - 4003:4003
     environment:
       - ENABLE_APM=0
       - GATEWAY_JWT_TOKEN=1282722b942e08c8a6cb033aa6ce850e

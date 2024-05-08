@@ -51,6 +51,16 @@ services:
       service: notification
       file: api/notification/docker-compose.yaml
 
+  authentication:
+    extends:
+      service: authentication
+      file: api/authentication/docker-compose.yaml
+
+  users:
+    extends:
+      service: users
+      file: api/users/docker-compose.yaml
+
 networks:
   elastic:
     name: elastic

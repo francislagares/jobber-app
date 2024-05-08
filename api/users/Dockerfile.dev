@@ -1,0 +1,19 @@
+FROM node:alpine
+
+RUN apk update && apk add --no-cache nodejs && corepack enable
+RUN addgroup jobber && adduser -S -G jobber users
+
+USER users
+
+WORKDIR /users
+
+COPY package.json tsconfig.json .npmrc ./
+COPY src ./src
+
+RUN ls -a
+RUN pnpm install
+
+EXPOSE 4003
+
+CMD [ "pnpm", "dev" ]
+
