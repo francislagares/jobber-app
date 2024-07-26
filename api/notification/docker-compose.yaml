@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   notification:
     container_name: notification
@@ -21,3 +19,5 @@ services:
       - ELASTIC_APM_SECRET_TOKEN=
     depends_on:
       - elasticsearch
+    networks:
+      - jobber_app

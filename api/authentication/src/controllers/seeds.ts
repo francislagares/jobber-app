@@ -9,7 +9,6 @@ import { generateUsername } from 'unique-username-generator';
 import { v4 as uuidV4 } from 'uuid';
 
 import {
-  AuthDocument,
   BadRequestError,
   firstLetterUppercase,
   toLowerCase,
@@ -32,8 +31,8 @@ export const createUsers = async (
     usernames.push(firstLetterUppercase(username));
   }
 
-  for (let i = 0; i < usernames.length; i++) {
-    const username = usernames[i];
+  for (const element of usernames) {
+    const username = element;
     const email = faker.internet.email();
     const password = 'qwerty';
     const country = faker.location.country();
@@ -51,7 +50,7 @@ export const createUsers = async (
     const profilePublicId = uuidV4();
     const randomBytes: Buffer = await Promise.resolve(crypto.randomBytes(20));
     const randomCharacters: string = randomBytes.toString('hex');
-    const authData: AuthDocument = {
+    const authData: Auth = {
       username: firstLetterUppercase(username),
       email: toLowerCase(email),
       profilePublicId,
@@ -60,7 +59,7 @@ export const createUsers = async (
       profilePicture,
       emailVerificationToken: randomCharacters,
       emailVerified: sample([true, false]) as unknown,
-    } as AuthDocument;
+    } as Auth;
 
     await createAuthUser(authData);
   }

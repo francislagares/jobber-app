@@ -52,7 +52,7 @@ model Seller {
   cancelledJobs      Int              @default(0)
   totalEarnings      Int              @default(0)
   totalGigs          Int              @default(0)
-  createdAt          DateTime         @default(now()) @db.Date
+  createdAt          DateTime         @default(now())
 
   @@index([username, email])
 }

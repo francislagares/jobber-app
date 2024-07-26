@@ -20,3 +20,4 @@ services:
       - elasticsearch
   networks:
     - elastic
+    - jobber_app

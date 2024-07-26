@@ -19,8 +19,8 @@ README.md
 
 # test
 coverage
-vitest.config.js
+vitest.config.ts
 
 # docker
 Dockerfile
-docker-compose.yml
+docker-compose.yaml

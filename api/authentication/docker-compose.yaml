@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   authentication:
     container_name: authentication
@@ -23,10 +21,12 @@ services:
       - MESSAGE_BASE_URL=http://localhost:4005
       - ORDER_BASE_URL=http://localhost:4006
       - REVIEW_BASE_URL=http://localhost:4007
+      - MYSQL_DB=mysql://jobber:api@mysql:3306/jobber_auth
       - REDIS_HOST=redis://redis_container:6379
       - ELASTIC_SEARCH_URL=http://elasticsearch:9200
       - ELASTIC_APM_SERVER_URL=http://localhost:8200
-      - ELASTIC_APM_SECRET_TOKEN=
     depends_on:
       - elasticsearch
       - mysql
+    networks:
+      - jobber_app

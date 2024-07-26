@@ -8,10 +8,18 @@ USER users
 WORKDIR /users
 
 COPY package.json tsconfig.json .npmrc ./
+COPY prisma ./prisma
 COPY src ./src
+
+USER root
+
+RUN chown -R users:jobber .
+
+USER users
 
 RUN ls -a
 RUN pnpm install
+RUN rm -f .npmrc
 
 EXPOSE 4003
 

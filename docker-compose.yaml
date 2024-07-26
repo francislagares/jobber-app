@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   redis:
     extends:
@@ -61,6 +59,20 @@ services:
       service: users
       file: api/users/docker-compose.yaml
 
+volumes:
+  mysql:
+    name: mysql
+  mongodb:
+    name: mongodb
+  redis:
+    name: redis
+  postgres:
+    name: postgres
+  elasticsearch:
+    name: elasticsearch
+
 networks:
   elastic:
     name: elastic
+  jobber_app: 
+    name: jobber_app

@@ -11,8 +11,15 @@ COPY package.json tsconfig.json .npmrc ./
 COPY src ./src
 COPY tools ./tools
 
+USER root
+
+RUN chown -R notification:jobber .
+
+USER notification
+
 RUN ls -a
 RUN pnpm install
+RUN rm -f .npmrc
 
 EXPOSE 4001
 

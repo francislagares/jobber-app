@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   mongodb:
     container_name: mongodb
@@ -8,4 +6,10 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - ./volumes/mongodb:/data/db
+      - mongodb:/data/db
+    networks:
+      - jobber_app
+
+volumes:
+  mongodb:
+    name: mongodb

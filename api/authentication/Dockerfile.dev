@@ -8,10 +8,18 @@ USER authentication
 WORKDIR /authentication
 
 COPY package.json tsconfig.json .npmrc ./
+COPY prisma ./prisma
 COPY src ./src
+
+USER root
+
+RUN chown -R authentication:jobber .
+
+USER authentication
 
 RUN ls -a
 RUN pnpm install
+RUN rm -f .npmrc
 
 EXPOSE 4002
 

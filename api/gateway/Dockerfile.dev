@@ -10,10 +10,16 @@ WORKDIR /api-gateway
 COPY package.json tsconfig.json .npmrc ./
 COPY src ./src
 
+USER root
+
+RUN chown -R api-gateway:jobber .
+
+USER api-gateway
+
 RUN ls -a
 RUN pnpm install
+RUN rm -f .npmrc
 
 EXPOSE 4000
 
 CMD [ "pnpm", "dev" ]
-

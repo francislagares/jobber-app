@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   postgres:
     container_name: postgres
@@ -12,4 +10,11 @@ services:
     ports:
       - '5432:5432'
     volumes:
-      - ./volumes/postgres:/var/lib/postgresql
+      - postgres:/var/lib/postgresql
+    networks:
+     - jobber_app
+
+volumes:
+  postgres:
+    name: postgres
+
