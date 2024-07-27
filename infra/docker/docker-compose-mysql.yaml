@@ -12,6 +12,11 @@ services:
       - '3306:3306'
     volumes:
       - mysql:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "mysql"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     networks:
      - jobber_app
 

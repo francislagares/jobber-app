@@ -18,6 +18,10 @@ services:
       - ELASTIC_APM_SERVER_URL=http://localhost:8200
       - ELASTIC_APM_SECRET_TOKEN=
     depends_on:
-      - elasticsearch
+      elasticsearch:
+        condition: service_healthy
+    volumes:
+      - .:/notification
+      - /notification/node_modules
     networks:
       - jobber_app

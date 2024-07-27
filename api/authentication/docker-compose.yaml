@@ -26,7 +26,12 @@ services:
       - ELASTIC_SEARCH_URL=http://elasticsearch:9200
       - ELASTIC_APM_SERVER_URL=http://localhost:8200
     depends_on:
-      - elasticsearch
-      - mysql
+      elasticsearch:
+        condition: service_healthy
+      mysql:
+        condition: service_healthy
+    volumes:
+      - .:/authentication
+      - /authentication/node_modules
     networks:
       - jobber_app
