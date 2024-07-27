@@ -1,6 +1,5 @@
 import { Server as HTTPServer } from 'http';
 
-import { Channel } from 'amqplib';
 import compression from 'compression';
 import cors from 'cors';
 import {
@@ -34,8 +33,6 @@ const logger: Logger = winstonLogger(
   'usersElasticSearchServer',
   'debug',
 );
-
-export let usersChannel: Channel;
 
 export const start = (app: Application): void => {
   securityMiddleware(app);
