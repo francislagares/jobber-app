@@ -16,16 +16,13 @@ import hpp from 'hpp';
 import { StatusCodes } from 'http-status-codes';
 import { Logger } from 'winston';
 
-import {
-  ErrorResponse,
-  JobberError,
-  winstonLogger,
-} from '@francislagares/jobber-shared';
+import { ErrorResponse, winstonLogger } from '@francislagares/jobber-shared';
 
 import { config } from '@gateway/config';
 import { elasticSearch } from '@gateway/elastic';
 import { axiosAuthInstance } from '@gateway/services/auth';
 import { axiosBuyerInstance } from '@gateway/services/buyer';
+import { axiosSellerInstance } from '@gateway/services/seller';
 
 import applicationRoutes from './routes';
 
@@ -77,6 +74,8 @@ export class APIGateway {
           `Bearer ${req.session.jwt}`;
         axiosBuyerInstance.defaults.headers['Authorization'] =
           `Bearer ${req.session.jwt}`;
+        axiosSellerInstance.defaults.headers['Authorization'] =
+          `Bearer ${req.session.jwt}`;
       }
       next();
     });
@@ -118,8 +117,6 @@ export class APIGateway {
       ) => {
         logger.error('error', `GatewayService ${error.source}`, error);
 
-        if (error instanceof JobberError) {
-        }
         res.status(error.statusCode).json(error.serializeErrors());
 
         next();
