@@ -19,7 +19,7 @@ README.md
 
 # test
 coverage
-vitest.config.ts
+vitest.config.mts
 
 # docker
 Dockerfile

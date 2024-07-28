@@ -23,6 +23,7 @@ services:
       - REVIEW_BASE_URL=http://localhost:4007
       - DATABASE_URL=mongodb://mongodb:27017/jobber-users
       - REDIS_HOST=redis://redis_container:6379
+      - RABBITMQ_ENDPOINT=amqp://jobber:jobberpass@rabbitmq:5672
       - ELASTIC_SEARCH_URL=http://elasticsearch:9200
       - ELASTIC_APM_SERVER_URL=http://localhost:8200
       - ELASTIC_APM_SECRET_TOKEN=

@@ -25,6 +25,7 @@ import {
 import { config } from '@users/config';
 import { MongoDBInstance as dbConnection } from '@users/config/database';
 import { checkConnection } from '@users/elastic';
+import { createConnection } from '@users/queues/connection';
 import { appRoutes } from '@users/routes';
 
 const SERVER_PORT = 4003;
@@ -75,7 +76,9 @@ export const routesMiddleware = (app: Application): void => {
   appRoutes(app);
 };
 
-export const startQueues = async (): Promise<void> => {};
+export const startQueues = async (): Promise<void> => {
+  createConnection();
+};
 
 export const startElasticSearch = (): void => {
   checkConnection();
