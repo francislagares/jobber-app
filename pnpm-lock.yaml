@@ -441,9 +441,6 @@ importers:
       '@francislagares/jobber-shared':
         specifier: ^1.0.4
         version: 1.0.4
-      '@prisma/client':
-        specifier: ^5.17.0
-        version: 5.17.0(prisma@5.17.0)
       amqplib:
         specifier: ^0.10.4
         version: 0.10.4
@@ -483,12 +480,12 @@ importers:
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
+      mongoose:
+        specifier: ^8.5.1
+        version: 8.5.1
       pino-pretty:
         specifier: ^11.2.2
         version: 11.2.2
-      prisma:
-        specifier: ^5.17.0
-        version: 5.17.0
       winston:
         specifier: ^3.13.1
         version: 3.13.1
@@ -5734,7 +5731,7 @@ snapshots:
 
   agent-base@6.0.2:
     dependencies:
-      debug: 4.3.5
+      debug: 4.3.6
     transitivePeerDependencies:
       - supports-color
 
@@ -7412,7 +7409,7 @@ snapshots:
   https-proxy-agent@5.0.1:
     dependencies:
       agent-base: 6.0.2
-      debug: 4.3.5
+      debug: 4.3.6
     transitivePeerDependencies:
       - supports-color
 
@@ -8140,7 +8137,7 @@ snapshots:
 
   mquery@5.0.0:
     dependencies:
-      debug: 4.3.5
+      debug: 4.3.6
     transitivePeerDependencies:
       - supports-color
 
@@ -8708,7 +8705,7 @@ snapshots:
 
   require-in-the-middle@7.3.0:
     dependencies:
-      debug: 4.3.5
+      debug: 4.3.6
       module-details-from-path: 1.0.3
       resolve: 1.22.8
     transitivePeerDependencies:

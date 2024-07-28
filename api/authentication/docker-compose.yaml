@@ -23,6 +23,7 @@ services:
       - REVIEW_BASE_URL=http://localhost:4007
       - MYSQL_DB=mysql://jobber:api@mysql:3306/jobber_auth
       - REDIS_HOST=redis://redis_container:6379
+      - RABBITMQ_ENDPOINT=amqp://jobber:jobberpass@rabbitmq:5672
       - ELASTIC_SEARCH_URL=http://elasticsearch:9200
       - ELASTIC_APM_SERVER_URL=http://localhost:8200
     depends_on:
