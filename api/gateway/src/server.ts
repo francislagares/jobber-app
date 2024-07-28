@@ -24,9 +24,10 @@ import {
 
 import { config } from '@gateway/config';
 import { elasticSearch } from '@gateway/elastic';
+import { axiosAuthInstance } from '@gateway/services/auth';
+import { axiosBuyerInstance } from '@gateway/services/buyer';
 
 import applicationRoutes from './routes';
-import { axiosAuthInstance } from './services/auth';
 
 const SERVER_PORT = 4000;
 const logger: Logger = winstonLogger(
@@ -73,6 +74,8 @@ export class APIGateway {
     app.use((req: Request, _res: Response, next: NextFunction) => {
       if (req.session?.jwt) {
         axiosAuthInstance.defaults.headers['Authorization'] =
+          `Bearer ${req.session.jwt}`;
+        axiosBuyerInstance.defaults.headers['Authorization'] =
           `Bearer ${req.session.jwt}`;
       }
       next();

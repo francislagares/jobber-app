@@ -5,7 +5,7 @@ import { AxiosService } from '@gateway/services/axios';
 
 export let axiosAuthInstance: ReturnType<typeof axios.create>;
 
-export class GigService {
+class GigService {
   axiosService: AxiosService;
 
   constructor() {
