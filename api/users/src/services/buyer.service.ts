@@ -38,4 +38,35 @@ const createBuyer = async (buyerData: BuyerDocument): Promise<void> => {
   }
 };
 
-export { createBuyer, getBuyerByEmail, getBuyerByUsername, getRandomBuyers };
+const updateBuyerIsSeller = async (email: string): Promise<void> => {
+  await BuyerModel.updateOne({ email }, { $set: { isSeller: true } }).exec();
+};
+
+const updateBuyerPurchasedGigs = async (
+  buyerId: string,
+  purchasedGigId: string,
+  type: string,
+): Promise<void> => {
+  await BuyerModel.updateOne(
+    { _id: buyerId },
+    type === 'purchased-gigs'
+      ? {
+          $push: {
+            purchasedGigs: purchasedGigId,
+          },
+        }
+      : {
+          $pull: {
+            purchasedGigs: purchasedGigId,
+          },
+        },
+  ).exec();
+};
+export {
+  createBuyer,
+  getBuyerByEmail,
+  getBuyerByUsername,
+  getRandomBuyers,
+  updateBuyerIsSeller,
+  updateBuyerPurchasedGigs,
+};
