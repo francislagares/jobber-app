@@ -28,7 +28,10 @@ import { checkConnection } from '@users/elastic';
 import { createConnection } from '@users/queues/connection';
 import { appRoutes } from '@users/routes';
 
-import { consumeBuyerDirectMessage } from './queues/user.consumer';
+import {
+  consumeBuyerDirectMessage,
+  consumeSellerDirectMessage,
+} from './queues/user.consumer';
 
 const SERVER_PORT = 4003;
 const logger: Logger = winstonLogger(
@@ -82,6 +85,7 @@ export const startQueues = async (): Promise<void> => {
   const userChannel = await createConnection();
 
   await consumeBuyerDirectMessage(userChannel);
+  await consumeSellerDirectMessage(userChannel);
 };
 
 export const startElasticSearch = (): void => {

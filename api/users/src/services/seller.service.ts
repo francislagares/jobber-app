@@ -132,7 +132,7 @@ const updateSellerCompletedJobs = async (data: OrderMessage): Promise<void> => {
         completedJobs,
         totalEarnings,
       },
-      $set: { recentDelivery: new Date(recentDelivery!) },
+      $set: { recentDelivery: new Date(recentDelivery) },
     },
   ).exec();
 };
