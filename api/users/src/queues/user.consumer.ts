@@ -1,7 +1,11 @@
 import { Channel, ConsumeMessage, Replies } from 'amqplib';
 import { Logger } from 'winston';
 
-import { BuyerDocument, winstonLogger } from '@francislagares/jobber-shared';
+import {
+  BuyerDocument,
+  SellerDocument,
+  winstonLogger,
+} from '@francislagares/jobber-shared';
 
 import { config } from '@users/config';
 import { createConnection } from '@users/queues/connection';
@@ -10,6 +14,7 @@ import {
   updateBuyerPurchasedGigs,
 } from '@users/services/buyer.service';
 import {
+  getRandomSellers,
   updateSellerCancelledJobs,
   updateSellerCompletedJobs,
   updateSellerOngoingJobs,
@@ -159,6 +164,51 @@ export const consumeReviewFanoutMessages = async (
             type: 'updateGig',
             gigReview: msg.content.toString(),
           }),
+          'Message sent to gig service.',
+        );
+      }
+      channel.ack(msg);
+    });
+  } catch (error) {
+    logger.log(
+      'error',
+      'UsersService UserConsumer consumeReviewFanoutMessages() method error:',
+      error,
+    );
+  }
+};
+
+export const consumeSeedGigDirectMessages = async (
+  channel: Channel,
+): Promise<void> => {
+  try {
+    if (!channel) {
+      channel = await createConnection();
+    }
+    const exchangeName = 'jobber-gig';
+    const routingKey = 'get-sellers';
+    const queueName = 'user-gig-queue';
+    await channel.assertExchange(exchangeName, 'direct');
+    const jobberQueue: Replies.AssertQueue = await channel.assertQueue(
+      queueName,
+      { durable: true, autoDelete: false },
+    );
+
+    await channel.bindQueue(jobberQueue.queue, exchangeName, routingKey);
+    channel.consume(jobberQueue.queue, async (msg: ConsumeMessage | null) => {
+      const { type } = JSON.parse(msg.content.toString());
+
+      if (type === 'getSellers') {
+        const { count } = JSON.parse(msg.content.toString());
+        const sellers: SellerDocument[] = await getRandomSellers(
+          parseInt(count, 10),
+        );
+
+        await publishDirectMessage(
+          channel,
+          'jobber-seed-gig',
+          'receive-sellers',
+          JSON.stringify({ type: 'receiveSellers', sellers, count }),
           'Message sent to gig service.',
         );
       }

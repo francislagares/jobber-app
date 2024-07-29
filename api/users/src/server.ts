@@ -26,12 +26,13 @@ import { config } from '@users/config';
 import { MongoDBInstance as dbConnection } from '@users/config/database';
 import { checkConnection } from '@users/elastic';
 import { createConnection } from '@users/queues/connection';
-import { appRoutes } from '@users/routes';
-
 import {
   consumeBuyerDirectMessage,
+  consumeReviewFanoutMessages,
+  consumeSeedGigDirectMessages,
   consumeSellerDirectMessage,
-} from './queues/user.consumer';
+} from '@users/queues/user.consumer';
+import { appRoutes } from '@users/routes';
 
 const SERVER_PORT = 4003;
 const logger: Logger = winstonLogger(
@@ -86,6 +87,8 @@ export const startQueues = async (): Promise<void> => {
 
   await consumeBuyerDirectMessage(userChannel);
   await consumeSellerDirectMessage(userChannel);
+  await consumeReviewFanoutMessages(userChannel);
+  await consumeSeedGigDirectMessages(userChannel);
 };
 
 export const startElasticSearch = (): void => {
