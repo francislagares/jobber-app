@@ -13,8 +13,11 @@ import {
   updateSellerCancelledJobs,
   updateSellerCompletedJobs,
   updateSellerOngoingJobs,
+  updateSellerReview,
   updateTotalGigsCount,
 } from '@users/services/seller.service';
+
+import { publishDirectMessage } from './user.producer';
 
 const logger: Logger = winstonLogger(
   `${config.ELASTIC_SEARCH_URL}`,
@@ -122,6 +125,49 @@ export const consumeSellerDirectMessage = async (
     logger.log(
       'error',
       'UsersService UserConsumer consumeSellerDirectMessage() method error:',
+      error,
+    );
+  }
+};
+
+export const consumeReviewFanoutMessages = async (
+  channel: Channel,
+): Promise<void> => {
+  try {
+    if (!channel) {
+      channel = await createConnection();
+    }
+    const exchangeName = 'jobber-review';
+    const queueName = 'seller-review-queue';
+    await channel.assertExchange(exchangeName, 'fanout');
+    const jobberQueue: Replies.AssertQueue = await channel.assertQueue(
+      queueName,
+      { durable: true, autoDelete: false },
+    );
+
+    await channel.bindQueue(jobberQueue.queue, exchangeName, '');
+    channel.consume(jobberQueue.queue, async (msg: ConsumeMessage | null) => {
+      const { type } = JSON.parse(msg.content.toString());
+
+      if (type === 'buyer-review') {
+        await updateSellerReview(JSON.parse(msg.content.toString()));
+        await publishDirectMessage(
+          channel,
+          'jobber-update-gig',
+          'update-gig',
+          JSON.stringify({
+            type: 'updateGig',
+            gigReview: msg.content.toString(),
+          }),
+          'Message sent to gig service.',
+        );
+      }
+      channel.ack(msg);
+    });
+  } catch (error) {
+    logger.log(
+      'error',
+      'UsersService UserConsumer consumeReviewFanoutMessages() method error:',
       error,
     );
   }
