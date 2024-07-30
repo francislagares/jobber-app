@@ -1,5 +1,7 @@
 import express, { Router } from 'express';
 
+import { validateRequest } from '@francislagares/jobber-shared';
+
 import {
   getCurrentUser,
   resendEmail,
@@ -12,7 +14,6 @@ import { refreshToken } from '@authentication/controllers/refresh-token';
 import { signIn } from '@authentication/controllers/signin';
 import { signUp } from '@authentication/controllers/signup';
 import { verifyEmail } from '@authentication/controllers/verify-email';
-import { validateRequest } from '@authentication/middleware/validator';
 import {
   changePasswordSchema,
   emailSchema,

@@ -28,6 +28,7 @@ class BuyerRoutes {
       authMiddleware.checkAuthentication,
       buyerController.username,
     );
+
     return this.router;
   }
 }
