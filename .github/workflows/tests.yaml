@@ -21,7 +21,6 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9
           run_install: false
 
       - name: Get pnpm store directory
@@ -33,9 +32,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          scope: '@francislagares'
           registry-url: 'https://npm.pkg.github.com'
-          token: ${{ secrets.GITHUB_TOKEN }}
+          scope: '@francislagares'
 
       - name: Setup pnpm cache
         uses: actions/cache@v3
@@ -44,9 +42,6 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
-
-      - name: Configure pnpm Auth for private registry
-        run: pnpm config set //npm.pkg.github.com/:_authToken=${NPM_TOKEN}
 
       - name: Install Dependencies
         run: pnpm install
