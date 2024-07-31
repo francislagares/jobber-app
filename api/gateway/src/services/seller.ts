@@ -16,6 +16,13 @@ class SellerService {
     axiosSellerInstance = axiosService.axios;
   }
 
+  async getSellerById(sellerId: string): Promise<AxiosResponse> {
+    const response: AxiosResponse = await axiosSellerInstance.get(
+      `/id/${sellerId}`,
+    );
+    return response;
+  }
+
   async getCurrentSellerByUsername(): Promise<AxiosResponse> {
     const response = await axiosSellerInstance.get('/username');
 
@@ -28,8 +35,10 @@ class SellerService {
     return response;
   }
 
-  async getRandomSellers(): Promise<AxiosResponse> {
-    const response = await axiosSellerInstance.get('/random');
+  async getRandomSellers(size: string): Promise<AxiosResponse> {
+    const response: AxiosResponse = await axiosSellerInstance.get(
+      `/random/${size}`,
+    );
 
     return response;
   }

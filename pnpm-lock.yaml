@@ -438,6 +438,9 @@ importers:
       '@elastic/elasticsearch':
         specifier: ^8.14.0
         version: 8.14.0
+      '@faker-js/faker':
+        specifier: ^8.2.0
+        version: 8.4.1
       '@francislagares/jobber-shared':
         specifier: ^1.0.5
         version: 1.0.5
