@@ -29,7 +29,7 @@ export const createAuthUser = async (data: Auth): Promise<Auth> => {
     'jobber-buyer-update',
     'user-buyer',
     JSON.stringify(messageDetails),
-    'Buyer details sent to buyer service',
+    'Buyer details sent to buyer service.',
   );
 
   return authUser;

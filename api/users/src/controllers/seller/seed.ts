@@ -21,17 +21,20 @@ export const seedSeller = async (
 ): Promise<void> => {
   const { count } = req.params;
   const buyers: BuyerDocument[] = await getRandomBuyers(parseInt(count, 10));
+
   for (const element of buyers) {
     const buyer: BuyerDocument = element;
     const checkIfSellerExist: SellerDocument | null = await getSellerByEmail(
       `${buyer.email}`,
     );
+
     if (checkIfSellerExist) {
       throw new BadRequestError(
         'Seller already exist.',
         'SellerSeed seller() method error',
       );
     }
+
     const basicDescription: string = faker.commerce.productDescription();
     const skills: string[] = [
       'Programming',
@@ -91,8 +94,10 @@ export const seedSeller = async (
         },
       ],
     };
+
     await createSeller(seller);
   }
+
   res
     .status(StatusCodes.CREATED)
     .json({ message: 'Sellers created successfully' });
@@ -100,6 +105,7 @@ export const seedSeller = async (
 
 const randomExperiences = (count: number): Experience[] => {
   const result: Experience[] = [];
+
   for (let i = 0; i < count; i++) {
     const randomStartYear = [2020, 2021, 2022, 2023, 2024, 2025];
     const randomEndYear = ['Present', '2024', '2025', '2026', '2027'];
@@ -113,13 +119,16 @@ const randomExperiences = (count: number): Experience[] => {
       description: faker.commerce.productDescription().slice(0, 100),
       currentlyWorkingHere: endYear === 'Present',
     };
+
     result.push(experience);
   }
+
   return result;
 };
 
 const randomEducation = (count: number): Education[] => {
   const result: Education[] = [];
+
   for (let i = 0; i < count; i++) {
     const randomYear = [2020, 2021, 2022, 2023, 2024, 2025];
     const education = {
@@ -129,7 +138,9 @@ const randomEducation = (count: number): Education[] => {
       major: `${faker.person.jobArea()} ${faker.person.jobDescriptor()}`,
       year: `${randomYear[floor(random(0.9) * randomYear.length)]}`,
     };
+
     result.push(education);
   }
+
   return result;
 };
