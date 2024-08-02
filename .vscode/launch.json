@@ -1,0 +1,57 @@
+// .vscode/launch.json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Authentication",
+      "type": "node",
+      "request": "launch",
+      "runtimeArgs": ["-r", "ts-node/register"],
+      "args": ["${workspaceFolder}/api/authentication/src/app/index.ts"],
+      "program": "${workspaceFolder}/api/authentication/build/src/app/index.js",
+      "preLaunchTask": "build-authentication",
+      "outFiles": ["${workspaceFolder}/api/authentication/build/**/*.js"],
+      "envFile": "${workspaceFolder}/api/authentication/.env",
+      "sourceMaps": true
+    },
+
+    {
+      "name": "Debug API Gateway",
+      "type": "node",
+      "request": "launch",
+      "runtimeArgs": ["-r", "ts-node/register"],
+      "args": ["${workspaceFolder}/api/gateway/src/app/index.ts"],
+      "program": "${workspaceFolder}/api/gateway/build/src/app/index.js",
+      "preLaunchTask": "build-api-gateway",
+      "outFiles": ["${workspaceFolder}/api/gateway/build/**/*.js"],
+      "envFile": "${workspaceFolder}/api/gateway/.env.development.local",
+      "sourceMaps": true
+    },
+
+    {
+      "name": "Debug Notification",
+      "type": "node",
+      "request": "launch",
+      "runtimeArgs": ["-r", "ts-node/register"],
+      "args": ["${workspaceFolder}/api/notification/src/app/index.ts"],
+      "program": "${workspaceFolder}/api/notification/build/src/app/index.js",
+      "preLaunchTask": "build-notification",
+      "outFiles": ["${workspaceFolder}/api/notification/build/**/*.js"],
+      "envFile": "${workspaceFolder}/api/notification/.env.development.local",
+      "sourceMaps": true
+    },
+
+    {
+      "name": "Debug Users",
+      "type": "node",
+      "request": "launch",
+      "runtimeArgs": ["-r", "ts-node/register"],
+      "args": ["${workspaceFolder}/api/users/src/app/index.ts"],
+      "program": "${workspaceFolder}/api/users/build/src/app/index.js",
+      "preLaunchTask": "build-users",
+      "outFiles": ["${workspaceFolder}/api/users/build/**/*.js"],
+      "envFile": "${workspaceFolder}/api/users/.env.development.local",
+      "sourceMaps": true
+    }
+  ]
+}
