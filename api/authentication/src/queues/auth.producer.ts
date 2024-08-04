@@ -18,19 +18,19 @@ export const publishDirectMessage = async (
   routingKey: string,
   message: string,
   logMessage: string,
-) => {
+): Promise<void> => {
   try {
     if (!channel) {
       channel = await createConnection();
-
-      await channel.assertExchange(exchangeName, 'direct');
-      channel.publish(exchangeName, routingKey, Buffer.from(message));
-      logger.info(logMessage);
     }
+
+    await channel.assertExchange(exchangeName, 'direct');
+    channel.publish(exchangeName, routingKey, Buffer.from(message));
+    logger.info(logMessage);
   } catch (error) {
     logger.log(
       'error',
-      'AuthService Provider publishDirectMessage() method',
+      'AuthService Provider publishDirectMessage() method error:',
       error,
     );
   }

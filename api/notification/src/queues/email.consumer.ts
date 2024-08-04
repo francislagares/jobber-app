@@ -35,7 +35,7 @@ export const consumeAuthEmailMessage = async (
 
     channel.consume(jobberQueue.queue, async (msg: ConsumeMessage | null) => {
       const { receiverEmail, username, verifyLink, resetLink, template } =
-        JSON.parse(msg!.content.toString());
+        JSON.parse(msg.content.toString());
       const locals: EmailLocals = {
         appLink: `${config.CLIENT_URL}`,
         appIcon: 'https://i.ibb.co/Kyp2m0t/cover.png',
