@@ -24,7 +24,7 @@ import {
 
 import { config } from '@gig/config';
 import { MongoDBInstance as dbConnection } from '@gig/config/database';
-import { checkConnection } from '@gig/elastic';
+import { checkConnection, createIndex } from '@gig/elastic';
 import { appRoutes } from '@gig/routes';
 
 const SERVER_PORT = 4004;
@@ -79,6 +79,7 @@ export const startQueues = async (): Promise<void> => {};
 
 export const startElasticSearch = (): void => {
   checkConnection();
+  createIndex('gigs');
 };
 
 export const usersErrorHandler = (app: Application): void => {
