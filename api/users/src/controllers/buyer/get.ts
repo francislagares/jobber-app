@@ -9,7 +9,7 @@ import {
 export const getEmail = async (req: Request, res: Response): Promise<void> => {
   const buyer = await getBuyerByEmail(req.currentUser.email);
 
-  res.status(StatusCodes.OK).json({ message: 'Buyer Profile', buyer });
+  res.status(StatusCodes.OK).json({ message: 'Buyer profile', buyer });
 };
 
 export const getCurrentUsername = async (
