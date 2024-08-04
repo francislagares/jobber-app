@@ -33,5 +33,13 @@
       "problemMatcher": ["$tsc"],
       "group": "build"
     },
+
+    {
+      "label": "build-gig",
+      "type": "shell",
+      "command": "pnpm --filter gig build",
+      "problemMatcher": ["$tsc"],
+      "group": "build"
+    },
   ]
 }

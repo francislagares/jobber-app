@@ -52,6 +52,19 @@
       "outFiles": ["${workspaceFolder}/api/users/build/**/*.js"],
       "envFile": "${workspaceFolder}/api/users/.env.development.local",
       "sourceMaps": true
+    },
+
+    {
+      "name": "Debug Gig",
+      "type": "node",
+      "request": "launch",
+      "runtimeArgs": ["-r", "ts-node/register"],
+      "args": ["${workspaceFolder}/api/gig/src/app/index.ts"],
+      "program": "${workspaceFolder}/api/gig/build/src/app/index.js",
+      "preLaunchTask": "build-gig",
+      "outFiles": ["${workspaceFolder}/api/gig/build/**/*.js"],
+      "envFile": "${workspaceFolder}/api/gig/.env.development.local",
+      "sourceMaps": true
     }
   ]
 }

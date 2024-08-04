@@ -1,0 +1,26 @@
+FROM node:alpine
+
+RUN apk update && apk add --no-cache nodejs && corepack enable
+RUN addgroup jobber && adduser -S -G jobber gig
+
+USER gig
+
+WORKDIR /gig
+
+COPY package.json tsconfig.json .npmrc ./
+COPY src ./src
+
+USER root
+
+RUN chown -R gig:jobber .
+
+USER gig
+
+RUN ls -a
+RUN pnpm install
+RUN rm -f .npmrc
+
+EXPOSE 4004
+
+CMD [ "pnpm", "dev" ]
+

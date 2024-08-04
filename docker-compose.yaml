@@ -58,6 +58,12 @@ services:
     extends:
       service: users
       file: api/users/docker-compose.yaml
+  
+  gig:
+    extends:
+      service: gig
+      file: api/gig/docker-compose.yaml
+
 
 volumes:
   mysql:
