@@ -17,7 +17,7 @@ export const sellerRoutes = (): Router => {
   router.get('/random/:size', getRandom);
   router.post('/create', createSeller);
   router.put('/:sellerId', updateSeller);
-  router.put('/seed/:count', seedSeller);
+  router.post('/seed/:count', seedSeller);
 
   return router;
 };

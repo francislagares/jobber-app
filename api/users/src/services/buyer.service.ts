@@ -62,6 +62,7 @@ const updateBuyerPurchasedGigs = async (
         },
   ).exec();
 };
+
 export {
   createBuyer,
   getBuyerByEmail,

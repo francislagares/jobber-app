@@ -38,7 +38,7 @@ class SellerRoutes {
       authMiddleware.checkAuthentication,
       sellerController.updateSeller,
     );
-    this.router.put(
+    this.router.post(
       '/seller/seed/:count',
       authMiddleware.checkAuthentication,
       sellerController.seedSeller,

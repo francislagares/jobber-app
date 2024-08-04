@@ -23,11 +23,11 @@ export const publishDirectMessage = async (
   try {
     if (!channel) {
       channel = await createConnection();
-
-      await channel.assertExchange(exchangeName, 'direct');
-      channel.publish(exchangeName, routingKey, Buffer.from(message));
-      logger.info(logMessage);
     }
+
+    await channel.assertExchange(exchangeName, 'direct');
+    channel.publish(exchangeName, routingKey, Buffer.from(message));
+    logger.info(logMessage);
   } catch (error) {
     logger.log(
       'error',

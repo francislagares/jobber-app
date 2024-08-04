@@ -11,7 +11,7 @@ class SellerService {
   constructor() {
     const axiosService: AxiosService = new AxiosService(
       `${config.USERS_BASE_URL}/api/v1/seller`,
-      'Seller',
+      'seller',
     );
     axiosSellerInstance = axiosService.axios;
   }
@@ -59,9 +59,10 @@ class SellerService {
   }
 
   async seed(count: string): Promise<AxiosResponse> {
-    const response: AxiosResponse = await axiosSellerInstance.put(
+    const response: AxiosResponse = await axiosSellerInstance.post(
       `/seed/${count}`,
     );
+
     return response;
   }
 }
