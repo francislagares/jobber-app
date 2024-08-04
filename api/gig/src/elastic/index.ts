@@ -102,3 +102,41 @@ export const addDataToIndex = async (
     );
   }
 };
+
+export const updateIndexedData = async (
+  index: string,
+  itemId: string,
+  gigDocument: unknown,
+): Promise<void> => {
+  try {
+    await elasticSearchClient.update({
+      index,
+      id: itemId,
+      doc: gigDocument,
+    });
+  } catch (error) {
+    logger.log(
+      'error',
+      'GigService elasticsearch updateIndexedData() method error:',
+      error,
+    );
+  }
+};
+
+export const deleteIndexedData = async (
+  index: string,
+  itemId: string,
+): Promise<void> => {
+  try {
+    await elasticSearchClient.delete({
+      index,
+      id: itemId,
+    });
+  } catch (error) {
+    logger.log(
+      'error',
+      'GigService elasticsearch deleteIndexedData() method error:',
+      error,
+    );
+  }
+};
