@@ -27,6 +27,8 @@ import { MongoDBInstance as dbConnection } from '@gig/config/database';
 import { checkConnection, createIndex } from '@gig/elastic';
 import { appRoutes } from '@gig/routes';
 
+import { createConnection } from './queues/connection';
+
 const SERVER_PORT = 4004;
 const logger: Logger = winstonLogger(
   `${config.ELASTIC_SEARCH_URL}`,
@@ -75,7 +77,9 @@ export const routesMiddleware = (app: Application): void => {
   appRoutes(app);
 };
 
-export const startQueues = async (): Promise<void> => {};
+export const startQueues = async (): Promise<void> => {
+  const gigChannel = await createConnection();
+};
 
 export const startElasticSearch = (): void => {
   checkConnection();

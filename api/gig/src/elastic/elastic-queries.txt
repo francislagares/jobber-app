@@ -1,0 +1,26 @@
+GET gigs/_search
+
+GET gigs/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "fields": [
+              "username",
+              "title",
+              "description",
+              "basicDescription",
+              "basicTitle",
+              "categories",
+              "subCategories",
+              "tags"
+            ],
+            "query": "Audioresume"
+          }
+        }
+      ]
+    }
+  }
+}
