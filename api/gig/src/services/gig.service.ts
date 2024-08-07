@@ -1,6 +1,9 @@
 import { SellerGig } from '@francislagares/jobber-shared';
 
-import { getIndexedData } from '@gig/elastic';
+import { addDataToIndex, getIndexedData } from '@gig/elastic';
+import { GigModel } from '@gig/models/gig.schema';
+import { publishDirectMessage } from '@gig/queues/gig.producer';
+import { gigChannel } from '@gig/server';
 
 import { gigsSearchBySellerId } from './search.service';
 
@@ -34,4 +37,28 @@ export const getSellerPausedGigs = async (
   }
 
   return resultHits;
+};
+
+export const createGig = async (gig: SellerGig): Promise<SellerGig> => {
+  const createdGig: SellerGig = await GigModel.create(gig);
+
+  if (createdGig) {
+    const data: SellerGig = createdGig.toJSON?.() as SellerGig;
+
+    await publishDirectMessage(
+      gigChannel,
+      'jobber-seller-update',
+      'user-seller',
+      JSON.stringify({
+        type: 'update-gig-count',
+        gigSellerId: `${data.sellerId}`,
+        count: 1,
+      }),
+      'Details sent to users service.',
+    );
+
+    await addDataToIndex('gigs', `${createdGig._id}`, data);
+  }
+
+  return createdGig;
 };
