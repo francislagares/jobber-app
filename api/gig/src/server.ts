@@ -1,5 +1,6 @@
 import { Server as HTTPServer } from 'http';
 
+import { Channel } from 'amqplib';
 import compression from 'compression';
 import cors from 'cors';
 import {
@@ -28,6 +29,10 @@ import { checkConnection, createIndex } from '@gig/elastic';
 import { appRoutes } from '@gig/routes';
 
 import { createConnection } from './queues/connection';
+import {
+  consumeGigDirectMessage,
+  consumeSeedDirectMessages,
+} from './queues/gig.consumer';
 
 const SERVER_PORT = 4004;
 const logger: Logger = winstonLogger(
@@ -35,6 +40,8 @@ const logger: Logger = winstonLogger(
   'gigElasticSearchServer',
   'debug',
 );
+
+export let gigChannel: Channel;
 
 export const start = (app: Application): void => {
   securityMiddleware(app);
@@ -78,7 +85,10 @@ export const routesMiddleware = (app: Application): void => {
 };
 
 export const startQueues = async (): Promise<void> => {
-  const gigChannel = await createConnection();
+  gigChannel = await createConnection();
+
+  await consumeGigDirectMessage(gigChannel);
+  await consumeSeedDirectMessages(gigChannel);
 };
 
 export const startElasticSearch = (): void => {

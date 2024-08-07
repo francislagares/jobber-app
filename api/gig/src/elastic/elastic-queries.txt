@@ -24,3 +24,21 @@ GET gigs/_search
     }
   }
 }
+
+GET gigs/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "fields": [
+              "sellerId"
+            ],
+            "query": "Audioresume"
+          }
+        }
+      ]
+    }
+  }
+}

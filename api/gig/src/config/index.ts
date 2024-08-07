@@ -14,6 +14,7 @@ class Config {
   public GATEWAY_JWT_TOKEN: string | undefined;
   public API_GATEWAY_URL: string | undefined;
   public REDIS_HOST: string | undefined;
+  public REDIS_PORT: string | undefined;
   public ELASTIC_SEARCH_URL: string | undefined;
 
   constructor() {
@@ -27,6 +28,7 @@ class Config {
     this.GATEWAY_JWT_TOKEN = process.env.GATEWAY_JWT_TOKEN || '';
     this.API_GATEWAY_URL = process.env.API_GATEWAY_URL || '';
     this.REDIS_HOST = process.env.REDIS_HOST || '';
+    this.REDIS_PORT = process.env.REDIS_PORT || '';
     this.ELASTIC_SEARCH_URL = process.env.ELASTIC_SEARCH_URL || '';
   }
 
