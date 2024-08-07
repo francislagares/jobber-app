@@ -1,9 +1,14 @@
-import { SellerGig } from '@francislagares/jobber-shared';
+import {
+  RatingTypes,
+  ReviewMessageDetails,
+  SellerGig,
+} from '@francislagares/jobber-shared';
 
 import {
   addDataToIndex,
   deleteIndexedData,
   getIndexedData,
+  updateIndexedData,
 } from '@gig/elastic';
 import { GigModel } from '@gig/models/gig.schema';
 import { publishDirectMessage } from '@gig/queues/gig.producer';
@@ -86,4 +91,90 @@ export const deleteGig = async (
   );
 
   await deleteIndexedData('gigs', `${gigId}`);
+};
+
+export const updateGig = async (
+  gigId: string,
+  gigData: SellerGig,
+): Promise<SellerGig> => {
+  const document: SellerGig = await GigModel.findOneAndUpdate(
+    { _id: gigId },
+    {
+      $set: {
+        title: gigData.title,
+        description: gigData.description,
+        categories: gigData.categories,
+        subCategories: gigData.subCategories,
+        tags: gigData.tags,
+        price: gigData.price,
+        coverImage: gigData.coverImage,
+        expectedDelivery: gigData.expectedDelivery,
+        basicTitle: gigData.basicTitle,
+        basicDescription: gigData.basicDescription,
+      },
+    },
+    { new: true },
+  ).exec();
+
+  if (document) {
+    const data: SellerGig = document.toJSON?.() as SellerGig;
+
+    await updateIndexedData('gigs', `${document._id}`, data);
+  }
+
+  return document;
+};
+
+export const updateActiveGigProp = async (
+  gigId: string,
+  gigActive: boolean,
+): Promise<SellerGig> => {
+  const document: SellerGig = (await GigModel.findOneAndUpdate(
+    { _id: gigId },
+    {
+      $set: {
+        active: gigActive,
+      },
+    },
+    { new: true },
+  ).exec()) as SellerGig;
+
+  if (document) {
+    const data: SellerGig = document.toJSON?.() as SellerGig;
+
+    await updateIndexedData('gigs', `${document._id}`, data);
+  }
+
+  return document;
+};
+
+export const updateGigReview = async (
+  data: ReviewMessageDetails,
+): Promise<void> => {
+  const ratingTypes: RatingTypes = {
+    '1': 'one',
+    '2': 'two',
+    '3': 'three',
+    '4': 'four',
+    '5': 'five',
+  };
+  const ratingKey: string = ratingTypes[`${data.rating}`];
+  const gig = await GigModel.findOneAndUpdate(
+    { _id: data.gigId },
+    {
+      $inc: {
+        ratingsCount: 1,
+        ratingSum: data.rating,
+        [`ratingCategories.${ratingKey}.value`]: data.rating,
+        [`ratingCategories.${ratingKey}.count`]: 1,
+      },
+    },
+    { new: true, upsert: true },
+  ).exec();
+
+  if (gig) {
+    const data: SellerGig = gig.toJSON?.() as SellerGig;
+
+    await updateIndexedData('gigs', `${gig._id}`, data);
+  }
 };
