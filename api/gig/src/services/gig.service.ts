@@ -1,6 +1,10 @@
 import { SellerGig } from '@francislagares/jobber-shared';
 
-import { addDataToIndex, getIndexedData } from '@gig/elastic';
+import {
+  addDataToIndex,
+  deleteIndexedData,
+  getIndexedData,
+} from '@gig/elastic';
 import { GigModel } from '@gig/models/gig.schema';
 import { publishDirectMessage } from '@gig/queues/gig.producer';
 import { gigChannel } from '@gig/server';
@@ -61,4 +65,25 @@ export const createGig = async (gig: SellerGig): Promise<SellerGig> => {
   }
 
   return createdGig;
+};
+
+export const deleteGig = async (
+  gigId: string,
+  sellerId: string,
+): Promise<void> => {
+  await GigModel.deleteOne({ _id: gigId }).exec();
+
+  await publishDirectMessage(
+    gigChannel,
+    'jobber-seller-update',
+    'user-seller',
+    JSON.stringify({
+      type: 'update-gig-count',
+      gigSellerId: sellerId,
+      count: -1,
+    }),
+    'Details sent to users service.',
+  );
+
+  await deleteIndexedData('gigs', `${gigId}`);
 };
