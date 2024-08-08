@@ -1,6 +1,7 @@
 import { Client } from '@elastic/elasticsearch';
 import {
   ClusterHealthResponse,
+  CountResponse,
   GetResponse,
 } from '@elastic/elasticsearch/lib/api/types';
 import { Logger } from 'winston';
@@ -58,6 +59,20 @@ export const createIndex = async (indexName: string): Promise<void> => {
   } catch (error) {
     logger.error(`An error occurred while creating the index ${indexName}`);
     logger.log('error', 'GigService createIndex() method error:', error);
+  }
+};
+
+export const getDocumentCount = async (index: string): Promise<number> => {
+  try {
+    const result: CountResponse = await elasticSearchClient.count({ index });
+    return result.count;
+  } catch (error) {
+    logger.log(
+      'error',
+      'GigService elasticsearch getDocumentCount() method error:',
+      error,
+    );
+    return 0;
   }
 };
 

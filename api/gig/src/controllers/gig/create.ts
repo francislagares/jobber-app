@@ -8,6 +8,7 @@ import {
   uploadImage,
 } from '@francislagares/jobber-shared';
 
+import { getDocumentCount } from '@gig/elastic';
 import { createGig } from '@gig/services/gig.service';
 
 export const create = async (req: Request, res: Response): Promise<void> => {
@@ -22,6 +23,7 @@ export const create = async (req: Request, res: Response): Promise<void> => {
     );
   }
 
+  const count: number = await getDocumentCount('gigs');
   const gig: SellerGig = {
     sellerId: req.body.sellerId,
     username: req.currentUser.username,
@@ -37,6 +39,7 @@ export const create = async (req: Request, res: Response): Promise<void> => {
     basicTitle: req.body.basicTitle,
     basicDescription: req.body.basicDescription,
     coverImage: `${result?.secure_url}`,
+    sortId: count + 1,
   };
 
   const createdGig: SellerGig = await createGig(gig);
