@@ -3,6 +3,7 @@ import express, { Router } from 'express';
 import { validateRequest } from '@francislagares/jobber-shared';
 
 import { create as createGig } from '@gig/controllers/gig/create';
+import { gigDelete } from '@gig/controllers/gig/delete';
 import { gigUpdate, gigUpdateActive } from '@gig/controllers/gig/update';
 import { gigCreateSchema, gigUpdateSchema } from '@gig/schemes/gig';
 
@@ -16,6 +17,7 @@ const gigRoutes = (): Router => {
     validateRequest(gigUpdateSchema),
     gigUpdateActive,
   );
+  router.delete('/:gigId/:sellerId', gigDelete);
 
   return router;
 };
