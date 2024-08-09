@@ -16,6 +16,7 @@ class Config {
   public ORDER_BASE_URL: string | undefined;
   public REVIEW_BASE_URL: string | undefined;
   public REDIS_HOST: string | undefined;
+  public REDIS_PORT: string | undefined;
   public ELASTIC_SEARCH_URL: string | undefined;
 
   constructor() {
@@ -32,6 +33,7 @@ class Config {
     this.ORDER_BASE_URL = process.env.ORDER_BASE_URL || '';
     this.REVIEW_BASE_URL = process.env.REVIEW_BASE_URL || '';
     this.REDIS_HOST = process.env.REDIS_HOST || '';
+    this.REDIS_PORT = process.env.REDIS_PORT || '';
     this.ELASTIC_SEARCH_URL = process.env.ELASTIC_SEARCH_URL || '';
   }
 }

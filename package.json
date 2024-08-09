@@ -29,10 +29,10 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "vite-tsconfig-paths": "^4.3.2"
+    "vite-tsconfig-paths": "^5.0.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.3.0",
+    "@commitlint/cli": "^19.4.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@eslint/js": "^9.8.0",
     "@types/node": "^22.1.0",
@@ -58,8 +58,8 @@
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.0.1",
-    "typescript-transform-paths": "^3.4.7",
-    "vite": "^5.3.5",
+    "typescript-transform-paths": "^3.4.10",
+    "vite": "^5.4.0",
     "vitest": "^2.0.5",
     "vitest-mock-extended": "^2.0.0"
   },

@@ -20,8 +20,9 @@ services:
       - GIG_BASE_URL=http://gig:4004
       - MESSAGE_BASE_URL=http://message:4005
       - ORDER_BASE_URL=http://order:4006
-      - REVIEW_BASE_URL=http://review:4007
-      - REDIS_HOST=redis://redis:6379
+      - REVIEW_BASE_URL=http://review:4007 
+      - REDIS_HOST=redis-cache
+      - REDIS_PORT=6379
       - ELASTIC_SEARCH_URL=http://elasticsearch:9200
       - ELASTIC_APM_SERVER_URL=http://localhost:8200
     depends_on:

@@ -31,7 +31,7 @@
     "nodemailer": "^6.9.13",
     "pino-pretty": "^11.0.0",
     "shelljs": "^0.8.5",
-    "winston": "^3.13.0"
+    "winston": "^3.14.1"
   },
   "devDependencies": {
     "@types/amqplib": "^0.10.5",
@@ -45,10 +45,10 @@
     "ts-node": "^10.9.2",
     "tsc-alias": "^1.8.8",
     "tsconfig-paths": "^4.2.0",
-    "tsx": "^4.16.5",
+    "tsx": "^4.17.0",
     "typescript": "^5.4.5",
-    "typescript-transform-paths": "^3.4.7",
-    "vite": "^5.2.10",
+    "typescript-transform-paths": "^3.4.10",
+    "vite": "^5.4.0",
     "vitest": "^2.0.5",
     "vitest-mock-extended": "^2.0.0"
   },
