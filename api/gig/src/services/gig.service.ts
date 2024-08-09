@@ -1,6 +1,10 @@
+import { faker } from '@faker-js/faker';
+import { sample } from 'lodash';
+
 import {
   RatingTypes,
   ReviewMessageDetails,
+  SellerDocument,
   SellerGig,
 } from '@francislagares/jobber-shared';
 
@@ -176,5 +180,79 @@ export const updateGigReview = async (
     const data: SellerGig = gig.toJSON?.() as SellerGig;
 
     await updateIndexedData('gigs', `${gig._id}`, data);
+  }
+};
+
+export const seedData = async (
+  sellers: SellerDocument[],
+  count: string,
+): Promise<void> => {
+  const categories: string[] = [
+    'Graphics & Design',
+    'Digital Marketing',
+    'Writing & Translation',
+    'Video & Animation',
+    'Music & Audio',
+    'Programming & Tech',
+    'Data',
+    'Business',
+  ];
+  const expectedDelivery: string[] = [
+    '1 Day Delivery',
+    '2 Days Delivery',
+    '3 Days Delivery',
+    '4 Days Delivery',
+    '5 Days Delivery',
+  ];
+  const randomRatings = [
+    { sum: 20, count: 4 },
+    { sum: 10, count: 2 },
+    { sum: 20, count: 4 },
+    { sum: 15, count: 3 },
+    { sum: 5, count: 1 },
+  ];
+
+  for (let i = 0; i < sellers.length; i++) {
+    const sellerDoc: SellerDocument = sellers[i];
+    const title = `I will ${faker.word.words(5)}`;
+    const basicTitle = faker.commerce.productName();
+    const basicDescription = faker.commerce.productDescription();
+    const rating = sample(randomRatings);
+    const gig: SellerGig = {
+      profilePicture: sellerDoc.profilePicture,
+      sellerId: sellerDoc._id,
+      email: sellerDoc.email,
+      username: sellerDoc.username,
+      title: title.length <= 80 ? title : title.slice(0, 80),
+      basicTitle:
+        basicTitle.length <= 40 ? basicTitle : basicTitle.slice(0, 40),
+      basicDescription:
+        basicDescription.length <= 100
+          ? basicDescription
+          : basicDescription.slice(0, 100),
+      categories: `${sample(categories)}`,
+      subCategories: [
+        faker.commerce.department(),
+        faker.commerce.department(),
+        faker.commerce.department(),
+      ],
+      description: faker.lorem.sentences({ min: 2, max: 4 }),
+      tags: [
+        faker.commerce.product(),
+        faker.commerce.product(),
+        faker.commerce.product(),
+        faker.commerce.product(),
+      ],
+      price: parseInt(faker.commerce.price({ min: 20, max: 30, dec: 0 })),
+      coverImage: faker.image.urlPicsumPhotos(),
+      expectedDelivery: `${sample(expectedDelivery)}`,
+      sortId: parseInt(count, 10) + i + 1,
+      ratingsCount: (i + 1) % 4 === 0 ? rating['count'] : 0,
+      ratingSum: (i + 1) % 4 === 0 ? rating['sum'] : 0,
+    };
+
+    console.log(`***SEEDING GIG*** - ${i + 1} of ${count}`);
+
+    await createGig(gig);
   }
 };

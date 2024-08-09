@@ -5,7 +5,7 @@ import { winstonLogger } from '@francislagares/jobber-shared';
 
 import { config } from '@gig/config';
 import { createConnection } from '@gig/queues/connection';
-import { updateGigReview } from '@gig/services/gig.service';
+import { seedData, updateGigReview } from '@gig/services/gig.service';
 
 const logger: Logger = winstonLogger(
   `${config.ELASTIC_SEARCH_URL}`,
@@ -65,7 +65,10 @@ const consumeSeedDirectMessages = async (channel: Channel): Promise<void> => {
     await channel.bindQueue(jobberQueue.queue, exchangeName, routingKey);
 
     channel.consume(jobberQueue.queue, async (msg: ConsumeMessage | null) => {
-      // TODO: Seed data function
+      const { sellers, count } = JSON.parse(msg.content.toString());
+
+      await seedData(sellers, count);
+
       channel.ack(msg);
     });
   } catch (error) {

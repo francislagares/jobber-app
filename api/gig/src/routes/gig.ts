@@ -13,6 +13,7 @@ import {
   topRatedGigsByCategory,
 } from '@gig/controllers/gig/get';
 import { searchGigs } from '@gig/controllers/gig/search';
+import { seedGig } from '@gig/controllers/gig/seed';
 import { gigUpdate, gigUpdateActive } from '@gig/controllers/gig/update';
 import { gigCreateSchema, gigUpdateSchema } from '@gig/schemes/gig';
 
@@ -27,6 +28,7 @@ const gigRoutes = (): Router => {
   router.get('/top/:username', topRatedGigsByCategory);
   router.get('/similar/:gigId', moreLikeThis);
   router.post('/create', validateRequest(gigCreateSchema), createGig);
+  router.post('/seed/:count', seedGig);
   router.put('/:gigId', validateRequest(gigUpdateSchema), gigUpdate);
   router.put(
     '/active/:gigId',
