@@ -32,6 +32,22 @@ GET gigs/_search
       "must": [
         {
           "query_string": {
+            "fields": ["categories"],
+            "query": "Music*"
+          }
+        }
+      ]
+    }
+  }
+}
+
+GET gigs/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
             "fields": [
               "sellerId"
             ],
