@@ -1,5 +1,6 @@
 import { Server as HTTPServer } from 'http';
 
+import { createAdapter } from '@socket.io/redis-adapter';
 import compression from 'compression';
 import cookieSession from 'cookie-session';
 import cors from 'cors';
@@ -14,24 +15,30 @@ import {
 import helmet from 'helmet';
 import hpp from 'hpp';
 import { StatusCodes } from 'http-status-codes';
+import Redis from 'ioredis';
+import { Server as SocketIOServer } from 'socket.io';
 import { Logger } from 'winston';
 
 import { ErrorResponse, winstonLogger } from '@francislagares/jobber-shared';
 
 import { config } from '@gateway/config';
 import { elasticSearch } from '@gateway/elastic';
+import applicationRoutes from '@gateway/routes';
 import { axiosAuthInstance } from '@gateway/services/auth';
 import { axiosBuyerInstance } from '@gateway/services/buyer';
+import { axiosGigInstance } from '@gateway/services/gig';
 import { axiosSellerInstance } from '@gateway/services/seller';
 
-import applicationRoutes from './routes';
-
 const SERVER_PORT = 4000;
+const DEFAULT_ERROR_CODE = 500;
+
 const logger: Logger = winstonLogger(
   `${config.ELASTIC_SEARCH_URL}`,
   'apiGatewayServer',
   'debug',
 );
+
+export let socketIO: SocketIOServer;
 
 export class APIGateway {
   private app: Application;
@@ -76,6 +83,8 @@ export class APIGateway {
           `Bearer ${req.session.jwt}`;
         axiosSellerInstance.defaults.headers['Authorization'] =
           `Bearer ${req.session.jwt}`;
+        axiosGigInstance.defaults.headers['Authorization'] =
+          `Bearer ${req.session?.jwt}`;
       }
       next();
     });
@@ -127,11 +136,41 @@ export class APIGateway {
   private async startServer(app: Application): Promise<void> {
     try {
       const httpServer = new HTTPServer(app);
+      const socketIO = await this.createSocketIO(httpServer);
 
       this.startHttpServer(httpServer);
+      this.socketIOConnections(socketIO);
     } catch (error) {
       logger.log('error', 'GatewayService startServer() method:', error);
     }
+  }
+
+  private async createSocketIO(
+    httpServer: HTTPServer,
+  ): Promise<SocketIOServer> {
+    const io: SocketIOServer = new SocketIOServer(httpServer, {
+      cors: {
+        origin: `${config.CLIENT_URL}`,
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+      },
+    });
+    const pubClient = new Redis({
+      host: config.REDIS_HOST,
+      port: parseInt(config.REDIS_PORT),
+    });
+    const subClient = pubClient.duplicate();
+
+    await Promise.all([pubClient.connect(), subClient.connect()]);
+
+    io.adapter(createAdapter(pubClient, subClient));
+
+    socketIO = io;
+
+    return io;
+  }
+
+  private socketIOConnections(io: SocketIOServer): void {
+    console.log('Socket IO running...');
   }
 
   private async startHttpServer(httpServer: HTTPServer): Promise<void> {
