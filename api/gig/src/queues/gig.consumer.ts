@@ -31,7 +31,7 @@ const consumeGigDirectMessage = async (channel: Channel): Promise<void> => {
 
     await channel.bindQueue(jobberQueue.queue, exchangeName, routingKey);
     channel.consume(jobberQueue.queue, async (msg: ConsumeMessage | null) => {
-      const { gigReview } = JSON.parse(msg!.content.toString());
+      const { gigReview } = JSON.parse(msg.content.toString());
 
       await updateGigReview(JSON.parse(gigReview));
       channel.ack(msg);
