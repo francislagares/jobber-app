@@ -30,7 +30,6 @@ import { axiosGigInstance } from '@gateway/services/gig';
 import { axiosSellerInstance } from '@gateway/services/seller';
 
 const SERVER_PORT = 4000;
-const DEFAULT_ERROR_CODE = 500;
 
 const logger: Logger = winstonLogger(
   `${config.ELASTIC_SEARCH_URL}`,
@@ -78,11 +77,11 @@ export class APIGateway {
     app.use((req: Request, _res: Response, next: NextFunction) => {
       if (req.session?.jwt) {
         axiosAuthInstance.defaults.headers['Authorization'] =
-          `Bearer ${req.session.jwt}`;
+          `Bearer ${req.session?.jwt}`;
         axiosBuyerInstance.defaults.headers['Authorization'] =
-          `Bearer ${req.session.jwt}`;
+          `Bearer ${req.session?.jwt}`;
         axiosSellerInstance.defaults.headers['Authorization'] =
-          `Bearer ${req.session.jwt}`;
+          `Bearer ${req.session?.jwt}`;
         axiosGigInstance.defaults.headers['Authorization'] =
           `Bearer ${req.session?.jwt}`;
       }
@@ -159,8 +158,6 @@ export class APIGateway {
       port: parseInt(config.REDIS_PORT),
     });
     const subClient = pubClient.duplicate();
-
-    await Promise.all([pubClient.connect(), subClient.connect()]);
 
     io.adapter(createAdapter(pubClient, subClient));
 

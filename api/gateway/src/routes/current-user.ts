@@ -20,6 +20,18 @@ class CurrentUserRoutes {
     );
 
     this.router.get(
+      '/auth/logged-in-user',
+      authMiddleware.checkAuthentication,
+      currentUser.getLoggedInUsers,
+    );
+
+    this.router.delete(
+      '/auth/logged-in-user/:username',
+      authMiddleware.checkAuthentication,
+      currentUser.removeLoggedInUser,
+    );
+
+    this.router.get(
       '/auth/currentuser',
       authMiddleware.checkAuthentication,
       currentUser.getCurrentUser,
