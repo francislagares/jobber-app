@@ -29,6 +29,8 @@ import { axiosBuyerInstance } from '@gateway/services/buyer';
 import { axiosGigInstance } from '@gateway/services/gig';
 import { axiosSellerInstance } from '@gateway/services/seller';
 
+import { SocketIOAppHandler } from './sockets';
+
 const SERVER_PORT = 4000;
 
 const logger: Logger = winstonLogger(
@@ -149,7 +151,7 @@ export class APIGateway {
   ): Promise<SocketIOServer> {
     const io: SocketIOServer = new SocketIOServer(httpServer, {
       cors: {
-        origin: `${config.CLIENT_URL}`,
+        origin: '*',
         methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
       },
     });
@@ -166,10 +168,6 @@ export class APIGateway {
     return io;
   }
 
-  private socketIOConnections(io: SocketIOServer): void {
-    console.log('Socket IO running...');
-  }
-
   private async startHttpServer(httpServer: HTTPServer): Promise<void> {
     try {
       logger.info(`Gateway service has started with process id ${process.pid}`);
@@ -180,5 +178,11 @@ export class APIGateway {
     } catch (error) {
       logger.log('error', 'GatewayServer startHttpServer() method:', error);
     }
+  }
+
+  private socketIOConnections(io: SocketIOServer): void {
+    const socketIoApp = new SocketIOAppHandler(io);
+
+    socketIoApp.listen();
   }
 }

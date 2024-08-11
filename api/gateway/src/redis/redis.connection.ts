@@ -7,7 +7,7 @@ import { config } from '@gateway/config';
 
 const logger: Logger = winstonLogger(
   `${config.ELASTIC_SEARCH_URL}`,
-  'gigRedisConnection',
+  'gatewayRedisConnection',
   'debug',
 );
 
@@ -20,13 +20,13 @@ export const redisConnect = async (): Promise<void> => {
   try {
     redis.on('connect', async () => {
       logger.info(
-        `GigService Redis Connection Established - ${await redis.ping()}`,
+        `GatewayService Redis Connection Established - ${await redis.ping()}`,
       );
     });
 
     cacheError();
   } catch (error) {
-    logger.log('error', 'GigService redisConnect() method error:', error);
+    logger.log('error', 'GatewayService redisConnect() method error:', error);
   }
 };
 

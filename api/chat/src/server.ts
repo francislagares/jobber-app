@@ -1,10 +1,5 @@
 import { Server as HTTPServer } from 'http';
 
-import { config } from '@chat/config';
-import { MongoDBInstance as dbConnection } from '@chat/config/database';
-import { checkConnection } from '@chat/elastic';
-import { createConnection } from '@chat/queues/connection';
-import { appRoutes } from '@chat/routes';
 import { Channel } from 'amqplib';
 import compression from 'compression';
 import cors from 'cors';
@@ -19,6 +14,7 @@ import {
 import helmet from 'helmet';
 import hpp from 'hpp';
 import { verify } from 'jsonwebtoken';
+import { Server as SocketIOServer } from 'socket.io';
 import { Logger } from 'winston';
 
 import {
@@ -28,6 +24,12 @@ import {
   winstonLogger,
 } from '@francislagares/jobber-shared';
 
+import { config } from '@chat/config';
+import { MongoDBInstance as dbConnection } from '@chat/config/database';
+import { checkConnection } from '@chat/elastic';
+import { createConnection } from '@chat/queues/connection';
+import { appRoutes } from '@chat/routes';
+
 const SERVER_PORT = 4005;
 const logger: Logger = winstonLogger(
   `${config.ELASTIC_SEARCH_URL}`,
@@ -36,6 +38,7 @@ const logger: Logger = winstonLogger(
 );
 
 export let chatChannel: Channel;
+export let socketIOChatObject: SocketIOServer;
 
 export const start = (app: Application): void => {
   securityMiddleware(app);
@@ -107,10 +110,35 @@ export const connectDatabase = (): void => {
   dbConnection.getInstance();
 };
 
-export const startServer = (app: Application) => {
+export const startServer = async (app: Application): Promise<void> => {
   try {
-    const httpServer: HTTPServer = new HTTPServer(app);
+    const httpServer = new HTTPServer(app);
+    const socketIO: SocketIOServer = await createSocketIO(httpServer);
+
+    startHttpServer(httpServer);
+    socketIOChatObject = socketIO;
+  } catch (error) {
+    logger.log('error', 'ChatService startServer() method:', error);
+  }
+};
+
+export const createSocketIO = async (
+  httpServer: HTTPServer,
+): Promise<SocketIOServer> => {
+  const io: SocketIOServer = new SocketIOServer(httpServer, {
+    cors: {
+      origin: '*',
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    },
+  });
+
+  return io;
+};
+
+export const startHttpServer = (httpServer: HTTPServer) => {
+  try {
     logger.info(`Chat server has started with process id ${process.pid}`);
+
     httpServer.listen(SERVER_PORT, () => {
       logger.info(`Chat server running on port ${SERVER_PORT}`);
     });
