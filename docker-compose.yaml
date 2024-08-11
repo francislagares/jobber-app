@@ -64,6 +64,11 @@ services:
       service: gig
       file: api/gig/docker-compose.yaml
 
+  chat:
+    extends:
+      service: chat
+      file: api/chat/docker-compose.yaml
+
 
 volumes:
   mysql:

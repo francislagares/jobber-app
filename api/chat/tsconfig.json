@@ -1,10 +1,19 @@
 {
   "compilerOptions": {
+    "plugins": [
+      { "transform": "typescript-transform-paths" },
+      { "transform": "typescript-transform-paths", "afterDeclarations": true }
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@chat/*": ["src/*"]
+    },
+
     /* Project Setup */
     "target": "es2022",
     "lib": ["dom", "esnext", "es2022"],
     "allowJs": true,
-    "outDir": "./dist",
+    "outDir": "./build",
     "sourceMap": true,
     "removeComments": true,
     "isolatedModules": true,
@@ -16,16 +25,6 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["api/*", "client/src/*"],
-      "@gateway/*": ["api/gateway/src/*"],
-      "@users/*": ["api/users/src/*"],
-      "@gig/*": ["api/gig/src/*"],
-      "@chat/*": ["api/chat/src/*"],
-      "@notification/*": ["api/notification/src/*"],
-      "@authentication/*": ["api/authentication/src/*"]
-    },
 
     /* Linter Checks */
     "noFallthroughCasesInSwitch": true,
@@ -41,7 +40,5 @@
     /* Advanced Options */
     "forceConsistentCasingInFileNames": true
   },
-  "types": ["vitest/globals"],
-  "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "**/node_modules/*", "**/dist/*"]
+  "types": ["vitest/globals"]
 }

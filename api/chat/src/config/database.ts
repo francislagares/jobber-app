@@ -1,13 +1,12 @@
+import { config } from '@chat/config';
 import mongoose from 'mongoose';
 import { Logger } from 'winston';
 
 import { winstonLogger } from '@francislagares/jobber-shared';
 
-import { config } from '@gig/config';
-
 const logger: Logger = winstonLogger(
   `${config.ELASTIC_SEARCH_URL}`,
-  'gigDatabaseServer',
+  'chatDatabaseServer',
   'debug',
 );
 
@@ -31,12 +30,12 @@ export class MongoDBInstance {
       if (mongoose.connection.readyState === 0) {
         await mongoose.connect(config.DATABASE_URL);
         logger.info(
-          'Gig MongoDB database connection has been successfully established!',
+          'Chat MongoDB database connection has been successfully established!',
         );
       }
     } catch (error) {
-      logger.error('Gig Service - Unable to connect to database.');
-      logger.log('error', 'Gig Service connectToDatabase() method:', error);
+      logger.error('Chat Service - Unable to connect to database.');
+      logger.log('error', 'ChatService connectToDatabase() method:', error);
 
       await this.disconnectFromDatabase();
 
@@ -47,7 +46,7 @@ export class MongoDBInstance {
   private async disconnectFromDatabase(): Promise<void> {
     try {
       await mongoose.disconnect();
-      logger.error('Gig Service - Disconnected from database.');
+      logger.error('Users Service - Disconnected from database.');
     } catch (error) {
       logger.error(`Error disconnecting from database: ${error}`);
     }
