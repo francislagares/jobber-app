@@ -44,13 +44,15 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Configure pnpm Auth for private registry
-        run: pnpm config set //npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}
+      - name: Set npm private registry token
+        run: |
+          echo @francislagares:https://npm.pkg.github.com/ > ~/.npmrc
+          echo '//npm.pkg.github.com/:_authToken=${NPM_TOKEN}' >> ~/.npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install Dependencies
         run: pnpm install
-        env:
-          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate Prisma ORM schema to the database
         run: pnpm prisma migrate deploy
