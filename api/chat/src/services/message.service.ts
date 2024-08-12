@@ -135,3 +135,60 @@ export const getUserMessages = async (
 
   return messages;
 };
+
+export const updateOffer = async (
+  messageId: string,
+  type: string,
+): Promise<MessageDocument> => {
+  const message: MessageDocument = await MessageModel.findOneAndUpdate(
+    { _id: messageId },
+    {
+      $set: {
+        [`offer.${type}`]: true,
+      },
+    },
+    { new: true },
+  );
+
+  return message;
+};
+
+export const markMessageAsRead = async (
+  messageId: string,
+): Promise<MessageDocument> => {
+  const message: MessageDocument = await MessageModel.findOneAndUpdate(
+    { _id: messageId },
+    {
+      $set: {
+        isRead: true,
+      },
+    },
+    { new: true },
+  );
+
+  socketIOChatObject.emit('message updated', message);
+
+  return message;
+};
+
+export const markManyMessagesAsRead = async (
+  receiver: string,
+  sender: string,
+  messageId: string,
+): Promise<MessageDocument> => {
+  await MessageModel.updateMany(
+    { senderUsername: sender, receiverUsername: receiver, isRead: false },
+    {
+      $set: {
+        isRead: true,
+      },
+    },
+  );
+  const message: MessageDocument = (await MessageModel.findOne({
+    _id: messageId,
+  }).exec()) as MessageDocument;
+
+  socketIOChatObject.emit('message updated', message);
+
+  return message;
+};
