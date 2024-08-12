@@ -7,16 +7,7 @@ services:
     restart: always
     ports:
       - 4001:4001
-    environment:
-      - ENABLE_APM=0
-      - NODE_ENV=development
-      - CLIENT_URL=http://localhost:3000
-      - RABBITMQ_ENDPOINT=amqp://jobber:jobberpass@rabbitmq:5672
-      - SENDER_EMAIL=jovani.lockman@ethereal.email
-      - SENDER_EMAIL_PASSWORD=kFSHJ5fZvffh3ZfVNz
-      - ELASTIC_SEARCH_URL=http://elasticsearch:9200
-      - ELASTIC_APM_SERVER_URL=http://localhost:8200
-      - ELASTIC_APM_SECRET_TOKEN=
+    env_file: .env.development.local
     depends_on:
       elasticsearch:
         condition: service_healthy
