@@ -83,7 +83,7 @@ export class SocketIOAppHandler {
       chatSocketClient.connect();
     });
 
-    // custom events
+    // Custom Events
     chatSocketClient.on('message received', (data: MessageDocument) => {
       this.io.emit('message received', data);
     });
