@@ -1,7 +1,7 @@
 import express, { Express } from 'express';
 
-import { config } from '@chat/config';
-import { connectDatabase, start } from '@chat/server';
+import { config } from '@order/config';
+import { connectDatabase, start } from '@order/server';
 
 const initilize = (): void => {
   config.cloudinaryConfig();

@@ -1,0 +1,25 @@
+services:
+  order:
+    container_name: order
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    restart: always
+    ports:
+      - 4006:4006
+    env_file: .env.development.local
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    healthcheck:
+      test: curl -f http://localhost:4005/order-health || exit 1
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+      start_interval: 5s
+    volumes:
+      - .:/order
+      - /order/node_modules
+    networks:
+      - jobber_app

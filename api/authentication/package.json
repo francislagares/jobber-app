@@ -21,7 +21,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@elastic/elasticsearch": "^8.14.0",
+    "@elastic/elasticsearch": "^8.15.0",
     "@faker-js/faker": "^8.4.1",
     "@francislagares/jobber-shared": "^1.0.5",
     "@prisma/client": "^5.18.0",

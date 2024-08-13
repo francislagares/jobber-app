@@ -20,7 +20,7 @@
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx|json|md)\" --write"
   },
   "dependencies": {
-    "@elastic/elasticsearch": "^8.14.0",
+    "@elastic/elasticsearch": "^8.15.0",
     "@francislagares/jobber-shared": "^1.0.5",
     "amqplib": "^0.10.4",
     "bcrypt": "^5.1.1",

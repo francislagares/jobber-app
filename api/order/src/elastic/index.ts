@@ -4,11 +4,11 @@ import { Logger } from 'winston';
 
 import { winstonLogger } from '@francislagares/jobber-shared';
 
-import { config } from '@chat/config';
+import { config } from '@order/config';
 
 const logger: Logger = winstonLogger(
   `${config.ELASTIC_SEARCH_URL}`,
-  'chatElasticSearchServer',
+  'ordersElasticSearchServer',
   'debug',
 );
 
@@ -24,11 +24,13 @@ export const checkConnection = async (): Promise<void> => {
       const health: ClusterHealthResponse =
         await elasticSearchClient.cluster.health({});
 
-      logger.info(`ChatService Elasticsearch health status - ${health.status}`);
+      logger.info(
+        `OrderService Elasticsearch health status - ${health.status}`,
+      );
       isConnected = true;
     } catch (error) {
       logger.error('Connection to Elasticsearch failed. Retrying...');
-      logger.log('error', 'ChatService checkConnection() method:', error);
+      logger.log('error', 'OrderService checkConnection() method:', error);
     }
   }
 };

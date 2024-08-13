@@ -3,11 +3,11 @@ import { Logger } from 'winston';
 
 import { winstonLogger } from '@francislagares/jobber-shared';
 
-import { config } from '@chat/config';
+import { config } from '@order/config';
 
 const logger: Logger = winstonLogger(
   `${config.ELASTIC_SEARCH_URL}`,
-  'chatDatabaseServer',
+  'orderDatabaseServer',
   'debug',
 );
 
@@ -31,12 +31,12 @@ export class MongoDBInstance {
       if (mongoose.connection.readyState === 0) {
         await mongoose.connect(config.DATABASE_URL);
         logger.info(
-          'Chat MongoDB database connection has been successfully established!',
+          'Order MongoDB database connection has been successfully established!',
         );
       }
     } catch (error) {
-      logger.error('Chat Service - Unable to connect to database.');
-      logger.log('error', 'ChatService connectToDatabase() method:', error);
+      logger.error('Order Service - Unable to connect to database.');
+      logger.log('error', 'OrderService connectToDatabase() method:', error);
 
       await this.disconnectFromDatabase();
 
@@ -47,7 +47,7 @@ export class MongoDBInstance {
   private async disconnectFromDatabase(): Promise<void> {
     try {
       await mongoose.disconnect();
-      logger.error('Chat Service - Disconnected from database.');
+      logger.error('Orders Service - Disconnected from database.');
     } catch (error) {
       logger.error(`Error disconnecting from database: ${error}`);
     }
