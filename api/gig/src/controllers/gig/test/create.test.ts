@@ -16,7 +16,6 @@ import * as gigService from '@gig/services/gig.service';
 
 vi.mock('@gig/services/gig.service');
 vi.mock('@francislagares/jobber-shared');
-vi.mock('@francislagares/jobber-shared');
 vi.mock('@gig/schemes/gig');
 vi.mock('@gig/elastic');
 vi.mock('@elastic/elasticsearch');
