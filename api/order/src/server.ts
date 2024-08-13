@@ -38,7 +38,7 @@ const logger: Logger = winstonLogger(
 );
 
 export let chatChannel: Channel;
-export let socketIOChatObject: SocketIOServer;
+export let socketIOOrderObject: SocketIOServer;
 
 export const start = (app: Application): void => {
   securityMiddleware(app);
@@ -46,7 +46,7 @@ export const start = (app: Application): void => {
   routesMiddleware(app);
   startQueues();
   startElasticSearch();
-  chatErrorHandler(app);
+  orderErrorHandler(app);
   startServer(app);
 };
 
@@ -89,7 +89,7 @@ export const startElasticSearch = (): void => {
   checkConnection();
 };
 
-export const chatErrorHandler = (app: Application): void => {
+export const orderErrorHandler = (app: Application): void => {
   app.use(
     (
       error: ErrorResponse,
@@ -116,7 +116,7 @@ export const startServer = async (app: Application): Promise<void> => {
     const socketIO: SocketIOServer = await createSocketIO(httpServer);
 
     startHttpServer(httpServer);
-    socketIOChatObject = socketIO;
+    socketIOOrderObject = socketIO;
   } catch (error) {
     logger.log('error', 'OrderService startServer() method:', error);
   }
