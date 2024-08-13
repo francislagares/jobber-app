@@ -13,6 +13,8 @@ class Config {
   public CLOUD_API_SECRET: string | undefined;
   public GATEWAY_JWT_TOKEN: string | undefined;
   public API_GATEWAY_URL: string | undefined;
+  public CLIENT_URL: string | undefined;
+  public STRIPE_API_KEY: string | undefined;
   public ELASTIC_SEARCH_URL: string | undefined;
 
   constructor() {
@@ -25,6 +27,8 @@ class Config {
     this.CLOUD_API_SECRET = process.env.CLOUD_API_SECRET || '';
     this.GATEWAY_JWT_TOKEN = process.env.GATEWAY_JWT_TOKEN || '';
     this.API_GATEWAY_URL = process.env.API_GATEWAY_URL || '';
+    this.CLIENT_URL = process.env.CLIENT_URL || '';
+    this.STRIPE_API_KEY = process.env.STRIPE_API_KEY || '';
     this.ELASTIC_SEARCH_URL = process.env.ELASTIC_SEARCH_URL || '';
   }
 

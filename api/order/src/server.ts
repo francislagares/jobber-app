@@ -37,7 +37,7 @@ const logger: Logger = winstonLogger(
   'debug',
 );
 
-export let chatChannel: Channel;
+export let orderChannel: Channel;
 export let socketIOOrderObject: SocketIOServer;
 
 export const start = (app: Application): void => {
@@ -82,7 +82,7 @@ export const routesMiddleware = (app: Application): void => {
 };
 
 export const startQueues = async (): Promise<void> => {
-  chatChannel = await createConnection();
+  orderChannel = await createConnection();
 };
 
 export const startElasticSearch = (): void => {
