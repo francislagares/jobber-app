@@ -28,6 +28,7 @@ import { config } from '@order/config';
 import { MongoDBInstance as dbConnection } from '@order/config/database';
 import { checkConnection } from '@order/elastic';
 import { createConnection } from '@order/queues/connection';
+import { consumerReviewFanoutMessages } from '@order/queues/order.consumer';
 import { appRoutes } from '@order/routes';
 
 const SERVER_PORT = 4006;
@@ -83,6 +84,7 @@ export const routesMiddleware = (app: Application): void => {
 
 export const startQueues = async (): Promise<void> => {
   orderChannel = await createConnection();
+  await consumerReviewFanoutMessages(orderChannel);
 };
 
 export const startElasticSearch = (): void => {
