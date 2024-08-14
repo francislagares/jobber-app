@@ -27,7 +27,7 @@ export const markNotificationAsRead = async (
   notificationId: string,
 ): Promise<OrderNotifcation> => {
   const notification: OrderNotifcation =
-    (await OrderNotificationModel.findOneAndUpdate(
+    await OrderNotificationModel.findOneAndUpdate(
       { _id: notificationId },
       {
         $set: {
@@ -35,7 +35,7 @@ export const markNotificationAsRead = async (
         },
       },
       { new: true },
-    )) as OrderNotifcation;
+    );
   const order: OrderDocument = await getOrderByOrderId(notification.orderId);
 
   socketIOOrderObject.emit('order notification', order, notification);
