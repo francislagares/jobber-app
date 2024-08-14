@@ -24,7 +24,7 @@
 - Copy contents of `.env.dev` to `.env` file
   - Create an account on `https://stripe.com`
     - Go to developers page to get your api key
-    - Add the api key to `STRIPE_API_KEY`
+    - Add the api key to `STRIPE_SECRET_KEY`
   - Create an account on `https://cloudinary.com`
   - Get your `cloud name`, `cloud secret` and `cloud api key` and add to `.env`
   - You can generate a new `GATEWAY_JWT_TOKEN` and `JWT_TOKEN`

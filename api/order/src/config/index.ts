@@ -14,7 +14,7 @@ class Config {
   public GATEWAY_JWT_TOKEN: string | undefined;
   public API_GATEWAY_URL: string | undefined;
   public CLIENT_URL: string | undefined;
-  public STRIPE_API_KEY: string | undefined;
+  public STRIPE_SECRET_KEY: string | undefined;
   public ELASTIC_SEARCH_URL: string | undefined;
 
   constructor() {
@@ -28,7 +28,7 @@ class Config {
     this.GATEWAY_JWT_TOKEN = process.env.GATEWAY_JWT_TOKEN || '';
     this.API_GATEWAY_URL = process.env.API_GATEWAY_URL || '';
     this.CLIENT_URL = process.env.CLIENT_URL || '';
-    this.STRIPE_API_KEY = process.env.STRIPE_API_KEY || '';
+    this.STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY || '';
     this.ELASTIC_SEARCH_URL = process.env.ELASTIC_SEARCH_URL || '';
   }
 
