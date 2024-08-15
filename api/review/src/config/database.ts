@@ -7,8 +7,8 @@ import { config } from '@review/config';
 
 export class PostgresDB {
   private static instance: PostgresDB;
-  private pool: Pool;
   private logger: Logger;
+  public pool: Pool;
 
   private constructor() {
     this.logger = winstonLogger(
@@ -42,9 +42,11 @@ export class PostgresDB {
   public async connect(): Promise<void> {
     try {
       await this.pool.connect();
+
       this.logger.info(
         'Review service successfully connected to postgresql database.',
       );
+
       await this.pool.query(this.createTableText);
     } catch (error) {
       this.logger.error('ReviewService - Unable to connect to database');
