@@ -74,6 +74,11 @@ services:
       service: order
       file: api/order/docker-compose.yaml
 
+  review:
+    extends:
+      service: review
+      file: api/review/docker-compose.yaml
+
 volumes:
   mysql:
     name: mysql

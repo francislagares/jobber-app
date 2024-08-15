@@ -1,26 +1,26 @@
 FROM node:alpine
 
 RUN apk update && apk add --no-cache nodejs && corepack enable
-RUN addgroup jobber && adduser -S -G jobber order
+RUN addgroup jobber && adduser -S -G jobber review
 
-USER order
+USER review
 
-WORKDIR /order
+WORKDIR /review
 
 COPY package.json tsconfig.json .npmrc ./
 COPY src ./src
 
 USER root
 
-RUN chown -R order:jobber .
+RUN chown -R review:jobber .
 
-USER order
+USER review
 
 RUN ls -a
 RUN pnpm install
 RUN rm -f .npmrc
 
-EXPOSE 4006
+EXPOSE 4007
 
 CMD [ "pnpm", "dev" ]
 
