@@ -39,6 +39,16 @@ services:
       service: kibana
       file: infra/docker/docker-compose-kibana.yaml
 
+  metricbeat:
+    extends:
+      service: metricbeat
+      file: infra/docker/docker-compose-metricbeat.yaml
+
+  heartbeat:
+    extends:
+      service: heartbeat
+      file: infra/docker/docker-compose-heartbeat.yaml
+
   api-gateway:
     extends:
       service: api-gateway

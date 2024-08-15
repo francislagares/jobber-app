@@ -1,0 +1,16 @@
+services:
+  heartbeat:
+    container_name: heartbeat
+    image: docker.elastic.co/beats/heartbeat:8.15.0
+    user: root
+    hostname: heartbeat
+    cap_add:
+      - NET_RAW
+    networks:
+      - elastic
+      - jobber_app
+    command: ['--strict.perms=false']
+    volumes:
+      - ./heartbeat.yaml:/usr/share/heartbeat/heartbeat.yaml:ro
+    depends_on:
+      - elasticsearch

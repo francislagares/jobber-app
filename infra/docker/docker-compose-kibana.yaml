@@ -1,12 +1,12 @@
-version: "3.9"
+version: '3.9'
 
 include:
   - docker-compose-elasticsearch.yaml
-  
+
 services:
   kibana:
     container_name: kibana
-    image: docker.elastic.co/kibana/kibana:8.13.2
+    image: docker.elastic.co/kibana/kibana:8.15.0
     restart: always
     environment:
       - ELASTICSEARCH_HOSTS=["http://elasticsearch:9200"]
@@ -14,16 +14,14 @@ services:
       - 5601:5601
     networks:
       - elastic
+      - jobber_app
     volumes:
       - ./kibana.yaml/:/usr/share/kibana/config/kibana.yaml:ro
     depends_on:
       elasticsearch:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "curl", "-s", "-f", "http://localhost:5601/api/status"]
+      test: ['CMD', 'curl', '-s', '-f', 'http://localhost:5601/api/status']
       interval: 3s
       timeout: 3s
       retries: 80
-  networks:
-    - elastic
-    - jobber_app

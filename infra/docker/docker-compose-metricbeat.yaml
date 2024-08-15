@@ -1,0 +1,20 @@
+services:
+  metricbeat:
+    container_name: metricbeat
+    image: docker.elastic.co/beats/metricbeat:8.15.0
+    user: root
+    ports:
+      - 5066:5066
+    networks:
+      - elastic
+    volumes:
+      - ./metricbeat.yaml/:/usr/share/metricbeat/metricbeat.yaml:ro
+      # docker module
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      # system module
+      - /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro
+      - /proc:/hostfs/proc:ro
+      - /:/hostfs:ro
+    command: ['--strict.perms=false', '-system.hostfs=/hostfs']
+    depends_on:
+      - elasticsearch

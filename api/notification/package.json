@@ -48,7 +48,7 @@
     "tsx": "^4.17.0",
     "typescript": "^5.4.5",
     "typescript-transform-paths": "^3.4.10",
-    "vite": "^5.4.0",
+    "vite": "^5.4.1",
     "vitest": "^2.0.5",
     "vitest-mock-extended": "^2.0.0"
   },
