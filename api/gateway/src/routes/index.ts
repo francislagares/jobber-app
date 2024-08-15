@@ -8,6 +8,7 @@ import { gigRoutes } from '@gateway/routes/gig';
 import { healthRoute } from '@gateway/routes/health';
 
 import { messageRoutes } from './chat';
+import { reviewRoutes } from './review';
 import { sellerRoutes } from './seller';
 
 const BASE_PATH = '/api/gateway/v1';
@@ -22,6 +23,7 @@ const applicationRoutes = (app: Application) => {
     app.use(BASE_PATH, authMiddleware.verifyUser, sellerRoutes.routes());
     app.use(BASE_PATH, authMiddleware.verifyUser, gigRoutes.routes());
     app.use(BASE_PATH, authMiddleware.verifyUser, messageRoutes.routes());
+    app.use(BASE_PATH, authMiddleware.verifyUser, reviewRoutes.routes());
   };
 
   routes();
