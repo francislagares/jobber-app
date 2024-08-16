@@ -5,66 +5,66 @@ heartbeat.config.monitors:
 
 heartbeat.monitors:
   - type: http
-    id: jobber-api-gateway
+    id: api-gateway
     name: Jobber API Gateway Service
-    schedule: '@every 5s'
-    hosts: ['http://gateway:4000/gateway-health']
+    schedule: '@every 15s'
+    hosts: ['http://api-gateway:4000/gateway-health']
     check.request.method: GET
     check.response.status: [200]
 
   - type: http
-    id: jobber-notification
+    id: notification
     name: Jobber Notification Service
-    schedule: '@every 5s'
+    schedule: '@every 15s'
     hosts: ['http://notification:4001/notification-health']
     check.request.method: GET
     check.response.status: [200]
 
   - type: http
-    id: jobber-auth
+    id: authentication
     name: Jobber Auth Service
-    schedule: '@every 5s'
+    schedule: '@every 15s'
     hosts: ['http://authentication:4002/authentication-health']
     check.request.method: GET
     check.response.status: [200]
 
   - type: http
-    id: jobber-users
+    id: users
     name: Jobber Users Service
-    schedule: '@every 5s'
+    schedule: '@every 15s'
     hosts: ['http://users:4003/user-health']
     check.request.method: GET
     check.response.status: [200]
 
   - type: http
-    id: jobber-gigs
+    id: gigs
     name: Jobber Gigs Service
-    schedule: '@every 5s'
+    schedule: '@every 15s'
     hosts: ['http://gig:4004/gig-health']
     check.request.method: GET
     check.response.status: [200]
 
   - type: http
-    id: jobber-chat
+    id: chat
     name: Jobber Chat Service
-    schedule: '@every 5s'
+    schedule: '@every 15s'
     hosts: ['http://chat:4005/chat-health']
     check.request.method: GET
     check.response.status: [200]
 
   - type: http
-    id: jobber-orders
+    id: orders
     name: Jobber Orders Service
-    schedule: '@every 5s'
+    schedule: '@every 15s'
     hosts: ['http://order:4006/order-health']
     check.request.method: GET
     check.response.status: [200]
 
   - type: http
-    id: jobber-reviews
+    id: reviews
     name: Jobber Reviews Service
-    schedule: '@every 5s'
-    urls: ['http://review:4007/review-health']
+    schedule: '@every 15s'
+    hosts: ['http://review:4007/review-health']
     check.request.method: GET
     check.response.status: [200]
 
@@ -77,3 +77,4 @@ monitoring.enabled: true
 output.elasticsearch:
   hosts: ['http://elasticsearch:9200']
   username: 'elastic'
+  password: 'admin1234'

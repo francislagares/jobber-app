@@ -90,3 +90,4 @@ processors:
 output.elasticsearch:
   hosts: ['http://elasticsearch:9200']
   username: 'elastic'
+  password: 'admin1234'

@@ -25,3 +25,4 @@ services:
       - /authentication/node_modules
     networks:
       - jobber_app
+      - elastic

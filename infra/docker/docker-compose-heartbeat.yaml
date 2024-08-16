@@ -4,6 +4,7 @@ services:
     image: docker.elastic.co/beats/heartbeat:8.15.0
     user: root
     hostname: heartbeat
+    restart: always
     cap_add:
       - NET_RAW
     networks:

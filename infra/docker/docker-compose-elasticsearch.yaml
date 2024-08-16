@@ -5,15 +5,17 @@ services:
     restart: always
     environment:
       ES_JAVA_OPTS: -Xmx1g -Xms1g
+      ELASTIC_PASSWORD: admin1234
       discovery.type: single-node
       network.host: 0.0.0.0
       transport.host: 127.0.0.1
       http.host: 0.0.0.0
       bootstrap.memory_lock: 'true'
-      xpack.security.enabled: 'false'
+      xpack.security.enabled: 'true'
       xpack.security.authc.api_key.enabled: 'true'
       xpack.monitoring.collection.enabled: 'true'
       xpack.security.enrollment.enabled: 'true'
+      xpack.security.authc.token.enabled: "true"
     ports:
       - 9300:9300
       - 9200:9200

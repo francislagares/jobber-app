@@ -3,10 +3,12 @@ services:
     container_name: metricbeat
     image: docker.elastic.co/beats/metricbeat:8.15.0
     user: root
+    restart: always
     ports:
       - 5066:5066
     networks:
       - elastic
+      - jobber_app
     volumes:
       - ./metricbeat.yaml/:/usr/share/metricbeat/metricbeat.yaml:ro
       # docker module

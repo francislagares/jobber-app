@@ -2,17 +2,21 @@
 ## https://github.com/elastic/kibana/blob/master/src/dev/build/tasks/os_packages/docker_generator/templates/kibana_yml.template.js
 #
 server.name: kibana
-server.host: "0.0.0.0"
+server.host: '0.0.0.0'
 server.port: 5601
+
+elasticsearch.hosts: ['http://elasticsearch:9200']
 
 monitoring.ui.container.elasticsearch.enabled: true
 xpack.fleet.enabled: true
 xpack.fleet.agents.enabled: true
-xpack.fleet.agents.elasticsearch.hosts: ["https://elasticsearch:9200"]
-xpack.fleet.agents.fleet_server.hosts: ["http://fleet_server:9243"]
+xpack.fleet.agents.elasticsearch.hosts: ['https://elasticsearch:9200']
+xpack.fleet.agents.fleet_server.hosts: ['http://fleet_server:9243']
 xpack.reporting.roles.enabled: true
-
-xpack.encryptedSavedObjects.encryptionKey: "not-a-real-key-but-gets-the-job-done"
+xpack.fleet.agentIdVerificationEnabled: false
+xpack.security.encryptionKey: fhjskloppd678ehkdfdlliverpoolfcr
+xpack.encryptedSavedObjects.encryptionKey: fhjskloppd678ehkdfdlliverpoolfcr
+xpack.reporting.kibanaServer.hostname: localhost
 
 ## Add policy for apm-server integration
 xpack.fleet.packages:

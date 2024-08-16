@@ -91,8 +91,8 @@ importers:
         specifier: ^8.1.0
         version: 8.1.0(eslint@9.9.0(jiti@1.21.6))(typescript@5.5.4)
       typescript-transform-paths:
-        specifier: ^3.4.10
-        version: 3.4.10(typescript@5.5.4)
+        specifier: ^3.4.11
+        version: 3.4.11(typescript@5.5.4)
       vite:
         specifier: ^5.4.1
         version: 5.4.1(@types/node@22.3.0)
@@ -233,8 +233,8 @@ importers:
         specifier: ^5.5.4
         version: 5.5.4
       typescript-transform-paths:
-        specifier: ^3.4.10
-        version: 3.4.10(typescript@5.5.4)
+        specifier: ^3.4.11
+        version: 3.4.11(typescript@5.5.4)
       vite:
         specifier: ^5.4.1
         version: 5.4.1(@types/node@22.3.0)
@@ -354,8 +354,8 @@ importers:
         specifier: ^5.5.4
         version: 5.5.4
       typescript-transform-paths:
-        specifier: ^3.4.10
-        version: 3.4.10(typescript@5.5.4)
+        specifier: ^3.4.11
+        version: 3.4.11(typescript@5.5.4)
       vite:
         specifier: ^5.4.1
         version: 5.4.1(@types/node@22.3.0)
@@ -469,8 +469,8 @@ importers:
         specifier: ^5.5.4
         version: 5.5.4
       typescript-transform-paths:
-        specifier: ^3.4.10
-        version: 3.4.10(typescript@5.5.4)
+        specifier: ^3.4.11
+        version: 3.4.11(typescript@5.5.4)
       vite:
         specifier: ^5.4.1
         version: 5.4.1(@types/node@22.3.0)
@@ -602,8 +602,8 @@ importers:
         specifier: ^5.5.4
         version: 5.5.4
       typescript-transform-paths:
-        specifier: ^3.4.10
-        version: 3.4.10(typescript@5.5.4)
+        specifier: ^3.4.11
+        version: 3.4.11(typescript@5.5.4)
       vite:
         specifier: ^5.4.1
         version: 5.4.1(@types/node@22.3.0)
@@ -693,8 +693,8 @@ importers:
         specifier: ^5.4.5
         version: 5.5.4
       typescript-transform-paths:
-        specifier: ^3.4.10
-        version: 3.4.10(typescript@5.5.4)
+        specifier: ^3.4.11
+        version: 3.4.11(typescript@5.5.4)
       vite:
         specifier: ^5.4.1
         version: 5.4.1(@types/node@22.3.0)
@@ -759,8 +759,8 @@ importers:
         specifier: ^4.7.5
         version: 4.7.5
       stripe:
-        specifier: ^16.7.0
-        version: 16.7.0
+        specifier: ^16.8.0
+        version: 16.8.0
       winston:
         specifier: ^3.14.2
         version: 3.14.2
@@ -817,8 +817,8 @@ importers:
         specifier: ^5.5.4
         version: 5.5.4
       typescript-transform-paths:
-        specifier: ^3.4.10
-        version: 3.4.10(typescript@5.5.4)
+        specifier: ^3.4.11
+        version: 3.4.11(typescript@5.5.4)
       vite:
         specifier: ^5.4.1
         version: 5.4.1(@types/node@22.3.0)
@@ -886,8 +886,8 @@ importers:
         specifier: ^4.7.5
         version: 4.7.5
       stripe:
-        specifier: ^16.7.0
-        version: 16.7.0
+        specifier: ^16.8.0
+        version: 16.8.0
       winston:
         specifier: ^3.14.2
         version: 3.14.2
@@ -944,8 +944,8 @@ importers:
         specifier: ^5.5.4
         version: 5.5.4
       typescript-transform-paths:
-        specifier: ^3.4.10
-        version: 3.4.10(typescript@5.5.4)
+        specifier: ^3.4.11
+        version: 3.4.11(typescript@5.5.4)
       vite:
         specifier: ^5.4.1
         version: 5.4.1(@types/node@22.3.0)
@@ -1074,8 +1074,8 @@ importers:
         specifier: ^5.5.4
         version: 5.5.4
       typescript-transform-paths:
-        specifier: ^3.4.10
-        version: 3.4.10(typescript@5.5.4)
+        specifier: ^3.4.11
+        version: 3.4.11(typescript@5.5.4)
       vite:
         specifier: ^5.4.1
         version: 5.4.1(@types/node@22.3.0)
@@ -4765,6 +4765,10 @@ packages:
     resolution: {integrity: sha512-AWJm14H1vVaO/iNZ4/hO+HyaTehuy9nRqVdkTqlJt0HWvBiBIEXFmb4C0DGeYo3Xes9rrEW+TxHsaigCbN5ICQ==}
     engines: {node: '>=0.6'}
 
+  qs@6.13.0:
+    resolution: {integrity: sha512-+38qI9SOr8tfZ4QmJNplMUxqjbe7LKvvZgWdExBOmd+egZTtjLB67Gu0HRX3u/XOq7UU2Nx6nsjvS16Z9uwfpg==}
+    engines: {node: '>=0.6'}
+
   querystringify@2.2.0:
     resolution: {integrity: sha512-FIqgj2EUvTa7R50u0rGsyTftzjYmv/a3hO345bZNrqabNqjtgiDMgmo4mkUjd+nzU5oF3dClKqFIPUKybUyqoQ==}
 
@@ -5169,8 +5173,8 @@ packages:
     resolution: {integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==}
     engines: {node: '>=8'}
 
-  stripe@16.7.0:
-    resolution: {integrity: sha512-BJCSEtqN8LJsPuPkjQmB/LlBl00uxi9FIPa6LNcF80ofMKqfnuervDhwWSZqCs6xJk/i9vx1D9lRoDnqSmym2w==}
+  stripe@16.8.0:
+    resolution: {integrity: sha512-6rOIcGOkxcc29jvhEyOYmpPFilekOBV+7vpemAoIAfbtCRW1yxzdDGM0/0vyekHglLL+wqGpP5ldrhO3dJ2JEQ==}
     engines: {node: '>=12.*'}
 
   supports-color@5.5.0:
@@ -5387,8 +5391,8 @@ packages:
       typescript:
         optional: true
 
-  typescript-transform-paths@3.4.10:
-    resolution: {integrity: sha512-OPBjXDnwX/B4JzewvRAzEzcNK+hQn/JonCfUN93VARsFQcj/wk//4RJ3FPp/SgzsT1s1EJJhOass5grxy8Y2yA==}
+  typescript-transform-paths@3.4.11:
+    resolution: {integrity: sha512-yUEHc991mbXjrjcOSBat1yiwzlSOqRyzjzj/5txQ7jy21Up0/p9H7XQ1c2lYLxf+Aum9vMpW/tG86ajkNupsZA==}
     peerDependencies:
       typescript: '>=3.6.5'
 
@@ -9750,6 +9754,10 @@ snapshots:
     dependencies:
       side-channel: 1.0.6
 
+  qs@6.13.0:
+    dependencies:
+      side-channel: 1.0.6
+
   querystringify@2.2.0: {}
 
   queue-lit@1.5.2: {}
@@ -10218,10 +10226,10 @@ snapshots:
 
   strip-json-comments@3.1.1: {}
 
-  stripe@16.7.0:
+  stripe@16.8.0:
     dependencies:
       '@types/node': 22.3.0
-      qs: 6.12.3
+      qs: 6.13.0
 
   supports-color@5.5.0:
     dependencies:
@@ -10436,7 +10444,7 @@ snapshots:
       - eslint
       - supports-color
 
-  typescript-transform-paths@3.4.10(typescript@5.5.4):
+  typescript-transform-paths@3.4.11(typescript@5.5.4):
     dependencies:
       minimatch: 3.1.2
       typescript: 5.5.4
