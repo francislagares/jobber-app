@@ -49,6 +49,11 @@ services:
       service: heartbeat
       file: infra/docker/docker-compose-heartbeat.yaml
 
+  apmServer:
+    extends:
+      service: apmServer
+      file: infra/docker/docker-compose-apm.yaml
+
   api-gateway:
     extends:
       service: api-gateway
