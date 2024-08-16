@@ -29,6 +29,7 @@
     "cookie-session": "^2.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
+    "elastic-apm-node": "^4.7.3",
     "express": "^4.19.2",
     "helmet": "^7.0.0",
     "hpp": "^0.2.3",

@@ -25,6 +25,7 @@
     "amqplib": "^0.10.4",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
+    "elastic-apm-node": "^4.7.3",
     "email-templates": "^12.0.1",
     "express": "^4.19.2",
     "http-status-codes": "^2.3.0",

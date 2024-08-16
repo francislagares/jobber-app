@@ -1,13 +1,14 @@
 services:
   apmServer:
-    image: docker.elastic.co/apm/apm-server:8.15.0
     container_name: apm-server
+    image: docker.elastic.co/apm/apm-server:8.15.0
     ports:
       - 8200:8200
     volumes:
-      - ./apm-server.yml:/usr/share/apm-server/apm-server.yml:ro
+      - ./apm-server.yaml:/usr/share/apm-server/apm-server.yaml:ro
     networks:
       - elastic
+      - jobber_app
     command: >
       apm-server -e
         -E apm-server.rum.enabled=true

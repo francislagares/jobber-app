@@ -10,8 +10,7 @@ elasticsearch.hosts: ['http://elasticsearch:9200']
 monitoring.ui.container.elasticsearch.enabled: true
 xpack.fleet.enabled: true
 xpack.fleet.agents.enabled: true
-xpack.fleet.agents.elasticsearch.hosts: ['https://elasticsearch:9200']
-xpack.fleet.agents.fleet_server.hosts: ['http://fleet_server:9243']
+xpack.fleet.agents.elasticsearch.hosts: ['http://elasticsearch:9200']
 xpack.reporting.roles.enabled: true
 xpack.fleet.agentIdVerificationEnabled: false
 xpack.security.encryptionKey: fhjskloppd678ehkdfdlliverpoolfcr

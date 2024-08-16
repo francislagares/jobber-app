@@ -138,6 +138,9 @@ importers:
       dotenv:
         specifier: ^16.4.5
         version: 16.4.5
+      elastic-apm-node:
+        specifier: ^4.7.3
+        version: 4.7.3
       express:
         specifier: ^4.19.2
         version: 4.19.2
@@ -271,6 +274,9 @@ importers:
       dotenv:
         specifier: ^16.4.5
         version: 16.4.5
+      elastic-apm-node:
+        specifier: ^4.7.3
+        version: 4.7.3
       express:
         specifier: ^4.19.2
         version: 4.19.2
@@ -395,6 +401,9 @@ importers:
       dotenv:
         specifier: ^16.4.5
         version: 16.4.5
+      elastic-apm-node:
+        specifier: ^4.7.3
+        version: 4.7.3
       express:
         specifier: ^4.19.2
         version: 4.19.2
@@ -510,6 +519,9 @@ importers:
       dotenv:
         specifier: ^16.4.5
         version: 16.4.5
+      elastic-apm-node:
+        specifier: ^4.7.3
+        version: 4.7.3
       express:
         specifier: ^4.19.2
         version: 4.19.2
@@ -631,6 +643,9 @@ importers:
       ejs:
         specifier: ^3.1.10
         version: 3.1.10
+      elastic-apm-node:
+        specifier: ^4.7.3
+        version: 4.7.3
       email-templates:
         specifier: ^12.0.1
         version: 12.0.1(ejs@3.1.10)(mustache@4.2.0)(pug@3.0.3)(underscore@1.13.7)
@@ -731,6 +746,9 @@ importers:
       dotenv:
         specifier: ^16.4.5
         version: 16.4.5
+      elastic-apm-node:
+        specifier: ^4.7.3
+        version: 4.7.3
       express:
         specifier: ^4.19.2
         version: 4.19.2
@@ -855,6 +873,9 @@ importers:
       dotenv:
         specifier: ^16.4.5
         version: 16.4.5
+      elastic-apm-node:
+        specifier: ^4.7.3
+        version: 4.7.3
       express:
         specifier: ^4.19.2
         version: 4.19.2
@@ -985,6 +1006,9 @@ importers:
       dotenv:
         specifier: ^16.4.5
         version: 16.4.5
+      elastic-apm-node:
+        specifier: ^4.7.3
+        version: 4.7.3
       express:
         specifier: ^4.19.2
         version: 4.19.2
@@ -2175,6 +2199,11 @@ packages:
     peerDependencies:
       acorn: ^8
 
+  acorn-import-attributes@1.9.5:
+    resolution: {integrity: sha512-n02Vykv5uA3eHGM/Z2dQrcD56kL8TyDb2p1+0P83PClMnC/nc+anbQRhIOWnSq4Ke/KvDPrY3C9hDtC/A3eHnQ==}
+    peerDependencies:
+      acorn: ^8
+
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
     peerDependencies:
@@ -2373,6 +2402,9 @@ packages:
   bcrypt@5.1.1:
     resolution: {integrity: sha512-AGBHOG5hPYZ5Xl9KXzU5iKq9516yEmvCKDg3ecP5kX2aB6UqTeXZxk2ELnDgDm6BQSMlLt9rDB4LoSMx0rYwww==}
     engines: {node: '>= 10.0.0'}
+
+  bignumber.js@9.1.2:
+    resolution: {integrity: sha512-2/mKyZH9K85bzOEfhXDBFZTGd1CTs+5IHpeFQo9luiBG7hghdC851Pj2WAhb6E3R6b9tZj/XKhbg4fum+Kepug==}
 
   binary-extensions@2.3.0:
     resolution: {integrity: sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==}
@@ -2902,6 +2934,10 @@ packages:
   elastic-apm-node@3.51.0:
     resolution: {integrity: sha512-GvZyoV4uhHB9qW4QE4pGcYZLbDCay2VzbeE5zN5v9vrQQ7j72GbzE5wGmtryNHwqP4DGCuXUk/jerArfpIquOQ==}
     engines: {node: '>=8.6.0'}
+
+  elastic-apm-node@4.7.3:
+    resolution: {integrity: sha512-x+cQKrXSCz6JgoTFAiBpLlC85ruqZ7sAl+jAS3+DeSmc6ZXLRTwTa2ay2PCGv3DxGLZjVZ+ItzGdHTj5B7PYKg==}
+    engines: {node: '>=14.17.0'}
 
   email-templates@12.0.1:
     resolution: {integrity: sha512-849pjBFVUAWWTa3HqhDjxlXHaSWmxf4CZOlZ9iVkrSAbQ8YCYi+7KiKqt35L6F20WhSViWX7lmMjno6zBv2rNQ==}
@@ -3580,6 +3616,9 @@ packages:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
     engines: {node: '>=6'}
 
+  import-in-the-middle@1.11.0:
+    resolution: {integrity: sha512-5DimNQGoe0pLUHbR9qK84iWaWjjbsxiqXnw6Qz64+azRgleqv9k2kTt5fw7QsOpmaGYtuxxursnPPsnTKEx10Q==}
+
   import-in-the-middle@1.4.2:
     resolution: {integrity: sha512-9WOz1Yh/cvO/p69sxRmhyQwrIGGSp7EIdcb+fFNVi7CzQGQB8U1/1XrKVSbEd/GNOAeM0peJtmi7+qphe7NvAw==}
 
@@ -3841,6 +3880,9 @@ packages:
     resolution: {integrity: sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==}
     hasBin: true
 
+  json-bigint@1.0.0:
+    resolution: {integrity: sha512-SiPv/8VpZuWbvLSMtTDU8hEfrZWg/mH/nV/b4o0CYbSxu1UIQPLdwKOCIyLQX+VIPO5vrLX3i8qtqFyhdPSUSQ==}
+
   json-buffer@3.0.1:
     resolution: {integrity: sha512-4bV5BfR2mqfQTJm+V5tPPdf+ZpuhiIvTuAB5g8kcrXOZpTT/QwwVRWBywX1ozr6lEuPdbHxwaJlm9G6mI2sfSQ==}
 
@@ -4042,6 +4084,10 @@ packages:
 
   loupe@3.1.1:
     resolution: {integrity: sha512-edNu/8D5MKVfGVFRhFf8aAxiTM6Wumfz5XsaatSxlD3w4R1d/WEKUTydCdPGbl9K7QG/Ca3GnDV2sIKIpXRQcw==}
+
+  lru-cache@10.2.0:
+    resolution: {integrity: sha512-2bIM8x+VAf6JT4bKAljS1qUWgMsqZRPGJS6FSahIMPVvctcNhyVp7AJu7quxOW9jwkryBReKZY5tY5JYv2n/7Q==}
+    engines: {node: 14 || >=16.14}
 
   lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
@@ -4625,8 +4671,15 @@ packages:
   pino-std-serializers@3.2.0:
     resolution: {integrity: sha512-EqX4pwDPrt3MuOAAUBMU0Tk5kR/YcCM5fNPEzgCO2zJ5HfX0vbiH9HbJglnyeQsN96Kznae6MWD47pZB5avTrg==}
 
+  pino-std-serializers@6.2.2:
+    resolution: {integrity: sha512-cHjPPsE+vhj/tnhCy/wiMh3M3z3h/j15zHQX+S9GkTBgqJuTuJzYJ4gUyACLhDaJ7kk9ba9iRDmbH2tJU03OiA==}
+
   pino@6.14.0:
     resolution: {integrity: sha512-iuhEDel3Z3hF9Jfe44DPXR8l07bhjuFY3GMHIXbjnY9XcafbyDDwl2sN2vw2GjMPf5Nkoe+OFao7ffn9SXaKDg==}
+    hasBin: true
+
+  pino@8.21.0:
+    resolution: {integrity: sha512-ip4qdzjkAyDDZklUaZkcRFb2iA118H9SgRh8yzTkSQK8HilsOJF7rSY8HoW5+I0M46AZgX/pxbprf2vvzQCE0Q==}
     hasBin: true
 
   plimit-lit@1.6.1:
@@ -4681,6 +4734,9 @@ packages:
 
   process-warning@1.0.0:
     resolution: {integrity: sha512-du4wfLyj4yCZq1VupnVSZmRsPJsNuxoDQFdCFHLaYiEbFBD7QE0a+I4D7hOxrVnh78QE/YipFAj9lXHiXocV+Q==}
+
+  process-warning@3.0.0:
+    resolution: {integrity: sha512-mqn0kFRl0EoqhnL0GQ0veqFHyIN1yig9RHh/InzORTUiZHFRAur+aMtRkELNwGs9aNwKS6tg/An4NYBPGwvtzQ==}
 
   process@0.11.10:
     resolution: {integrity: sha512-cdGef/drWFoydD1JsMzuFf8100nZl+GT+yacc2bEced5f9Rjk4z+WtFUTBu9PhOi9j/jfmBPu0mMEY4wIdAF8A==}
@@ -4808,6 +4864,10 @@ packages:
   readdirp@3.6.0:
     resolution: {integrity: sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==}
     engines: {node: '>=8.10.0'}
+
+  real-require@0.2.0:
+    resolution: {integrity: sha512-57frrGM/OCTLqLOAh0mhVA9VBMHd+9U7Zb2THMGdBUoZVOtGbJzjxsYGDJ3A9AYYCP4hn6y1TVbaOfzWtm5GFg==}
+    engines: {node: '>= 12.13.0'}
 
   rechoir@0.6.2:
     resolution: {integrity: sha512-HFM8rkZ+i3zrV+4LQjwQ0W+ez98pApMGM3HUrN04j3CqzPOzl9nmP15Y8YXNm8QHGv/eacOVEjqhmWpkRV0NAw==}
@@ -5062,6 +5122,9 @@ packages:
   sonic-boom@1.4.1:
     resolution: {integrity: sha512-LRHh/A8tpW7ru89lrlkU4AszXt1dbwSjVWguGrmlxE7tawVmDBlI1PILMkXAxJTwqhgsEeTHzj36D5CmHgQmNg==}
 
+  sonic-boom@3.8.1:
+    resolution: {integrity: sha512-y4Z8LCDBuum+PBP3lSV7RHrXscqksve/bi0as7mhwVnBW+/wUqKT/2Kb7um8yqcFy0duYbbPxzt89Zy2nOCaxg==}
+
   sonic-boom@4.0.1:
     resolution: {integrity: sha512-hTSD/6JMLyT4r9zeof6UtuBDpjJ9sO08/nmS5djaA9eozT9oOlNdpXSnzcgj4FTqpk3nkLrs61l4gip9r1HCrQ==}
 
@@ -5218,6 +5281,9 @@ packages:
 
   text-table@0.2.0:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
+
+  thread-stream@2.7.0:
+    resolution: {integrity: sha512-qQiRWsU/wvNolI6tbbCKd9iKaTnCXsTwVxhhKM6nctPdujTyztjlbUkUTUymidWcMnZ5pWR0ej4a0tjsW021vw==}
 
   through@2.3.8:
     resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==}
@@ -5890,13 +5956,11 @@ snapshots:
       enabled: 2.0.0
       kuler: 2.0.0
 
-  '@elastic/ecs-helpers@2.1.1':
-    optional: true
+  '@elastic/ecs-helpers@2.1.1': {}
 
   '@elastic/ecs-pino-format@1.5.0':
     dependencies:
       '@elastic/ecs-helpers': 2.1.1
-    optional: true
 
   '@elastic/elasticsearch@8.15.0':
     dependencies:
@@ -6254,14 +6318,12 @@ snapshots:
     dependencies:
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/semantic-conventions': 1.25.1
-    optional: true
 
   '@opentelemetry/resources@1.25.1(@opentelemetry/api@1.9.0)':
     dependencies:
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/core': 1.25.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.25.1
-    optional: true
 
   '@opentelemetry/sdk-metrics@1.25.1(@opentelemetry/api@1.9.0)':
     dependencies:
@@ -6269,10 +6331,8 @@ snapshots:
       '@opentelemetry/core': 1.25.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/resources': 1.25.1(@opentelemetry/api@1.9.0)
       lodash.merge: 4.6.2
-    optional: true
 
-  '@opentelemetry/semantic-conventions@1.25.1':
-    optional: true
+  '@opentelemetry/semantic-conventions@1.25.1': {}
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
@@ -6677,6 +6737,10 @@ snapshots:
       acorn: 8.12.1
     optional: true
 
+  acorn-import-attributes@1.9.5(acorn@8.12.1):
+    dependencies:
+      acorn: 8.12.1
+
   acorn-jsx@5.3.2(acorn@8.12.1):
     dependencies:
       acorn: 8.12.1
@@ -6690,8 +6754,7 @@ snapshots:
 
   acorn@8.12.1: {}
 
-  after-all-results@2.0.0:
-    optional: true
+  after-all-results@2.0.0: {}
 
   agent-base@6.0.2:
     dependencies:
@@ -6702,7 +6765,6 @@ snapshots:
   agentkeepalive@4.5.0:
     dependencies:
       humanize-ms: 1.2.1
-    optional: true
 
   ajv@6.12.6:
     dependencies:
@@ -6846,10 +6908,8 @@ snapshots:
   async-value-promise@1.1.1:
     dependencies:
       async-value: 1.2.2
-    optional: true
 
-  async-value@1.2.2:
-    optional: true
+  async-value@1.2.2: {}
 
   async@3.2.5: {}
 
@@ -6885,7 +6945,6 @@ snapshots:
   basic-auth@2.0.1:
     dependencies:
       safe-buffer: 5.1.2
-    optional: true
 
   bcrypt@5.1.1:
     dependencies:
@@ -6895,10 +6954,11 @@ snapshots:
       - encoding
       - supports-color
 
+  bignumber.js@9.1.2: {}
+
   binary-extensions@2.3.0: {}
 
-  binary-search@1.3.6:
-    optional: true
+  binary-search@1.3.6: {}
 
   bl@4.1.0:
     dependencies:
@@ -6943,7 +7003,6 @@ snapshots:
   breadth-filter@2.0.0:
     dependencies:
       object.entries: 1.1.8
-    optional: true
 
   bson@6.8.0: {}
 
@@ -7069,8 +7128,7 @@ snapshots:
   ci-info@3.9.0:
     optional: true
 
-  cjs-module-lexer@1.3.1:
-    optional: true
+  cjs-module-lexer@1.3.1: {}
 
   cli-cursor@3.1.0:
     dependencies:
@@ -7202,8 +7260,7 @@ snapshots:
 
   console-control-strings@1.1.0: {}
 
-  console-log-level@1.4.1:
-    optional: true
+  console-log-level@1.4.1: {}
 
   constantinople@4.0.1:
     dependencies:
@@ -7534,6 +7591,48 @@ snapshots:
       - supports-color
     optional: true
 
+  elastic-apm-node@4.7.3:
+    dependencies:
+      '@elastic/ecs-pino-format': 1.5.0
+      '@opentelemetry/api': 1.9.0
+      '@opentelemetry/core': 1.25.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/sdk-metrics': 1.25.1(@opentelemetry/api@1.9.0)
+      after-all-results: 2.0.0
+      agentkeepalive: 4.5.0
+      async-value-promise: 1.1.1
+      basic-auth: 2.0.1
+      breadth-filter: 2.0.0
+      cookie: 0.6.0
+      core-util-is: 1.0.3
+      end-of-stream: 1.4.4
+      error-callsites: 2.0.4
+      error-stack-parser: 2.1.4
+      escape-string-regexp: 4.0.0
+      fast-safe-stringify: 2.1.1
+      fast-stream-to-buffer: 1.0.0
+      http-headers: 3.0.2
+      import-in-the-middle: 1.11.0
+      json-bigint: 1.0.0
+      lru-cache: 10.2.0
+      measured-reporting: 1.51.1
+      module-details-from-path: 1.0.3
+      monitor-event-loop-delay: 1.0.0
+      object-filter-sequence: 1.0.0
+      object-identity-map: 1.0.2
+      original-url: 1.2.3
+      pino: 8.21.0
+      readable-stream: 3.6.2
+      relative-microtime: 2.0.0
+      require-in-the-middle: 7.4.0
+      semver: 7.6.3
+      shallow-clone-shim: 2.0.0
+      source-map: 0.8.0-beta.0
+      sql-summary: 1.0.1
+      stream-chopper: 3.0.1
+      unicode-byte-truncate: 1.0.0
+    transitivePeerDependencies:
+      - supports-color
+
   email-templates@12.0.1(ejs@3.1.10)(mustache@4.2.0)(pug@3.0.3)(underscore@1.13.7):
     dependencies:
       '@ladjs/consolidate': 1.0.4(ejs@3.1.10)(lodash@4.17.21)(mustache@4.2.0)(pug@3.0.3)(underscore@1.13.7)
@@ -7660,8 +7759,7 @@ snapshots:
 
   environment@1.1.0: {}
 
-  error-callsites@2.0.4:
-    optional: true
+  error-callsites@2.0.4: {}
 
   error-ex@1.3.2:
     dependencies:
@@ -7670,7 +7768,6 @@ snapshots:
   error-stack-parser@2.1.4:
     dependencies:
       stackframe: 1.3.4
-    optional: true
 
   es-abstract@1.23.3:
     dependencies:
@@ -8069,15 +8166,13 @@ snapshots:
     dependencies:
       boolean: 3.2.0
 
-  fast-redact@3.5.0:
-    optional: true
+  fast-redact@3.5.0: {}
 
   fast-safe-stringify@2.1.1: {}
 
   fast-stream-to-buffer@1.0.0:
     dependencies:
       end-of-stream: 1.4.4
-    optional: true
 
   fast-uri@3.0.1: {}
 
@@ -8181,8 +8276,7 @@ snapshots:
       combined-stream: 1.0.8
       mime-types: 2.1.35
 
-  forwarded-parse@2.1.2:
-    optional: true
+  forwarded-parse@2.1.2: {}
 
   forwarded@0.2.0: {}
 
@@ -8434,7 +8528,6 @@ snapshots:
   http-headers@3.0.2:
     dependencies:
       next-line: 1.1.0
-    optional: true
 
   http-status-codes@2.3.0: {}
 
@@ -8450,7 +8543,6 @@ snapshots:
   humanize-ms@1.2.1:
     dependencies:
       ms: 2.1.3
-    optional: true
 
   husky@9.1.4: {}
 
@@ -8488,6 +8580,13 @@ snapshots:
     dependencies:
       parent-module: 1.0.1
       resolve-from: 4.0.0
+
+  import-in-the-middle@1.11.0:
+    dependencies:
+      acorn: 8.12.1
+      acorn-import-attributes: 1.9.5(acorn@8.12.1)
+      cjs-module-lexer: 1.3.1
+      module-details-from-path: 1.0.3
 
   import-in-the-middle@1.4.2:
     dependencies:
@@ -8601,8 +8700,7 @@ snapshots:
 
   is-extglob@2.1.1: {}
 
-  is-finite@1.1.0:
-    optional: true
+  is-finite@1.1.0: {}
 
   is-fullwidth-code-point@3.0.0: {}
 
@@ -8619,7 +8717,6 @@ snapshots:
   is-integer@1.0.7:
     dependencies:
       is-finite: 1.1.0
-    optional: true
 
   is-interactive@1.0.0: {}
 
@@ -8760,6 +8857,10 @@ snapshots:
   js-yaml@4.1.0:
     dependencies:
       argparse: 2.0.1
+
+  json-bigint@1.0.0:
+    dependencies:
+      bignumber.js: 9.1.2
 
   json-buffer@3.0.1: {}
 
@@ -8955,8 +9056,7 @@ snapshots:
 
   lodash.snakecase@4.1.1: {}
 
-  lodash.sortby@4.7.0:
-    optional: true
+  lodash.sortby@4.7.0: {}
 
   lodash.startcase@4.4.0: {}
 
@@ -8993,6 +9093,8 @@ snapshots:
   loupe@3.1.1:
     dependencies:
       get-func-name: 2.0.2
+
+  lru-cache@10.2.0: {}
 
   lru-cache@10.4.3: {}
 
@@ -9052,8 +9154,7 @@ snapshots:
 
   make-plural@7.4.0: {}
 
-  mapcap@1.0.0:
-    optional: true
+  mapcap@1.0.0: {}
 
   math-interval-parser@2.0.1: {}
 
@@ -9061,7 +9162,6 @@ snapshots:
     dependencies:
       binary-search: 1.3.6
       optional-js: 2.3.0
-    optional: true
 
   measured-reporting@1.51.1:
     dependencies:
@@ -9069,7 +9169,6 @@ snapshots:
       mapcap: 1.0.0
       measured-core: 1.51.1
       optional-js: 2.3.0
-    optional: true
 
   media-typer@0.3.0: {}
 
@@ -9147,8 +9246,7 @@ snapshots:
 
   mkdirp@1.0.4: {}
 
-  module-details-from-path@1.0.3:
-    optional: true
+  module-details-from-path@1.0.3: {}
 
   mongodb-connection-string-url@3.0.1:
     dependencies:
@@ -9199,8 +9297,7 @@ snapshots:
       - socks
       - supports-color
 
-  monitor-event-loop-delay@1.0.0:
-    optional: true
+  monitor-event-loop-delay@1.0.0: {}
 
   moo@0.5.2: {}
 
@@ -9240,8 +9337,7 @@ snapshots:
 
   negotiator@0.6.3: {}
 
-  next-line@1.1.0:
-    optional: true
+  next-line@1.1.0: {}
 
   nice-try@1.0.5:
     optional: true
@@ -9287,13 +9383,11 @@ snapshots:
 
   object-assign@4.1.1: {}
 
-  object-filter-sequence@1.0.0:
-    optional: true
+  object-filter-sequence@1.0.0: {}
 
   object-identity-map@1.0.2:
     dependencies:
       object.entries: 1.1.8
-    optional: true
 
   object-inspect@1.13.2: {}
 
@@ -9311,7 +9405,6 @@ snapshots:
       call-bind: 1.0.7
       define-properties: 1.2.1
       es-object-atoms: 1.0.0
-    optional: true
 
   object.fromentries@2.0.8:
     dependencies:
@@ -9366,8 +9459,7 @@ snapshots:
       is-wsl: 2.2.0
     optional: true
 
-  optional-js@2.3.0:
-    optional: true
+  optional-js@2.3.0: {}
 
   optionator@0.9.4:
     dependencies:
@@ -9393,7 +9485,6 @@ snapshots:
   original-url@1.2.3:
     dependencies:
       forwarded-parse: 2.1.2
-    optional: true
 
   os-tmpdir@1.0.2: {}
 
@@ -9571,6 +9662,8 @@ snapshots:
   pino-std-serializers@3.2.0:
     optional: true
 
+  pino-std-serializers@6.2.2: {}
+
   pino@6.14.0:
     dependencies:
       fast-redact: 3.5.0
@@ -9581,6 +9674,20 @@ snapshots:
       quick-format-unescaped: 4.0.4
       sonic-boom: 1.4.1
     optional: true
+
+  pino@8.21.0:
+    dependencies:
+      atomic-sleep: 1.0.0
+      fast-redact: 3.5.0
+      on-exit-leak-free: 2.1.2
+      pino-abstract-transport: 1.2.0
+      pino-std-serializers: 6.2.2
+      process-warning: 3.0.0
+      quick-format-unescaped: 4.0.4
+      real-require: 0.2.0
+      safe-stable-stringify: 2.4.3
+      sonic-boom: 3.8.1
+      thread-stream: 2.7.0
 
   plimit-lit@1.6.1:
     dependencies:
@@ -9633,6 +9740,8 @@ snapshots:
 
   process-warning@1.0.0:
     optional: true
+
+  process-warning@3.0.0: {}
 
   process@0.11.10: {}
 
@@ -9764,8 +9873,7 @@ snapshots:
 
   queue-microtask@1.2.3: {}
 
-  quick-format-unescaped@4.0.4:
-    optional: true
+  quick-format-unescaped@4.0.4: {}
 
   range-parser@1.2.1: {}
 
@@ -9809,6 +9917,8 @@ snapshots:
     dependencies:
       picomatch: 2.3.1
 
+  real-require@0.2.0: {}
+
   rechoir@0.6.2:
     dependencies:
       resolve: 1.22.8
@@ -9828,8 +9938,7 @@ snapshots:
       es-errors: 1.3.0
       set-function-name: 2.0.2
 
-  relative-microtime@2.0.0:
-    optional: true
+  relative-microtime@2.0.0: {}
 
   require-directory@2.1.1: {}
 
@@ -9842,7 +9951,6 @@ snapshots:
       resolve: 1.22.8
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   requires-port@1.0.0: {}
 
@@ -10008,8 +10116,7 @@ snapshots:
 
   setprototypeof@1.2.0: {}
 
-  shallow-clone-shim@2.0.0:
-    optional: true
+  shallow-clone-shim@2.0.0: {}
 
   shebang-command@1.2.0:
     dependencies:
@@ -10119,6 +10226,10 @@ snapshots:
       flatstr: 1.0.12
     optional: true
 
+  sonic-boom@3.8.1:
+    dependencies:
+      atomic-sleep: 1.0.0
+
   sonic-boom@4.0.1:
     dependencies:
       atomic-sleep: 1.0.0
@@ -10128,7 +10239,6 @@ snapshots:
   source-map@0.8.0-beta.0:
     dependencies:
       whatwg-url: 7.1.0
-    optional: true
 
   sparse-bitfield@3.0.3:
     dependencies:
@@ -10138,15 +10248,13 @@ snapshots:
 
   split2@4.2.0: {}
 
-  sql-summary@1.0.1:
-    optional: true
+  sql-summary@1.0.1: {}
 
   stack-trace@0.0.10: {}
 
   stackback@0.0.2: {}
 
-  stackframe@1.3.4:
-    optional: true
+  stackframe@1.3.4: {}
 
   standard-as-callback@2.1.0: {}
 
@@ -10157,7 +10265,6 @@ snapshots:
   stream-chopper@3.0.1:
     dependencies:
       readable-stream: 3.6.2
-    optional: true
 
   string-argv@0.3.2: {}
 
@@ -10273,6 +10380,10 @@ snapshots:
 
   text-table@0.2.0: {}
 
+  thread-stream@2.7.0:
+    dependencies:
+      real-require: 0.2.0
+
   through@2.3.8: {}
 
   tinybench@2.8.0: {}
@@ -10317,7 +10428,6 @@ snapshots:
   tr46@1.0.1:
     dependencies:
       punycode: 2.3.1
-    optional: true
 
   tr46@4.1.1:
     dependencies:
@@ -10477,10 +10587,8 @@ snapshots:
     dependencies:
       is-integer: 1.0.7
       unicode-substring: 0.1.0
-    optional: true
 
-  unicode-substring@0.1.0:
-    optional: true
+  unicode-substring@0.1.0: {}
 
   unicorn-magic@0.1.0: {}
 
@@ -10612,8 +10720,7 @@ snapshots:
 
   webidl-conversions@3.0.1: {}
 
-  webidl-conversions@4.0.2:
-    optional: true
+  webidl-conversions@4.0.2: {}
 
   webidl-conversions@7.0.0: {}
 
@@ -10632,7 +10739,6 @@ snapshots:
       lodash.sortby: 4.7.0
       tr46: 1.0.1
       webidl-conversions: 4.0.2
-    optional: true
 
   which-boxed-primitive@1.0.2:
     dependencies:

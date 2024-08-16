@@ -11,7 +11,7 @@ services:
       transport.host: 127.0.0.1
       http.host: 0.0.0.0
       bootstrap.memory_lock: 'true'
-      xpack.security.enabled: 'true'
+      xpack.security.enabled: 'false'
       xpack.security.authc.api_key.enabled: 'true'
       xpack.monitoring.collection.enabled: 'true'
       xpack.security.enrollment.enabled: 'true'

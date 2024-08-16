@@ -5,7 +5,7 @@ auth:
   secret_token: ''
 
 output.elasticsearch:
-  hosts: 'http://elasticsearch:9200'
+  hosts: 'http://localhost:9200'
   enabled: true
   protocol: 'http'
   username: 'elastic'
@@ -18,4 +18,4 @@ monitoring.elasticsearch:
   protocol: 'http'
   username: 'elastic'
   password: 'admin1234'
-  hosts: 'http://elasticsearch:9200'
+  hosts: 'http://localhost:9200'
