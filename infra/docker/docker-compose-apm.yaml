@@ -2,6 +2,7 @@ services:
   apmServer:
     container_name: apm-server
     image: docker.elastic.co/apm/apm-server:8.15.0
+    restart: always
     ports:
       - 8200:8200
     volumes:
