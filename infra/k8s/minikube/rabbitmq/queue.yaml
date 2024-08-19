@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: jobber-queue
+  name: jobber-rabbitmq
   namespace: production
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: jobber-queue
+      app: jobber-rabbitmq
   template:
     metadata:
       labels:
-        app: jobber-queue
+        app: jobber-rabbitmq
     spec:
       containers:
-        - name: jobber-queue
+        - name: jobber-rabbitmq
           image: rabbitmq:3.13-rc-management-alpine
           env:
             - name: RABBITMQ_DEFAULT_USER

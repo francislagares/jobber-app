@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: jobber-mongo
+  name: jobber-mongodb
   namespace: production
 spec:
   selector:
     matchLabels:
-      app: jobber-mongo
-  serviceName: jobber-mongo
+      app: jobber-mongodb
+  serviceName: jobber-mongodb
   replicas: 1
   template:
     metadata:
       labels:
-        app: jobber-mongo
+        app: jobber-mongodb
     spec:
       containers:
-        - name: jobber-mongo
+        - name: jobber-mongodb
           image: mongo:latest
           ports:
             - containerPort: 27017
-              name: jobber-mongo
+              name: jobber-mongodb
           volumeMounts:
             - name: mongo-local-storage
               mountPath: /data/db
