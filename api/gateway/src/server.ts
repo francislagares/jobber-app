@@ -26,13 +26,12 @@ import { elasticSearch } from '@gateway/elastic';
 import applicationRoutes from '@gateway/routes';
 import { axiosAuthInstance } from '@gateway/services/auth';
 import { axiosBuyerInstance } from '@gateway/services/buyer';
+import { axiosMessageInstance } from '@gateway/services/chat';
 import { axiosGigInstance } from '@gateway/services/gig';
+import { axiosOrderInstance } from '@gateway/services/order';
+import { axiosReviewInstance } from '@gateway/services/review';
 import { axiosSellerInstance } from '@gateway/services/seller';
-
-import { axiosMessageInstance } from './services/chat';
-import { axiosOrderInstance } from './services/order';
-import { axiosReviewInstance } from './services/review';
-import { SocketIOAppHandler } from './sockets';
+import { SocketIOAppHandler } from '@gateway/sockets';
 
 const SERVER_PORT = 4000;
 
@@ -67,7 +66,10 @@ export class APIGateway {
         name: 'session',
         keys: [`${config.SECRET_KEY_ONE}`, `${config.SECRET_KEY_TWO}`],
         maxAge: 24 * 7 * 3600000,
-        secure: config.NODE_ENV !== 'development', // update with value from config
+        secure: config.NODE_ENV !== 'development',
+        ...(config.NODE_ENV !== 'development' && {
+          sameSite: 'none',
+        }),
       }),
     );
     app.use(hpp());
