@@ -10,8 +10,9 @@
     },
 
     /* Project Setup */
-    "target": "es2022",
-    "lib": ["dom", "esnext", "es2022"],
+    "target": "es2023",
+    "lib": ["dom", "esnext", "es2023"],
+    "module": "commonjs",
     "allowJs": true,
     "outDir": "./build",
     "sourceMap": true,

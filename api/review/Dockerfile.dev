@@ -23,4 +23,3 @@ RUN rm -f .npmrc
 EXPOSE 4007
 
 CMD [ "pnpm", "dev" ]
-

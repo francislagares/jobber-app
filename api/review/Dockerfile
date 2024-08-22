@@ -1,36 +1,28 @@
-FROM node:alpine AS builder
+FROM node:alpine AS base
+
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
 
 RUN apk update && apk add --no-cache nodejs && corepack enable
-RUN addgroup jobber && adduser -S -G jobber review
-
-USER review
 
 WORKDIR /review
 
 COPY package.json tsconfig.json .npmrc ./
 COPY src ./src
-COPY tools ./tools
 
-RUN pnpm ci && pnpm build
+RUN ls -a
+RUN pnpm install
+RUN rm -f .npmrc
+RUN pnpm build
 
 
-FROM node:alpine
 
-RUN apk update && apk add --no-cache nodejs && corepack enable
-RUN addgroup jobber && adduser -S -G jobber review
+FROM base AS builder
 
-USER review
-
-WORKDIR /review
-
-COPY package.json tsconfig.json .npmrc ./
-COPY src ./src
+COPY --from=base /review/build ./build
 
 RUN pnpm add -g pm2
-RUN pnpm ci && pnpm build
-RUN pnpm ci --production
-COPY --from=builder /review/build ./build
 
-EXPOSE 4003
+EXPOSE 4007
 
 CMD [ "pnpm", "start" ]

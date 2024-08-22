@@ -29,6 +29,9 @@ import { axiosBuyerInstance } from '@gateway/services/buyer';
 import { axiosGigInstance } from '@gateway/services/gig';
 import { axiosSellerInstance } from '@gateway/services/seller';
 
+import { axiosMessageInstance } from './services/chat';
+import { axiosOrderInstance } from './services/order';
+import { axiosReviewInstance } from './services/review';
 import { SocketIOAppHandler } from './sockets';
 
 const SERVER_PORT = 4000;
@@ -85,6 +88,12 @@ export class APIGateway {
         axiosSellerInstance.defaults.headers['Authorization'] =
           `Bearer ${req.session?.jwt}`;
         axiosGigInstance.defaults.headers['Authorization'] =
+          `Bearer ${req.session?.jwt}`;
+        axiosMessageInstance.defaults.headers['Authorization'] =
+          `Bearer ${req.session?.jwt}`;
+        axiosOrderInstance.defaults.headers['Authorization'] =
+          `Bearer ${req.session?.jwt}`;
+        axiosReviewInstance.defaults.headers['Authorization'] =
           `Bearer ${req.session?.jwt}`;
       }
       next();
