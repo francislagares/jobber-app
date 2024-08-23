@@ -9,6 +9,7 @@ WORKDIR /notification
 
 COPY package.json tsconfig.json .npmrc ./
 COPY src ./src
+COPY tools ./tools
 
 RUN ls -a
 RUN pnpm install

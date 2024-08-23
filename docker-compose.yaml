@@ -54,6 +54,16 @@ services:
       service: apmServer
       file: infra/docker/docker-compose-apm.yaml
 
+  jenkins:
+    extends:
+      service: jenkins
+      file: infra/docker/docker-compose-jenkins.yaml
+
+  jenkins-agent:
+    extends:
+      service: jenkins-agent
+      file: infra/docker/docker-compose-jenkins.yaml
+
   api-gateway:
     extends:
       service: api-gateway
@@ -105,6 +115,8 @@ volumes:
     name: postgres
   elasticsearch:
     name: elasticsearch
+  jenkins:
+    name: jenkins
 
 networks:
   elastic:

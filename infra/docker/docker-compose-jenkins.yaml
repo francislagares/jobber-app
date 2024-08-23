@@ -1,0 +1,28 @@
+services:
+  jenkins:
+    container_name: jenkins
+    image: jenkins/jenkins:lts
+    restart: always
+    privileged: true
+    user: root
+    ports:
+      - 8080:8080
+      - 50000:50000
+    volumes:
+      - jenkins:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  jenkins-agent:
+    container_name: jenkins_agent
+    image: jenkins/ssh-agent:jdk11
+    restart: always
+    privileged: true
+    user: root
+    expose:
+      - 22
+    environment:
+      - JENKINS_AGENT_SSH_PUBKEY=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDS0dN6vn3L4kHbIaa/JcgEsrkg9HiIlimiwl8WrJCE7XTTg/+qD4Qf+ie8rPqaRPB/fgUwb+HeeI9RGX7LHQFHnv17eUAXOdpei1aMwU01tb3/97C+rojz0ak/YruJkAqC2E9uii2OlvPRanmVW3IHFikw+Chv2XOVFy7ZNVqKpglKuD35YtQQ08H5rtoWEKrKm4gOAGwmVr4rmGhmsWsxhgXBfacXynZTS4/qpd6pORDHYuRBJo/F0gPUHlTxP5bH9RBt8QPDMBmmcj79WHYfftxUhphQ32RtNgWBzbA2nr500pZREHHVeDrMiwn/nx4tNMtD756ptWUt0CyZ8ylzR+edxvxYAgKrnSnas1H529trQY5ASU1x22AJl3xxsne79TGfR0Du9aV21lIz5o2AzFjP64rE7TtzLZtIqaQoUFai0ripdU/DRtvsBvKBGyJJTQaaDpftzgnR+alviXoU3uW+Zu8CO73D0RPnwl+6cne5JShuZMKjI0OR+9j5jYM= francislagares@workspace
+
+volumes:
+  jenkins:
+    name: jenkins
