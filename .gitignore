@@ -44,3 +44,5 @@ mongodb_cluster
 
 # Redis Volumes
 redis_data
+
+*storybook.log

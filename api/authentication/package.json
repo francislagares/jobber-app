@@ -24,7 +24,7 @@
     "@elastic/elasticsearch": "^8.15.0",
     "@faker-js/faker": "^8.4.1",
     "@francislagares/jobber-shared": "^1.0.5",
-    "@prisma/client": "^5.18.0",
+    "@prisma/client": "^5.19.0",
     "amqplib": "^0.10.4",
     "bcrypt": "^5.1.1",
     "cloudinary": "^2.4.0",
@@ -41,7 +41,7 @@
     "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.21",
     "pino-pretty": "^11.2.2",
-    "prisma": "^5.18.0",
+    "prisma": "^5.19.0",
     "unique-username-generator": "^1.3.0",
     "uuid": "^10.0.0",
     "winston": "^3.14.2",
@@ -57,26 +57,26 @@
     "@types/hpp": "^0.2.4",
     "@types/jsonwebtoken": "^9.0.6",
     "@types/lodash": "^4.17.7",
-    "@types/node": "^22.5.0",
+    "@types/node": "^22.5.1",
     "@types/uuid": "^10.0.0",
     "@vitest/coverage-v8": "^2.0.5",
     "@vitest/ui": "^2.0.5",
     "ts-node": "^10.9.2",
     "tsc-alias": "^1.8.10",
     "tsconfig-paths": "^4.2.0",
-    "tsx": "^4.17.0",
+    "tsx": "^4.19.0",
     "typescript": "^5.5.4",
     "typescript-transform-paths": "^3.5.0",
     "vite": "^5.4.2",
     "vitest": "^2.0.5",
-    "vitest-mock-extended": "^2.0.0"
+    "vitest-mock-extended": "^2.0.2"
   },
   "prisma": {
     "schema": "prisma/schema.prisma"
   },
   "engines": {
     "node": ">=22.5.0",
-    "pnpm": ">=9.7.0"
+    "pnpm": ">=9.9.0"
   },
-  "packageManager": "pnpm@9.7.0+sha512.dc09430156b427f5ecfc79888899e1c39d2d690f004be70e05230b72cb173d96839587545d09429b55ac3c429c801b4dc3c0e002f653830a420fa2dd4e3cf9cf"
+  "packageManager": "pnpm@9.9.0+sha512.60c18acd138bff695d339be6ad13f7e936eea6745660d4cc4a776d5247c540d0edee1a563695c183a66eb917ef88f2b4feb1fc25f32a7adcadc7aaf3438e99c1"
 }

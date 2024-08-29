@@ -1,0 +1,103 @@
+{
+  "name": "@jobber-app/client",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite --config vitest.config.mts --host ",
+    "build": "tsc -p tsconfig.prod.json && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest watch --ui",
+    "test:coverage": "vitest run --coverage",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "storybook": "storybook dev -p 6006 \"--initial-path=/onboarding\" \"--quiet\"",
+    "storybook:build": "storybook build",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "@tanstack/query-core": "^5.51.9",
+    "@tanstack/react-query": "^5.51.11",
+    "axios": "^1.7.2",
+    "ms": "^2.1.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.25.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^1.6.1",
+    "@mdx-js/react": "^3.0.1",
+    "@storybook/addon-actions": "^8.2.5",
+    "@storybook/addon-docs": "^8.2.5",
+    "@storybook/addon-essentials": "^8.2.5",
+    "@storybook/addon-interactions": "^8.2.5",
+    "@storybook/addon-links": "^8.2.5",
+    "@storybook/addon-onboarding": "^8.2.5",
+    "@storybook/blocks": "^8.2.5",
+    "@storybook/builder-vite": "^8.2.5",
+    "@storybook/react": "^8.2.5",
+    "@storybook/react-vite": "^8.2.5",
+    "@storybook/test": "^8.2.5",
+    "@tanstack/eslint-plugin-query": "^5.51.12",
+    "@tanstack/react-query-devtools": "^5.51.11",
+    "@testing-library/cypress": "^10.0.2",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.4.8",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/react": "^18.2.8",
+    "@types/react-dom": "^18.2.4",
+    "@vitejs/plugin-react": "^4.0.0",
+    "@vitest/ui": "^2.0.4",
+    "autoprefixer": "^10.4.20",
+    "cypress": "^13.13.1",
+    "cypress-vite": "^1.4.0",
+    "eslint-plugin-jest-dom": "^5.0.0",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.9",
+    "eslint-plugin-storybook": "^0.8.0",
+    "eslint-plugin-testing-library": "^6.2.2",
+    "identity-obj-proxy": "^3.0.0",
+    "jest-environment-jsdom": "^29.5.0",
+    "msw": "^2.3.3",
+    "msw-storybook-addon": "^2.0.3",
+    "postcss": "^8.4.41",
+    "prettier-stylelint": "^0.4.2",
+    "prop-types": "^15.8.1",
+    "storybook": "^8.2.5",
+    "stylelint": "^16.7.0",
+    "stylelint-a11y": "^1.2.3",
+    "stylelint-config-standard": "^36.0.1",
+    "stylelint-order": "^6.0.3",
+    "tailwindcss": "^3.4.10",
+    "vite": "^5.3.4",
+    "vite-plugin-svgr": "^4.2.0",
+    "vite-tsconfig-paths": "^5.0.1",
+    "vitest": "^2.0.4"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "engines": {
+    "node": ">=22.5.0",
+    "pnpm": ">=9.9.0"
+  },
+  "packageManager": "pnpm@9.9.0+sha512.60c18acd138bff695d339be6ad13f7e936eea6745660d4cc4a776d5247c540d0edee1a563695c183a66eb917ef88f2b4feb1fc25f32a7adcadc7aaf3438e99c1"
+}

@@ -3,6 +3,7 @@
     /* Project Setup */
     "target": "es2022",
     "lib": ["dom", "esnext", "es2022"],
+    "jsx": "react-jsx",
     "allowJs": true,
     "outDir": "./dist",
     "sourceMap": true,

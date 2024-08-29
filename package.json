@@ -21,7 +21,8 @@
     "order": "pnpm --filter=order dev",
     "review": "pnpm --filter=review dev",
     "notification": "pnpm --filter=notification dev",
-    "start": "concurrently --kill-others-on-fail \"pnpm auth\"  \"pnpm users\"  \"pnpm gig\" \"pnpm chat\" \"pnpm order\" \"pnpm review\" \"pnpm notification\" \"pnpm gateway\"",
+    "client": "pnpm --filter=client dev",
+    "start": "concurrently --kill-others-on-fail \"pnpm auth\"  \"pnpm users\"  \"pnpm gig\" \"pnpm chat\" \"pnpm order\" \"pnpm review\" \"pnpm notification\" \"pnpm gateway\" \"pnpm client\"",
     "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json && ts-node api/notification/tools/copyAssets.ts",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit",
     "lint": "eslint --fix",
@@ -35,20 +36,20 @@
     "vite-tsconfig-paths": "^5.0.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.4.0",
-    "@commitlint/config-conventional": "^19.2.2",
-    "@eslint/js": "^9.9.0",
-    "@types/node": "^22.5.0",
-    "@typescript-eslint/eslint-plugin": "^8.2.0",
-    "@typescript-eslint/parser": "^8.2.0",
+    "@commitlint/cli": "^19.4.1",
+    "@commitlint/config-conventional": "^19.4.1",
+    "@eslint/js": "^9.9.1",
+    "@types/node": "^22.5.1",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
+    "@typescript-eslint/parser": "^8.3.0",
     "@vitest/coverage-v8": "^2.0.5",
     "@vitest/ui": "^2.0.5",
     "commitizen": "^4.3.0",
     "concurrently": "^8.2.2",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^9.9.0",
+    "eslint": "^9.9.1",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-import-resolver-typescript": "^3.6.3",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-prettier": "^5.2.1",
     "globals": "^15.9.0",
@@ -60,11 +61,11 @@
     "tsc-alias": "^1.8.10",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.5.4",
-    "typescript-eslint": "^8.2.0",
+    "typescript-eslint": "^8.3.0",
     "typescript-transform-paths": "^3.5.0",
     "vite": "^5.4.2",
     "vitest": "^2.0.5",
-    "vitest-mock-extended": "^2.0.0"
+    "vitest-mock-extended": "^2.0.2"
   },
   "config": {
     "commitizen": {
@@ -73,7 +74,7 @@
   },
   "engines": {
     "node": ">=22.5.0",
-    "pnpm": ">=9.7.0"
+    "pnpm": ">=9.9.0"
   },
-  "packageManager": "pnpm@9.7.0+sha512.dc09430156b427f5ecfc79888899e1c39d2d690f004be70e05230b72cb173d96839587545d09429b55ac3c429c801b4dc3c0e002f653830a420fa2dd4e3cf9cf"
+  "packageManager": "pnpm@9.9.0+sha512.60c18acd138bff695d339be6ad13f7e936eea6745660d4cc4a776d5247c540d0edee1a563695c183a66eb917ef88f2b4feb1fc25f32a7adcadc7aaf3438e99c1"
 }

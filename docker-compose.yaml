@@ -104,6 +104,11 @@ services:
       service: review
       file: api/review/docker-compose.yaml
 
+  client:
+    extends:
+      service: client
+      file: client/docker-compose.yaml
+
 volumes:
   mysql:
     name: mysql
