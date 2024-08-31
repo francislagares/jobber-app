@@ -1,4 +1,6 @@
-const Welcome = () => {
+import { FC } from 'react';
+
+const Welcome: FC = () => {
   return <div>Welcome</div>;
 };
 
