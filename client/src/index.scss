@@ -6,7 +6,7 @@ go to vscode settings, search for unknown, select scss and select ignore
 @tailwind components;
 @tailwind utilities;
 
-@import "https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400&display=swap";
+@import 'https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400&display=swap';
 
 * {
   margin: 0;
@@ -30,10 +30,15 @@ html {
 body {
   background-color: transparent;
   color: #62646a;
-  // font: 400 16px/24px Macan,Helvetica Neue,Helvetica,Arial,sans-serif;fontfontfont
-  // font-family : Urbanist, sans-serif;font-familyfont-familyfont-family
-  position: relative;positionposition
-  height: 100vh;height
+  font:
+    400 16px/24px Macan,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
+  font-family : Urbanist, sans-serif;
+  position: relative;
+  height: 100vh;
   width: 100vw;
   cursor: default;
   overflow: auto;
@@ -104,7 +109,7 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type="number"] {
+input[type='number'] {
   appearance: textfield;
   -moz-appearance: textfield;
 }
@@ -123,9 +128,9 @@ input[type="number"] {
   color: white;
   padding: 4px 5px;
   text-align: center;
-  // margin-left: 15px;margin-leftmargin-leftmargin-left
-  border-radius: 5px;border-radiusborder-radius
-  text-transform: uppercase;text-transform
+  // margin-left: 15px;
+  border-radius: 5px;
+  text-transform: uppercase;
 }
 
 .inprogress {

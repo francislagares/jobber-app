@@ -67,6 +67,7 @@
     "msw": "^2.3.3",
     "msw-storybook-addon": "^2.0.3",
     "postcss": "^8.4.41",
+    "prettier-plugin-tailwindcss": "^0.6.6",
     "prettier-stylelint": "^0.4.2",
     "prop-types": "^15.8.1",
     "storybook": "^8.2.5",

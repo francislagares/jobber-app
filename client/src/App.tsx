@@ -1,27 +1,18 @@
+import { BrowserRouter } from 'react-router-dom';
+
 import './App.scss';
+import AppRouter from './routes/AppRouter';
 
-import { useState } from 'react';
-
-function App() {
-  const [count, setCount] = useState(0);
-
+const App = () => {
   return (
-    <div className="App">
-      <div>Jobber App</div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount(count => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    <>
+      <BrowserRouter>
+        <div className="relative flex min-h-screen w-screen flex-col">
+          <AppRouter />
+        </div>
+      </BrowserRouter>
+    </>
   );
-}
+};
 
 export default App;
