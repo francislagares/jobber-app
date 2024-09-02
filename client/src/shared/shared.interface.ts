@@ -7,68 +7,6 @@ import {
   SetStateAction,
 } from 'react';
 
-import {
-  AuthDocument,
-  AuthResponse,
-  BuyerDocument,
-  ConversationDocument,
-  CreateGig,
-  Education,
-  Experience,
-  Language,
-  MessageDocument,
-  OrderDocument,
-  OrderNotifcation,
-  ResetPassword,
-  ReviewDocument,
-  SellerDocument,
-  SellerGig,
-  SignInPayload,
-  SignUpPayload,
-} from '@francislagares/jobber-shared';
-import { SerializedError } from '@reduxjs/toolkit';
-import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
-
-export type validationErrorsType =
-  | SignInPayload
-  | SignUpPayload
-  | ResetPassword
-  | CreateGig
-  | Experience
-  | Education
-  | Language;
-
-export interface IQueryResponse {
-  data: AuthResponse;
-  error: FetchBaseQueryError | SerializedError;
-}
-
-export interface IResponse {
-  message?: string;
-  token?: string;
-  user?: AuthDocument;
-  buyer?: BuyerDocument;
-  seller?: SellerDocument;
-  sellers?: SellerDocument[];
-  gig?: SellerGig;
-  gigs?: SellerGig[];
-  total?: number;
-  sortItems?: string[];
-  conversations?: ConversationDocument[] | MessageDocument[];
-  messages?: MessageDocument[];
-  messageData?: MessageDocument;
-  conversationId?: string;
-  clientSecret?: string;
-  paymentIntentId?: string;
-  order?: OrderDocument;
-  orders?: OrderDocument[];
-  review?: ReviewDocument;
-  reviews?: ReviewDocument[];
-  notifications?: OrderNotifcation[];
-  browserName?: string;
-  deviceType?: string;
-}
-
 export interface BannerProps {
   bgColor: string;
   text: string;
