@@ -2,6 +2,7 @@ import { FC, lazy, LazyExoticComponent, Suspense } from 'react';
 
 import { IHeader } from '@/shared/header/interfaces/header.interface';
 
+import Categories from './Categories';
 import HowItWorks from './HowItWorks';
 
 const WelcomeHeader: LazyExoticComponent<FC<IHeader>> = lazy(
@@ -22,6 +23,7 @@ const Welcome: FC = () => {
         <Hero />
         <GigTabs />
         <HowItWorks />
+        <Categories />
       </Suspense>
     </div>
   );

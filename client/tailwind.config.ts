@@ -4,19 +4,20 @@ const config: Config = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
-      backgroundColor: {
+      colors: {
         warning: '#f0ad4e',
         success: '#5cb85c',
         error: '#d9534f',
         info: '#5bc0de',
+        grey: '#e8e8e8', // This will apply to borders, outlines, and divide as well if used consistently.
       },
-      border: {
+      borderColor: {
         grey: '#e8e8e8',
       },
-      outline: {
+      outlineColor: {
         grey: '#e8e8e8',
       },
-      divide: {
+      divideColor: {
         grey: '#e8e8e8',
       },
     },
