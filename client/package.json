@@ -20,6 +20,7 @@
     "@tanstack/query-core": "^5.55.4",
     "@tanstack/react-query": "^5.55.4",
     "axios": "^1.7.7",
+    "lodash": "^4.17.21",
     "ms": "^2.1.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -51,6 +52,7 @@
     "@testing-library/jest-dom": "^6.4.8",
     "@testing-library/react": "^16.0.0",
     "@testing-library/user-event": "^14.4.3",
+    "@types/lodash": "^4.17.7",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.2.4",
     "@types/uuid": "^10.0.0",
@@ -104,7 +106,7 @@
   },
   "engines": {
     "node": ">=22.5.0",
-    "pnpm": ">=9.9.0"
+    "pnpm": ">=9.10.0"
   },
-  "packageManager": "pnpm@9.9.0+sha512.60c18acd138bff695d339be6ad13f7e936eea6745660d4cc4a776d5247c540d0edee1a563695c183a66eb917ef88f2b4feb1fc25f32a7adcadc7aaf3438e99c1"
+  "packageManager": "pnpm@9.10.0+sha512.73a29afa36a0d092ece5271de5177ecbf8318d454ecd701343131b8ebc0c1a91c487da46ab77c8e596d6acf1461e3594ced4becedf8921b074fbd8653ed7051c"
 }
