@@ -32,9 +32,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@francislagares'
 
       - name: Setup pnpm cache
         uses: actions/cache@v3
@@ -43,13 +40,13 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set npm private registry token
         run: |
           echo @francislagares:https://npm.pkg.github.com/ > ~/.npmrc
           echo '//npm.pkg.github.com/:_authToken=${NPM_TOKEN}' >> ~/.npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install Dependencies
         run: pnpm install
