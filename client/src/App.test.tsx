@@ -9,9 +9,9 @@ describe('App', () => {
   test('renders without crashing', () => {
     render(<App />);
 
-    const heading = screen.getByRole('heading');
+    const heading = screen.getByRole('link');
 
     expect(heading).toBeInTheDocument();
-    expect(heading).toHaveTextContent('Vite + React');
+    expect(heading).toHaveTextContent(/jobber/i);
   });
 });

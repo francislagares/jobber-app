@@ -1,11 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
 
-import {
-  AuthUser,
-  BuyerDocument,
-  SellerDocument,
-} from '@francislagares/jobber-shared';
-
 export interface ReduxHeader {
   type: string;
   payload: string;
