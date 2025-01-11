@@ -1,4 +1,4 @@
-name: Tests
+name: CI
 
 on:
   push:
@@ -12,11 +12,16 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [22.x]
+        node-version: [23.x]
+      # Add fail-fast to prevent all matrix jobs from failing if one fails
+      fail-fast: true
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # Fetch all history for better versioning
+          fetch-depth: 0
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -28,10 +33,12 @@ jobs:
         run: |
           echo "STORE_PATH=$(pnpm store path | tr -d '\n')" >> $GITHUB_ENV
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
+          # Enable caching of npm dependencies
+          cache: 'pnpm'
 
       - name: Setup pnpm cache
         uses: actions/cache@v3
@@ -41,18 +48,31 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
+      # Add environment variables validation
+      - name: Validate Environment Variables
+        run: |
+          if [ -z "${{ secrets.GITHUB_TOKEN }}" ]; then
+            echo "Error: GITHUB_TOKEN is not set"
+            exit 1
+          fi
+
       - name: Set npm private registry token
         run: |
-          echo @francislagares:https://npm.pkg.github.com/ > ~/.npmrc
-          echo '//npm.pkg.github.com/:_authToken=${NPM_TOKEN}' >> ~/.npmrc
+          echo "@francislagares:https://npm.pkg.github.com/ > ~/.npmrc"
+          echo "//npm.pkg.github.com/:_authToken=NPM_TOKEN" >> ~/.npmrc
         env:
           NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install Dependencies
         run: pnpm install
+        env:
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate Prisma ORM schema to the database
         run: pnpm prisma migrate deploy
 
       - name: Run Tests
         run: pnpm test:ci
+        env:
+          CI: true

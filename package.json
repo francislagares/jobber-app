@@ -33,38 +33,38 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "vite-tsconfig-paths": "^5.0.1"
+    "vite-tsconfig-paths": "^5.1.4"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.5.0",
-    "@commitlint/config-conventional": "^19.5.0",
-    "@eslint/js": "^9.13.0",
-    "@types/node": "^22.7.7",
-    "@typescript-eslint/eslint-plugin": "^8.10.0",
-    "@typescript-eslint/parser": "^8.10.0",
-    "@vitest/coverage-v8": "^2.1.3",
-    "@vitest/ui": "^2.1.3",
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@eslint/js": "^9.18.0",
+    "@types/node": "^22.10.5",
+    "@typescript-eslint/eslint-plugin": "^8.19.1",
+    "@typescript-eslint/parser": "^8.19.1",
+    "@vitest/coverage-v8": "^2.1.8",
+    "@vitest/ui": "^2.1.8",
     "commitizen": "^4.3.1",
-    "concurrently": "^9.0.1",
+    "concurrently": "^9.1.2",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^9.13.0",
+    "eslint": "^9.18.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-import-resolver-typescript": "^3.6.3",
+    "eslint-import-resolver-typescript": "^3.7.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-prettier": "^5.2.1",
-    "globals": "^15.11.0",
-    "husky": "^9.1.6",
-    "lint-staged": "^15.2.10",
-    "prettier": "^3.3.3",
+    "globals": "^15.14.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.3.0",
+    "prettier": "^3.4.2",
     "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
     "tsc-alias": "^1.8.10",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.6.3",
-    "typescript-eslint": "^8.10.0",
-    "typescript-transform-paths": "^3.5.1",
-    "vite": "^5.4.9",
-    "vitest": "^2.1.3",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.19.1",
+    "typescript-transform-paths": "^3.5.3",
+    "vite": "^6.0.7",
+    "vitest": "^2.1.8",
     "vitest-mock-extended": "^2.0.2"
   },
   "config": {
@@ -73,8 +73,8 @@
     }
   },
   "engines": {
-    "node": ">=22.5.0",
-    "pnpm": ">=9.10.0"
+    "node": ">=23.5.0",
+    "pnpm": ">=9.15.0"
   },
-  "packageManager": "pnpm@9.10.0+sha512.73a29afa36a0d092ece5271de5177ecbf8318d454ecd701343131b8ebc0c1a91c487da46ab77c8e596d6acf1461e3594ced4becedf8921b074fbd8653ed7051c"
+  "packageManager": "pnpm@9.15.3+sha512.1f79bc245a66eb0b07c5d4d83131240774642caaa86ef7d0434ab47c0d16f66b04e21e0c086eb61e62c77efc4d7f7ec071afad3796af64892fae66509173893a"
 }
